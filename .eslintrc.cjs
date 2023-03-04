@@ -17,6 +17,11 @@ module.exports = {
     project: './tsconfig.json',
   },
   plugins: ['vue', '@typescript-eslint', 'prettier'],
-  ignorePatterns: ["vite.config.ts", ".eslintrc.cjs"],
+  ignorePatterns: [
+    "vite.config.ts",
+    ".eslintrc.cjs",
+    "tailwind.config.cjs",
+    "postcss.config.cjs"
+  ],
   rules: {},
 };
