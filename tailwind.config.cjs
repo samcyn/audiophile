@@ -22,11 +22,8 @@ module.exports = {
         90: '#fbaf85'
       },
     },
-    // fontFamily: {
-    //   sans: ['Graphik', 'sans-serif'],
-    //   serif: ['Manrope', 'serif'],
-    // },
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 }
