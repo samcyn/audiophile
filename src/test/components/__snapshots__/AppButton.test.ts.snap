@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`mount AppButton component 1`] = `"<button data-v-19765ba3=\\"\\" class=\\"button rounded-none transition bg-orange-100 text-white hover:bg-orange-90\\"></button>"`;
