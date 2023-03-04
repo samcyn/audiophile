@@ -1,23 +1,28 @@
 <script setup lang="ts">
-import { defineProps, withDefaults, computed } from 'vue';
+import {
+  defineProps,
+  withDefaults,
+  computed,
+  ButtonHTMLAttributes,
+  useAttrs,
+} from 'vue';
 
-interface AppButtonProps {
+// define components models
+interface AppButtonProps extends ButtonHTMLAttributes {
   variant?: 'contained' | 'text' | 'outlined';
-  color?: 'primary' | 'secondary';
-  onClick?: () => void;
-  className?: string;
 }
 
+// set defaults props
 const props = withDefaults(defineProps<AppButtonProps>(), {
-  className: '',
   variant: 'contained',
-  color: 'primary',
-  onClick: () => ({}),
 });
 
+// pick attrs
+const attrs = useAttrs();
+
+// compute classes base on variant type
 const classComputed = computed<string>(() => {
   const variant = props.variant;
-  // const color = props.color;
   let className = 'rounded-none transition ';
   if (variant === 'contained') {
     className += 'bg-orange-100 text-white hover:bg-orange-90';
@@ -30,7 +35,7 @@ const classComputed = computed<string>(() => {
     className +=
       'border-0 bg-none text-black-100 opacity-50 hover:text-orange-100 hover:opacity-100';
   }
-  return `${className} ${props.className}`;
+  return `${className} ${attrs.class}`;
 });
 </script>
 
