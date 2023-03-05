@@ -15,6 +15,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
+    extraFileExtensions: ['.vue']
   },
   plugins: ['vue', '@typescript-eslint', 'prettier'],
   ignorePatterns: [

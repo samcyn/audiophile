@@ -22,6 +22,7 @@ module.exports = {
         100: '#d87d4a',
         90: '#fbaf85'
       },
+      red: '#cd2c2c',
     },
     extend: {
     },
