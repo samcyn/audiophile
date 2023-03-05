@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix"
   },
   "dependencies": {
     "vue": "^3.2.45"
