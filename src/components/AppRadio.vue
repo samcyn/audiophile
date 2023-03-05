@@ -56,6 +56,7 @@ const onInputChange = (
     }"
   >
     <input
+      v-bind="$attrs"
       class="top-0 left-0 right-0 bottom-0 w-full cursor-pointer h-full m-0 opacity-0 p-0 z-[1] absolute"
       :name="name"
       type="radio"
