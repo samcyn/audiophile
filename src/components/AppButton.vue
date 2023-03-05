@@ -8,14 +8,18 @@ import {
 } from 'vue';
 
 // define components models
-interface AppButtonProps extends ButtonHTMLAttributes {
+interface AppButtonProps
+  extends ButtonHTMLAttributes {
   variant?: 'contained' | 'text' | 'outlined';
 }
 
 // set defaults props
-const props = withDefaults(defineProps<AppButtonProps>(), {
-  variant: 'contained',
-});
+const props = withDefaults(
+  defineProps<AppButtonProps>(),
+  {
+    variant: 'contained',
+  }
+);
 
 // pick attrs
 const attrs = useAttrs();
@@ -25,7 +29,8 @@ const classComputed = computed<string>(() => {
   const variant = props.variant;
   let className = 'rounded-none transition ';
   if (variant === 'contained') {
-    className += 'bg-orange-100 text-white hover:bg-orange-90';
+    className +=
+      'bg-orange-100 text-white hover:bg-orange-90';
   }
   if (variant === 'outlined') {
     className +=

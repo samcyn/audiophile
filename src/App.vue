@@ -2,13 +2,16 @@
 import { ref } from 'vue';
 import AppButton from './components/AppButton.vue';
 import AppInputField from './components/AppInputField.vue';
+import AppRadio from './components/AppRadio.vue';
 
 const firstName = ref('2');
+const hire = ref(false);
 </script>
 
 <template>
   <AppButton variant="text"
-    >See Product {{ firstName }}</AppButton
+    >See Product {{ firstName }} -
+    {{ hire }}</AppButton
   >
   <AppInputField
     placeholder="Hello"
@@ -17,6 +20,7 @@ const firstName = ref('2');
     v-model="firstName"
     class="uuuu"
   />
+  <AppRadio v-model="hire" label="Hire Me" />
 </template>
 
 <style scoped></style>
