@@ -3,7 +3,7 @@ import { ref } from 'vue';
 const useControlled = (
   valueProp: unknown,
   defaultStateValue: unknown
-): [unknown, unknown] => {
+): [unknown, (prop: unknown) => void] => {
   // check if value prop is set, if so it's a controlled component
   const isControlled = ref<boolean>(
     valueProp !== undefined

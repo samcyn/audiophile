@@ -3,9 +3,10 @@ import { ref } from 'vue';
 import AppButton from './components/AppButton.vue';
 import AppInputField from './components/AppInputField.vue';
 import AppRadio from './components/AppRadio.vue';
+import AppRadioGroup from './components/AppRadioGroup.vue';
 
 const firstName = ref('2');
-const hire = ref(false);
+const hire = ref('hire me');
 </script>
 
 <template>
@@ -20,7 +21,27 @@ const hire = ref(false);
     v-model="firstName"
     class="uuuu"
   />
-  <AppRadio v-model="hire" label="Hire Me" />
+  <AppRadioGroup
+    v-model="hire"
+    name="testing"
+    :disabled="false"
+    :options="[
+      {
+        label: 'hire me',
+        value: 'hire me',
+      },
+      {
+        label: 'Hire me 2',
+        value: 'hire me 2',
+      },
+    ]"
+  >
+    <AppRadio label="Hire Me" value="hire me" />
+    <AppRadio
+      label="Hire Me 2"
+      value="hire me 2"
+    />
+  </AppRadioGroup>
 </template>
 
 <style scoped></style>
