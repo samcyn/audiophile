@@ -77,14 +77,16 @@ const {
       type="radio"
       :id="computedId"
       :value="value"
+      role="radio"
       :checked="computedChekced"
+      :aria-checked="computedChekced"
       :disabled="disabled"
       @change="onChange"
     />
     <!-- contents -->
     <span
       class="inline-flex items-center"
-      aria-disabled="false"
+      :aria-disabled="disabled"
     >
       <!-- circle -->
       <span
@@ -96,11 +98,13 @@ const {
           :class="{
             'scale-100': computedChekced,
           }"
+          :aria-hidden="!computedChekced"
         ></span>
       </span>
       <!-- text -->
       <span
         v-if="label"
+        :aria-hidden="!label"
         class="labelText font-bold text-black-100"
         >{{ label }}</span
       >

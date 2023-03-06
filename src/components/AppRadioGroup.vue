@@ -40,7 +40,7 @@ const emit = defineEmits(['update:modelValue']);
 useRadioGroup(props, emit);
 </script>
 <template>
-  <div>
+  <div role="radiogroup">
     <slot>
       <!-- use options if slot not provided -->
       <AppRadio
