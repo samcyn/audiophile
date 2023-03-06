@@ -11,7 +11,14 @@ import {
   defineEmits,
   withDefaults,
 } from 'vue';
-import { useRadio } from '../hooks/useRadio';
+import {
+  useRadio,
+  /** // AppRadioProps,
+   * https://github.com/vuejs/core/issues/4294
+   * can't for now import interface in vue3 component
+   * it's a bit redundant but hopefully this get resolve
+   */
+} from '../hooks/useRadio';
 
 // define component models
 interface AppRadioProps

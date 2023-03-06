@@ -22,7 +22,6 @@ const hire = ref('hire me');
     class="uuuu"
   />
   <AppRadioGroup
-    v-model="hire"
     name="testing"
     :disabled="false"
     :options="[
@@ -42,6 +41,18 @@ const hire = ref('hire me');
       value="hire me 2"
     />
   </AppRadioGroup>
+  <AppRadio
+    v-model="hire"
+    label="Hire Me"
+    value="hire me"
+    name="her"
+  />
+  <AppRadio
+    v-model="hire"
+    label="Hire Me 2"
+    value="hire me 2"
+    name="her"
+  />
 </template>
 
 <style scoped></style>

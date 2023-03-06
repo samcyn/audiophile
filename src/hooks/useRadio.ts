@@ -8,13 +8,19 @@ import {
   Ref,
 } from 'vue';
 import type { InjectionKey } from 'vue';
+import useControlled from './useControlled';
 
 export type AppRadioGroupProps = {
   label?: string;
   name: string;
-  modelValue: string | number | boolean;
+  modelValue:
+    | string
+    | number
+    | boolean
+    | undefined;
   disabled: boolean;
   options?: AppRadioProps[];
+  defaultValue?: string | number | boolean;
 };
 
 export interface AppRadioProps
@@ -30,12 +36,18 @@ export interface AppRadioProps
   hasError?: boolean;
 }
 
-type INJECT_KEY_PROP = {
-  name: Ref<string>;
-  disabled: Ref<boolean>;
-  modelValue: Ref<string | number | boolean>;
-  onChange: (event: Events['onChange']) => void;
-};
+type INJECT_KEY_PROP =
+  | {
+      name: Ref<string>;
+      disabled?: Ref<boolean>;
+      modelValue?: Ref<
+        string | number | boolean | undefined
+      >;
+      onChange?: (
+        event: Events['onChange']
+      ) => void;
+    }
+  | undefined;
 
 const INJECT_KEY =
   Symbol() as InjectionKey<INJECT_KEY_PROP>;
@@ -48,20 +60,31 @@ export const useRadioGroup = (
   ) => void
 ) => {
   // to keep reactivity, destructure using toRefs
-  const { name, disabled, modelValue } =
-    toRefs(props);
+  const {
+    name,
+    disabled,
+    modelValue,
+    defaultValue,
+  } = toRefs(props);
+
+  // set up controlled and uncontrolled component...
+  const [realVal, setRealVal] = useControlled(
+    modelValue,
+    defaultValue
+  );
 
   // update modelValue right here...
   const onChange = (
-    event: Parameters<
-      INJECT_KEY_PROP['onChange']
-    >[0]
+    event: Events['onChange']
   ) => {
     const value = (
       event.target as HTMLInputElement
     ).value;
-    if (modelValue.value) {
+    // if it's controlled, emits event else manage it internerly
+    if (modelValue?.value) {
       emit('update:modelValue', value);
+    } else {
+      setRealVal(value);
     }
   };
 
@@ -69,20 +92,22 @@ export const useRadioGroup = (
   provide(INJECT_KEY, {
     name,
     disabled,
-    modelValue,
+    modelValue: realVal,
     onChange,
   });
 };
 
-export const useRadio = (
-  props: AppRadioProps,
+export const useRadio = <T extends AppRadioProps>(
+  props: T,
   emit: (
     event: 'update:modelValue',
     ...args: (string | number | boolean)[]
   ) => void
 ) => {
-  const groupContext =
-    inject<INJECT_KEY_PROP>(INJECT_KEY);
+  const groupContext = inject<INJECT_KEY_PROP>(
+    INJECT_KEY,
+    undefined
+  );
 
   const onChange = (
     event: Events['onChange']
@@ -98,7 +123,7 @@ export const useRadio = (
   };
 
   const checked = computed(() => {
-    if (groupContext) {
+    if (groupContext && groupContext.modelValue) {
       return (
         groupContext.modelValue.value ===
         props.value
@@ -113,7 +138,7 @@ export const useRadio = (
 
   const disabled = computed(() => {
     if (groupContext?.modelValue) {
-      return groupContext.disabled.value;
+      return groupContext.disabled?.value;
     }
     return props.disabled;
   });

@@ -1,24 +1,36 @@
-import { ref } from 'vue';
+import { ref, Ref } from 'vue';
+
+type T = Ref<
+  string | number | boolean | undefined
+>;
 
 const useControlled = (
-  valueProp: unknown,
-  defaultStateValue: unknown
-): [unknown, (prop: unknown) => void] => {
+  valueProp: T,
+  defaultStateValue?: T
+): [
+  T,
+  (
+    prop: string | number | boolean | undefined
+  ) => void
+] => {
   // check if value prop is set, if so it's a controlled component
   const isControlled = ref<boolean>(
-    valueProp !== undefined
+    valueProp?.value !== undefined
   );
+
   // define the local state value
-  const computedState = ref<unknown>(
-    defaultStateValue
+  const computedState = ref(
+    defaultStateValue?.value
   );
+
   // decide which to use if it's controlled or not
   const value = isControlled.value
     ? valueProp
-    : computedState.value;
+    : computedState;
+
   // method to change local state if it's uncontrolled
   const setValueIfUncontrolled = (
-    val: unknown
+    val: string | number | boolean | undefined
   ) => {
     if (!isControlled.value) {
       computedState.value = val;

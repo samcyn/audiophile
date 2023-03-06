@@ -9,14 +9,19 @@ import {
   useRadioGroup,
   AppRadioProps,
 } from '../hooks/useRadio';
-import AppRadio from './AppRadio.vue';
+import AppRadio from /** // AppRadioGroupProps
+ * https://github.com/vuejs/core/issues/4294
+ * can't for now import interface in vue3 component
+ * it's a bit redundant but hopefully this get resolve
+ */ './AppRadio.vue';
 
 type AppRadioGroupProps = {
   label?: string;
   name: string;
-  modelValue: string | number | boolean;
+  modelValue?: string | number | boolean;
   disabled: boolean;
   options?: AppRadioProps[];
+  defaultValue?: string | number | boolean;
 };
 
 const props = withDefaults(
@@ -27,6 +32,7 @@ const props = withDefaults(
     modelValue: undefined,
     disabled: false,
     options: undefined,
+    defaultValue: undefined,
   }
 );
 const emit = defineEmits(['update:modelValue']);
