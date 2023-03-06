@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`mount AppRadioGroup component 1`] = `
+"<div role=\\"radiogroup\\">
+  <!-- use options if slot not provided -->
+</div>"
+`;
