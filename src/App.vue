@@ -2,17 +2,17 @@
 import { ref } from 'vue';
 import AppButton from './components/AppButton.vue';
 import AppInputField from './components/AppInputField.vue';
+import AppNumberInput from './components/AppNumberInput.vue';
 import AppRadio from './components/AppRadio.vue';
 import AppRadioGroup from './components/AppRadioGroup.vue';
 
-const firstName = ref('2');
+const firstName = ref(2);
 const hire = ref('hire me');
 </script>
 
 <template>
-  <AppButton variant="text"
-    >See Product {{ firstName }} -
-    {{ hire }}</AppButton
+  <!-- <AppButton variant="contained"
+    >See Product</AppButton
   >
   <AppInputField
     placeholder="Hello"
@@ -52,7 +52,8 @@ const hire = ref('hire me');
     label="Hire Me 2"
     value="hire me 2"
     name="her"
-  />
+  /> -->
+  <AppNumberInput v-model="firstName" />
 </template>
 
 <style scoped></style>

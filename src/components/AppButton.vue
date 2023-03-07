@@ -56,7 +56,7 @@ const classComputed = computed<string>(() => {
   font-weight: 700;
   font-size: 13px;
   line-height: 18px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   padding: 15px 29.5px 15px 31.5px;
   border-radius: 0;
