@@ -51,7 +51,7 @@ const onInputChange = (
   <div class="field relative">
     <label
       :for="id"
-      class="label inline-flex items-center justify-between text-black-100 text-xs"
+      class="label inline-flex items-center justify-between w-full text-black-100 text-xs"
       :class="{
         visuallyhidden: label === '',
         'text-red': hasError,

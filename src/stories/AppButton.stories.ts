@@ -20,21 +20,21 @@ const Template: StoryFn<typeof AppButtonVue> = (
     return { args };
   },
   template:
-    '<app-button-vue v-bind="args" #="{}">CLICK ME PLEASE</app-button-vue>',
+    '<app-button-vue v-bind="args">CLICK ME PLEASE</app-button-vue>',
 });
 
-export const Primary = Template.bind({});
+export const ContainedButton = Template.bind({});
 
-Primary.args = {
+ContainedButton.args = {
   variant: 'contained',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
+export const OutlinedButton = Template.bind({});
+OutlinedButton.args = {
   variant: 'outlined',
 };
 
-export const Large = Template.bind({});
-Large.args = {
+export const TextButton = Template.bind({});
+TextButton.args = {
   variant: 'text',
 };
