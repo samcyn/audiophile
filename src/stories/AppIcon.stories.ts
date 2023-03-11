@@ -18,7 +18,7 @@ const Template: StoryFn = (args) => ({
       <div v-for="icon in args.icons"
         :key="icon"
         :title="icon"
-        style="padding: 4px; border: 1px solid #000; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"
+        style="padding: 4px; border: 1px solid #000; display: flex; align-items: center; justify-content: center;"
       >
         <app-icon-vue :icon="icon" :size="args.size" :height="args.height" :width="args.width"/>
       </div>
@@ -31,6 +31,6 @@ export const DefaultIcons = Template.bind({});
 DefaultIcons.args = {
   icons: Object.keys(IconsLibrary),
   size: 20,
-  height: '20px',
-  width: '20px',
+  height: '25px',
+  width: 'auto',
 };
