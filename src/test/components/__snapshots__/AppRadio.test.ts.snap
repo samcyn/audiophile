@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`mount AppRadio component 1`] = `
+"<label data-v-e233b942=\\"\\" class=\\"label cursor-pointer relative flex items-center ring-1 ring-inset ring-grey-80 rounded-lg bg-transparent border-0 overflow-hidden hover:ring-1 hover:ring-inset hover:ring-orange-100 ring-orange-100\\" focusable=\\"\\"><input data-v-e233b942=\\"\\" class=\\"top-0 left-0 right-0 bottom-0 w-full cursor-pointer h-full m-0 opacity-0 p-0 z-[1] absolute\\" name=\\"\\" type=\\"radio\\" id=\\"undefined\\" role=\\"radio\\" aria-checked=\\"true\\"><!-- contents --><span data-v-e233b942=\\"\\" class=\\"inline-flex items-center\\"><!-- circle --><span data-v-e233b942=\\"\\" class=\\"w-5 h-5 flex items-center justify-center ring-1 ring-inset ring-grey-80 rounded-full mr-4\\"><!-- inner circle --><span data-v-e233b942=\\"\\" class=\\"w-2.5 h-2.5 bg-orange-100 inline-block rounded-full transition scale-0 scale-100\\" aria-hidden=\\"false\\"></span></span><!-- text -->
+  <!--v-if--></span>
+</label>"
+`;

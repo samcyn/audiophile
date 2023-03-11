@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`mount AppNumberInput component 1`] = `
+"<div data-v-8f202646=\\"\\" class=\\"field relative\\"><label data-v-8f202646=\\"\\" for=\\"\\" class=\\"visuallyhidden\\"></label><input data-v-8f202646=\\"\\" type=\\"number\\" class=\\"visuallyhidden\\" name=\\"\\" id=\\"\\">
+  <div data-v-8f202646=\\"\\" role=\\"presentation\\" class=\\"field__wrap flex items-center justify-between bg-grey-100 gap-5 border-0\\"><button data-v-8f202646=\\"\\" type=\\"button\\" class=\\"field__button w-6 inline-flex items-center justify-center p-1 rounded-full text-black-100/25 hover:text-orange-100 transition-colors font-bold cursor-not-allowed\\" disabled=\\"\\"> - </button><span data-v-8f202646=\\"\\" role=\\"presentation\\" class=\\"field__button min-w-[24px] inline-flex items-center justify-center p-1 text-black-100 font-bold\\">0</span><button data-v-8f202646=\\"\\" type=\\"button\\" class=\\"field__button w-6 inline-flex items-center justify-center p-1 rounded-full text-black-100/25 hover:text-orange-100 transition-colors font-bold\\"> + </button></div>
+</div>"
+`;
