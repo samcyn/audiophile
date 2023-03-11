@@ -1,49 +1,7 @@
 // Vitest Snapshot v1
 
 exports[`mount component 1`] = `
-"<!-- <AppButton variant=\\"contained\\"
-    >See Product</AppButton
-  >
-  <AppInputField
-    placeholder=\\"Hello\\"
-    label=\\"First Name\\"
-    name=\\"First name\\"
-    v-model=\\"firstName\\"
-    class=\\"uuuu\\"
-  />
-  <AppRadioGroup
-    name=\\"testing\\"
-    :disabled=\\"false\\"
-    :options=\\"[
-      {
-        label: 'hire me',
-        value: 'hire me',
-      },
-      {
-        label: 'Hire me 2',
-        value: 'hire me 2',
-      },
-    ]\\"
-  >
-    <AppRadio label=\\"Hire Me\\" value=\\"hire me\\" />
-    <AppRadio
-      label=\\"Hire Me 2\\"
-      value=\\"hire me 2\\"
-    />
-  </AppRadioGroup>
-  <AppRadio
-    v-model=\\"hire\\"
-    label=\\"Hire Me\\"
-    value=\\"hire me\\"
-    name=\\"her\\"
-  />
-  <AppRadio
-    v-model=\\"hire\\"
-    label=\\"Hire Me 2\\"
-    value=\\"hire me 2\\"
-    name=\\"her\\"
-  /> -->
-<div data-v-8f202646=\\"\\" class=\\"field relative\\"><label data-v-8f202646=\\"\\" for=\\"\\" class=\\"visuallyhidden\\"></label><input data-v-8f202646=\\"\\" count=\\"4\\" type=\\"number\\" class=\\"visuallyhidden\\" name=\\"\\" id=\\"\\">
+"<div data-v-8f202646=\\"\\" class=\\"field relative\\"><label data-v-8f202646=\\"\\" for=\\"\\" class=\\"visuallyhidden\\"></label><input data-v-8f202646=\\"\\" count=\\"4\\" type=\\"number\\" class=\\"visuallyhidden\\" name=\\"\\" id=\\"\\">
   <div data-v-8f202646=\\"\\" role=\\"presentation\\" class=\\"field__wrap flex items-center justify-between bg-grey-100 gap-5 border-0\\"><button data-v-8f202646=\\"\\" type=\\"button\\" class=\\"field__button w-6 inline-flex items-center justify-center p-1 rounded-full text-black-100/25 hover:text-orange-100 transition-colors font-bold\\"> - </button><span data-v-8f202646=\\"\\" role=\\"presentation\\" class=\\"field__button min-w-[24px] inline-flex items-center justify-center p-1 text-black-100 font-bold\\">2</span><button data-v-8f202646=\\"\\" type=\\"button\\" class=\\"field__button w-6 inline-flex items-center justify-center p-1 rounded-full text-black-100/25 hover:text-orange-100 transition-colors font-bold\\"> + </button></div>
 </div>"
 `;
