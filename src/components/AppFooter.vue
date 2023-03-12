@@ -6,7 +6,7 @@ import AppMenus from './AppMenus.vue';
 <template>
   <footer class="bg-black-90">
     <div
-      class="container mx-auto px-6 relative pt-[52px] pb-[38px] md:pt-[60px] md:pb-[46px] lg:pt-[75px] lg:pb-12"
+      class="container relative pt-[52px] pb-[38px] md:pt-[60px] md:pb-[46px] lg:pt-[75px] lg:pb-12"
     >
       <nav
         class="flex flex-col items-center gap-12 md:items-start md:gap-8 lg:flex-row lg:items-center lg:justify-between"

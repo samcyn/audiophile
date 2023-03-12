@@ -6,7 +6,7 @@ import AppMenus from './AppMenus.vue';
 
 <template>
   <header class="relative bg-black-90">
-    <div class="container mx-auto px-6">
+    <div class="container">
       <nav
         class="flex flex-nowrap items-center lg:items-start pt-8 pb-8 lg:pb-9 shadow-[0_1px_0px_0px_rgba(255,255,255,0.2)]"
         aria-label="Main navigation"

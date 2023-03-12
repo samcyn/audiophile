@@ -3,6 +3,9 @@ import AppFooterVue from '../components/AppFooter.vue';
 
 export default {
   title: 'LAYOUT/AppFooter',
+  parameters: {
+    layout: 'fullscreen',
+  },
   component: AppFooterVue,
   argTypes: {},
 } as Meta<typeof AppFooterVue>;
