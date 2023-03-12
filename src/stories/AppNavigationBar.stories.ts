@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/vue3';
 import AppNavigationBarVue from '../components/AppNavigationBar.vue';
 
 export default {
-  title: 'UI/AppNavigationBar',
+  title: 'LAYOUT/AppNavigationBar',
   component: AppNavigationBarVue,
   argTypes: {},
 } as Meta<typeof AppNavigationBarVue>;
