@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import AppButton from '../components/AppButton.vue';
-import ImageHeaderMobile from '../assets/home/mobile/image-header.jpg';
-import ImageHeaderTablet from '../assets/home/tablet/image-header.jpg';
-import ImageHeaderDesktop from '../assets/home/desktop/image-hero.jpg';
 </script>
 <template>
-  <section class="relative">
+  <section class="relative bg-black-70">
     <div
-      class="container relative bg-black-90/25 overflow-hidden"
+      class="container relative overflow-hidden"
     >
-      <div class="wrapper">
+      <div class="wrapper -mx-6 sm:mx-0">
+        <div class="wrapper__absolute"></div>
         <div
-          class="product text-center mx-auto lg:text-left lg:mx-0"
+          class="product relative text-center mx-auto lg:text-left lg:mx-0 pl-[23px] pr-6 sm:pl-0 sm:pr-0"
         >
           <p class="product__subtitle">
             NEW PRODUCT
@@ -31,7 +29,7 @@ import ImageHeaderDesktop from '../assets/home/desktop/image-hero.jpg';
           >
         </div>
       </div>
-      <figure
+      <!-- <figure
         class="absolute left-0 right-0 bottom-0 w-full -z-10 2xl:max-w-screen-2xl 2xl:m-auto"
       >
         <img
@@ -49,7 +47,7 @@ import ImageHeaderDesktop from '../assets/home/desktop/image-hero.jpg';
           :src="ImageHeaderDesktop"
           alt="image"
         />
-      </figure>
+      </figure> -->
     </div>
   </section>
 </template>
@@ -57,6 +55,20 @@ import ImageHeaderDesktop from '../assets/home/desktop/image-hero.jpg';
 .wrapper {
   /* pt-[108px] pb-[112px] md:pt-[126px] md:pb-[167px] lg:pt-16 lg:pb-16 xl:pt-[128px] xl:pb-[158px] */
   padding: 108px 0 112px;
+}
+.wrapper__absolute {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  background-image: url('../assets/home/mobile/image-header.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 .product__subtitle {
   font-size: 14px;
@@ -99,16 +111,35 @@ import ImageHeaderDesktop from '../assets/home/desktop/image-hero.jpg';
   .wrapper {
     padding: 126px 0 167px;
   }
+  .wrapper__absolute {
+    background-image: url('../assets/home/tablet/image-header.jpg');
+  }
 }
 @media (min-width: 1024px) {
   .wrapper {
     padding: 64px 0;
+  }
+  .wrapper__absolute {
+    background-image: url('../assets/home/desktop/image-hero.jpg');
+    background-size: 100%;
+    background-position: 0 bottom;
   }
 }
 
 @media (min-width: 1280px) {
   .wrapper {
     padding: 128px 0 158px;
+  }
+  .wrapper__absolute {
+    background-image: url('../assets/home/desktop/image-hero.jpg');
+    background-size: 1440px;
+    background-position: 0 bottom;
+  }
+}
+
+@media (min-width: 1536px) {
+  .wrapper__absolute {
+    background-size: 100%;
   }
 }
 </style>
