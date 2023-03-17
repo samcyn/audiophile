@@ -2,7 +2,7 @@
 import AppButton from '../components/AppButton.vue';
 </script>
 <template>
-  <section class="relative bg-black-70">
+  <section class="relative bg-black-60">
     <div
       class="container relative overflow-hidden"
     >
@@ -64,7 +64,7 @@ import AppButton from '../components/AppButton.vue';
   top: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.75;
+  opacity: 0.7;
   background-image: url('../assets/home/mobile/image-header.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -120,7 +120,7 @@ import AppButton from '../components/AppButton.vue';
     padding: 64px 0;
   }
   .wrapper__absolute {
-    background-image: url('../assets/home/desktop/image-hero.jpg');
+    background-image: url('../assets/home/desktop/image-hero.svg');
     background-size: 100%;
     background-position: 0 bottom;
   }
@@ -131,7 +131,7 @@ import AppButton from '../components/AppButton.vue';
     padding: 128px 0 158px;
   }
   .wrapper__absolute {
-    background-image: url('../assets/home/desktop/image-hero.jpg');
+    background-image: url('../assets/home/desktop/image-hero.svg');
     background-size: 1440px;
     background-position: 0 bottom;
   }
@@ -139,7 +139,7 @@ import AppButton from '../components/AppButton.vue';
 
 @media (min-width: 1536px) {
   .wrapper__absolute {
-    background-size: 100%;
+    background-size: 1440px;
   }
 }
 </style>

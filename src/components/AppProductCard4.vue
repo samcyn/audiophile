@@ -1,0 +1,31 @@
+<script setup lang="ts">
+import ImageSpeakerMobile from '../assets/home/mobile/image-earphones-yx1.jpg';
+import ImageSpeakerTablet from '../assets/home/tablet/image-earphones-yx1.jpg';
+import ImageSpeakerDesktop from '../assets/home/desktop/image-earphones-yx1.jpg';
+</script>
+<template>
+  <div
+    class="card w-full bg-grey-100/5 relative rounded-lg overflow-hidden"
+  >
+    <figure class="card__figure w-full">
+      <slot>
+        <img
+          :src="ImageSpeakerMobile"
+          class="card__image h-full w-full md:hidden"
+          alt="product image"
+        />
+        <img
+          :src="ImageSpeakerTablet"
+          class="card__image h-full w-full hidden md:inline xl:hidden"
+          alt="product image"
+        />
+        <img
+          :src="ImageSpeakerDesktop"
+          class="card__image h-full w-full hidden xl:inline"
+          alt="product image"
+        />
+      </slot>
+    </figure>
+  </div>
+</template>
+<style scoped></style>
