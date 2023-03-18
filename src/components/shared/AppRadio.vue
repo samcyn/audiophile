@@ -18,7 +18,7 @@ import {
    * can't for now import interface in vue3 component
    * it's a bit redundant but hopefully this get resolve
    */
-} from '../hooks/useRadio';
+} from '../../hooks/useRadio';
 
 // define component models
 interface AppRadioProps

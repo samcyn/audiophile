@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppNavigationBarVue from '../components/AppNavigationBar.vue';
+import AppNavigationBarVue from '../components/layout/AppNavigationBar.vue';
 
 export default {
   title: 'LAYOUT/AppNavigationBar',

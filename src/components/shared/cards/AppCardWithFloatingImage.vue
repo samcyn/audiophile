@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue';
-// import MarkOneHeadPhoneMobile from '../assets/shared/mobile/image-xx99-mark-one-headphones.jpg';
-import AppButton from './AppButton.vue';
-import AppIcon from './AppIcon.vue';
+import AppButton from '../AppButton.vue';
+import AppIcon from '../AppIcon.vue';
 // define components models
 interface AppCardProps {
   title?: string;
@@ -23,10 +22,12 @@ withDefaults(defineProps<AppCardProps>(), {
       class="card__contents flex flex-col items-center justify-center px-6"
     >
       <figure class="mb-9 relative">
-        <img
-          :src="image"
-          alt="product card image"
-        />
+        <slot name="image">
+          <img
+            :src="image"
+            alt="product card image"
+          />
+        </slot>
         <div
           class="card__oval absolute bottom-0"
         ></div>

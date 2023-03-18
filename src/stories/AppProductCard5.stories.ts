@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppProductCardVue from '../components/AppProductCard5.vue';
+import AppProductCardVue from '../components/shared/cards/AppCardWithActionButton.vue';
 
 export default {
   title: 'UI/AppProductCard5',

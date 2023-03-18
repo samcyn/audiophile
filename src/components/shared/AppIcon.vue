@@ -21,7 +21,7 @@ import {
 } from 'vue';
 import IconsLibrary, {
   IconTypes,
-} from '../lib/iconLibrary';
+} from '../../lib/iconLibrary';
 
 interface IconBaseProps extends SVGAttributes {
   size?: number;

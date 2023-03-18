@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppFooterVue from '../components/AppFooter.vue';
+import AppFooterVue from '../components/layout/AppFooter.vue';
 
 export default {
   title: 'LAYOUT/AppFooter',

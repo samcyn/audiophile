@@ -8,7 +8,7 @@ export default {
 import {
   useRadioGroup,
   AppRadioProps,
-} from '../hooks/useRadio';
+} from '../../hooks/useRadio';
 import AppRadio from /** // AppRadioGroupProps
  * https://github.com/vuejs/core/issues/4294
  * can't for now import interface in vue3 component
@@ -19,7 +19,7 @@ type AppRadioGroupProps = {
   label?: string;
   name: string;
   modelValue?: string | number | boolean;
-  disabled: boolean;
+  disabled?: boolean;
   options?: AppRadioProps[];
   defaultValue?: string | number | boolean;
 };

@@ -5,11 +5,7 @@ import App from '../App.vue';
 test('mount component', async () => {
   expect(App).toBeTruthy();
 
-  const wrapper = mount(App, {
-    props: {
-      count: 4,
-    },
-  });
+  const wrapper = mount(App, {});
 
   expect(wrapper.html()).toMatchSnapshot();
 });

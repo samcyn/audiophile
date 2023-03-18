@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AppBrandLogo from './AppBrandLogo.vue';
-import AppIconButton from './AppIconButton.vue';
-import AppMenus from './AppMenus.vue';
+import AppBrandLogo from '../shared/AppBrandLogo.vue';
+import AppIconButton from '../shared/AppIconButton.vue';
+import AppMenus from '../shared/AppMenus.vue';
 </script>
 <template>
   <footer class="bg-black-90">

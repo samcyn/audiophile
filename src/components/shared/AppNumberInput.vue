@@ -11,7 +11,7 @@ import {
   InputHTMLAttributes,
   toRefs,
 } from 'vue';
-import useControlled from '../hooks/useControlled';
+import useControlled from '../../hooks/useControlled';
 
 // define component models
 interface AppInputNumberProps

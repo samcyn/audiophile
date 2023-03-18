@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppRadioVue from '../components/AppRadio.vue';
+import AppRadioVue from '../components/shared/AppRadio.vue';
 
 export default {
   title: 'UI/AppRadio',

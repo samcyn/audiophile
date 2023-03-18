@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppLinkVue from '../components/AppLink.vue';
+import AppLinkVue from '../components/shared/AppLink.vue';
 
 export default {
   title: 'UI/AppLink',

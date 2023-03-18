@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppIconButtonVue from '../components/AppIconButton.vue';
+import AppIconButtonVue from '../components/shared/AppIconButton.vue';
 import IconsLibrary from '../lib/iconLibrary';
 
 export default {

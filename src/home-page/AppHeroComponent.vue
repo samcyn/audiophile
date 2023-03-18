@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppButton from '../components/AppButton.vue';
+import AppButton from '../components/shared/AppButton.vue';
 </script>
 <template>
   <section class="relative bg-black-60">

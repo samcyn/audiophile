@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue';
-import AppButton from '../components/AppButton.vue';
+import AppButton from '../components/shared/AppButton.vue';
 import ImageSpeakerMobile from '../assets/home/mobile/image-speaker-zx7.jpg';
 import ImageSpeakerTablet from '../assets/home/tablet/image-speaker-zx7.jpg';
 import ImageSpeakerDesktop from '../assets/home/desktop/image-speaker-zx7.jpg';

@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppInputFieldVue from '../components/AppInputField.vue';
+import AppInputFieldVue from '../components/shared/AppInputField.vue';
 
 export default {
   title: 'UI/AppInputField',

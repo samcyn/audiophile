@@ -10,11 +10,15 @@ interface AppLinkProps
   extends AnchorHTMLAttributes {
   text?: string;
   url: string;
+  target?: string;
+  rel?: string;
 }
 
 // set defaults props
 withDefaults(defineProps<AppLinkProps>(), {
   text: '',
+  target: '',
+  rel: '',
 });
 </script>
 <template>

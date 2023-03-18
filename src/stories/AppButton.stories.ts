@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppButtonVue from '../components/AppButton.vue';
+import AppButtonVue from '../components/shared/AppButton.vue';
 
 export default {
   title: 'UI/AppButton',

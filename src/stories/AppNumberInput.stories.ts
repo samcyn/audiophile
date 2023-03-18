@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppNumberInput from '../components/AppNumberInput.vue';
+import AppNumberInput from '../components/shared/AppNumberInput.vue';
 
 export default {
   title: 'UI/AppNumberInput',
