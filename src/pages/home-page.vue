@@ -93,18 +93,6 @@ import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
       >
         <app-card-with-text-description
           class="xl:max-w-[445px]"
-          description="Located at the heart of New York
-              City, Audiophile is the premier
-              store for high end headphones,
-              earphones, speakers, and audio
-              accessories. We have a large
-              showroom and luxury demonstration
-              rooms available for you to browse
-              and experience a wide range of our
-              products. Stop by our store to meet
-              some of the fantastic people who
-              make Audiophile the best place to
-              buy your portable audio equipment."
         >
           <template #title>
             <h3
@@ -116,6 +104,24 @@ import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
               >
               audio gear
             </h3>
+          </template>
+          <template #description>
+            <div
+              class="card__description font-medium text-center text-black-100/50 lg:text-left lg:max-w-none"
+            >
+              Located at the heart of New York
+              City, Audiophile is the premier
+              store for high end headphones,
+              earphones, speakers, and audio
+              accessories. We have a large
+              showroom and luxury demonstration
+              rooms available for you to browse
+              and experience a wide range of our
+              products. Stop by our store to meet
+              some of the fantastic people who
+              make Audiophile the best place to
+              buy your portable audio equipment.
+            </div>
           </template>
         </app-card-with-text-description>
       </app-col>
@@ -131,11 +137,20 @@ import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
   letter-spacing: 1px;
 }
 
+.card__description {
+  font-size: 15px;
+  line-height: 25px;
+  mix-blend-mode: normal;
+}
+
 @media (min-width: 768px) {
   .card__title {
     font-size: 40px;
     line-height: 44px;
     letter-spacing: 1.42857px;
+  }
+  .card__description {
+    max-width: 573px;
   }
 }
 </style>
