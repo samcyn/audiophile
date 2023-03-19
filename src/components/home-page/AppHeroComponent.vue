@@ -1,13 +1,32 @@
 <script setup lang="ts">
 import AppButton from '../shared/AppButton.vue';
+
+import ImageHeaderMobile from '/src/assets/home/mobile/image-header.jpg';
+import ImageHeaderTablet from '/src/assets/home/tablet/image-header.jpg';
+import ImageHeaderDesktop from '/src/assets/home/desktop/image-hero.svg';
+
+interface AppHeroComponentProps {
+  imageMobile?: string;
+  imageTablet?: string;
+  imageDesktop?: string;
+}
+
+// set defaults props
+withDefaults(
+  defineProps<AppHeroComponentProps>(),
+  {
+    imageMobile: ImageHeaderMobile,
+    imageTablet: ImageHeaderTablet,
+    imageDesktop: ImageHeaderDesktop,
+  }
+);
 </script>
 <template>
   <section class="relative bg-black-60">
     <div
       class="container relative overflow-hidden"
     >
-      <div class="wrapper -mx-6 sm:mx-0">
-        <div class="wrapper__absolute"></div>
+      <div class="wrapper relative -mx-6 sm:mx-0">
         <div
           class="product relative text-center mx-auto lg:text-left lg:mx-0 pl-6 pr-6 md:pl-0 md:pr-0"
         >
@@ -29,31 +48,33 @@ import AppButton from '../shared/AppButton.vue';
           >
         </div>
       </div>
-      <!-- <figure
-        class="absolute left-0 right-0 bottom-0 w-full -z-10 2xl:max-w-screen-2xl 2xl:m-auto"
+
+      <figure
+        class="card__figure absolute block left-0 top-0 w-full h-full opacity-50"
       >
         <img
-          class="w-full md:hidden"
-          :src="ImageHeaderMobile"
+          class="w-full absolute bottom-0 md:hidden"
+          :src="imageMobile"
           alt="image"
         />
         <img
-          class="w-full hidden md:block lg:hidden"
-          :src="ImageHeaderTablet"
+          class="w-full absolute bottom-0 hidden md:block lg:hidden"
+          :src="imageTablet"
           alt="image"
         />
         <img
-          class="w-full hidden md:hidden lg:block"
-          :src="ImageHeaderDesktop"
+          class="w-full absolute bottom-0 hidden md:hidden lg:block"
+          :src="imageDesktop"
           alt="image"
         />
-      </figure> -->
+      </figure>
     </div>
   </section>
 </template>
 <style scoped>
 .wrapper {
   padding: 108px 0 112px;
+  z-index: 2;
 }
 .wrapper__absolute {
   content: '';
@@ -93,7 +114,9 @@ import AppButton from '../shared/AppButton.vue';
   font-weight: 500;
   color: rgba(255, 255, 255, 0.75);
 }
-
+.card__figure {
+  z-index: 1;
+}
 @media (min-width: 768px) {
   .product {
     max-width: 396px;

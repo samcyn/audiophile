@@ -19,7 +19,7 @@ import {
 } from 'vue';
 
 import AppIcon from './AppIcon.vue';
-import { IconTypes } from '../lib/iconLibrary';
+import { IconTypes } from '../../lib/iconLibrary';
 
 const IconBaseDefaults = {
   size: {
