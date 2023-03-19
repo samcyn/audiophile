@@ -8,7 +8,7 @@ import AppMenus from '../shared/AppMenus.vue';
   <header class="relative bg-black-60">
     <div class="container">
       <nav
-        class="flex flex-nowrap items-center lg:items-start pt-8 pb-8 lg:pb-9 shadow-[0_1px_0px_0px_rgba(255,255,255,0.2)]"
+        class="header__nav flex flex-nowrap items-center lg:items-start pt-8 pb-8 lg:pb-9"
         aria-label="Main navigation"
       >
         <!-- hamburger bar starts -->
@@ -53,7 +53,18 @@ import AppMenus from '../shared/AppMenus.vue';
 .logo {
   padding: 0;
 }
-
+.header__nav {
+  --tw-shadow: 0 1px 0px 0px
+    rgba(255, 255, 255, 0.2);
+  --tw-shadow-colored: 0 1px 0px 0px
+    var(--tw-shadow-color);
+  box-shadow: var(
+      --tw-ring-offset-shadow,
+      0 0 #0000
+    ),
+    var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
 @media (min-width: 1024px) {
   .logo {
     padding: 1.5px 0;

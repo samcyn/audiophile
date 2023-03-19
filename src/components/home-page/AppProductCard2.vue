@@ -32,7 +32,7 @@ withDefaults(defineProps<AppCardProps>(), {
       />
     </div>
     <div
-      class="card__flexContent relative z-[2] flex items-center flex-col xl:flex-row xl:items-start"
+      class="card__flexContent relative flex items-center flex-col xl:flex-row xl:items-start"
     >
       <figure
         class="card__figure mb-8 md:mb-16 m-auto xl:mb-0"
@@ -44,7 +44,7 @@ withDefaults(defineProps<AppCardProps>(), {
         />
       </figure>
       <div
-        class="flex flex-col items-center md:max-w-[349px] xl:items-start xl:pt-10"
+        class="card__textArea flex flex-col items-center xl:items-start xl:pt-10"
       >
         <h5
           class="card__title text-white font-bold text-center uppercase mb-6 xl:text-left"
@@ -56,7 +56,7 @@ withDefaults(defineProps<AppCardProps>(), {
         ></p>
         <app-button
           button-type="secondary"
-          class="xl:bg-[#4C4C4C]"
+          class="card__actionBtn"
           >SEE PRODUCT</app-button
         >
       </div>
@@ -86,7 +86,9 @@ withDefaults(defineProps<AppCardProps>(), {
   z-index: 1;
   top: -120px;
 }
-
+.card__flexContent {
+  z-index: 2;
+}
 @media (min-width: 768px) {
   .card {
     padding: 52px 24px 64px 24px;
@@ -103,6 +105,9 @@ withDefaults(defineProps<AppCardProps>(), {
     width: 944px;
     height: 944px;
     top: -286px;
+  }
+  .card__textArea {
+    max-width: 349px;
   }
 }
 
@@ -123,6 +128,9 @@ withDefaults(defineProps<AppCardProps>(), {
   .card__overlay {
     top: -36px;
     left: -149px;
+  }
+  .card__actionBtn {
+    background: #4c4c4c;
   }
 }
 </style>

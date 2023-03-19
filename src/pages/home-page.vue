@@ -9,7 +9,6 @@ import AppProductCard2 from '../components/home-page/AppProductCard2.vue';
 import AppProductCard3 from '../components/home-page/AppProductCard3.vue';
 import AppCardWithOverlay from '../components/shared/cards/AppCardWithOverlay.vue';
 import AppCardWithActionButton from '../components/shared/cards/AppCardWithActionButton.vue';
-import AppTwoColumnCard from '../components/shared/cards/AppTwoColumnCard.vue';
 import AppCardWithTextDescription from '../components/shared/cards/AppCardWithTextDescription.vue';
 import AppCardWithFloatingImage from '../components/shared/cards/AppCardWithFloatingImage.vue';
 

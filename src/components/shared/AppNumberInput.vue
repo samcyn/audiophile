@@ -114,7 +114,7 @@ const onInputChange = (degree: string) => {
       </button>
       <span
         role="presentation"
-        class="field__button min-w-[24px] inline-flex items-center justify-center p-1 text-black-100 font-bold"
+        class="field__button field__span inline-flex items-center justify-center p-1 text-black-100 font-bold"
         >{{ realVal }}</span
       >
       <button
@@ -146,7 +146,9 @@ const onInputChange = (degree: string) => {
   text-align: center;
   letter-spacing: 1px;
 }
-
+.field__span {
+  min-width: 24px;
+}
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);

@@ -9,7 +9,7 @@ import AppButton from '../shared/AppButton.vue';
       <div class="wrapper -mx-6 sm:mx-0">
         <div class="wrapper__absolute"></div>
         <div
-          class="product relative text-center mx-auto lg:text-left lg:mx-0 pl-[23px] pr-6 sm:pl-0 sm:pr-0"
+          class="product relative text-center mx-auto lg:text-left lg:mx-0 pr-6 md:pl-0 md:pr-0"
         >
           <p class="product__subtitle">
             NEW PRODUCT
@@ -53,7 +53,6 @@ import AppButton from '../shared/AppButton.vue';
 </template>
 <style scoped>
 .wrapper {
-  /* pt-[108px] pb-[112px] md:pt-[126px] md:pb-[167px] lg:pt-16 lg:pb-16 xl:pt-[128px] xl:pb-[158px] */
   padding: 108px 0 112px;
 }
 .wrapper__absolute {
@@ -69,6 +68,9 @@ import AppButton from '../shared/AppButton.vue';
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
+}
+.product {
+  padding-left: 23px;
 }
 .product__subtitle {
   font-size: 14px;

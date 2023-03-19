@@ -46,7 +46,7 @@ withDefaults(defineProps<AppCardProps>(), {
       </app-button>
     </div>
     <div
-      class="card__overlay absolute top-0 bottom-0 left-0 right-0 -z-10 w-full h-full pt-[52px]"
+      class="card__overlay absolute top-0 bottom-0 left-0 right-0 -z-10 w-full h-full"
     >
       <div
         class="w-full h-full rounded-lg bg-grey-100"
@@ -69,7 +69,9 @@ withDefaults(defineProps<AppCardProps>(), {
   color: #000000;
   margin-bottom: 2px;
 }
-
+.card__overlay {
+  padding-top: 52px;
+}
 .card__oval {
   width: 94.89px;
   height: 14px;
