@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppProductCardVue from '../../home-page/AppProductCard2.vue';
+import AppProductCardVue from '../../components/home-page/AppProductCard2.vue';
 
 export default {
   title: 'HomePage/AppProductCard2',

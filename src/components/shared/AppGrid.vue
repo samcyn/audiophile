@@ -1,31 +1,25 @@
 <script setup lang="ts">
-import { useGridRow } from '../../hooks/useGrid';
+// import { useGridRow } from '../../hooks/useGrid';
 
-type AppGridRowProps = {
-  gutterX?: number;
-  gutterY?: number;
-  rowReverse?: boolean;
-};
+// type AppGridRowProps = {
+//   gutterX?: number;
+//   gutterY?: number;
+// };
 
-const props = withDefaults(
-  defineProps<AppGridRowProps>(),
-  {
-    gutterX: 0,
-    gutterY: 0,
-    rowReverse: false,
-  }
-);
+// const props = withDefaults(
+//   defineProps<AppGridRowProps>(),
+//   {
+//     gutterX: 0,
+//     gutterY: 0,
+//   }
+// );
 
-const { rowStyles } = useGridRow(props);
+// const { rowStyles } = useGridRow(props);
 </script>
 <template>
-  <div class="rows" :style="rowStyles">
+  <div
+    class="flex flex-wrap -mx-[5px] lg:-mx-[15px]"
+  >
     <slot></slot>
   </div>
 </template>
-<style scoped>
-.rows {
-  display: flex;
-  flex-wrap: wrap;
-}
-</style>

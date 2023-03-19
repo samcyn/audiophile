@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/vue3';
-import AppHeroComponentVue from '../../home-page/AppHeroComponent.vue';
+import AppHeroComponentVue from '../../components/home-page/AppHeroComponent.vue';
 
 export default {
   title: 'HomePage/AppHeroComponent',

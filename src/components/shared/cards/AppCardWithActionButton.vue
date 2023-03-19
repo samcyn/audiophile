@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import AppButton from '../AppButton.vue';
+
+interface AppCardProps {
+  title?: string;
+}
+
+// set defaults props
+withDefaults(defineProps<AppCardProps>(), {
+  title: 'YX1 EARPHONES',
+});
 </script>
 <template>
   <div
@@ -7,11 +16,14 @@ import AppButton from '../AppButton.vue';
   >
     <div class="card__body flex items-center">
       <div>
-        <h3
-          class="card__title font-bold mb-8 text-black-100 uppercase"
-        >
-          YX1 EARPHONES
-        </h3>
+        <slot name="title">
+          <h3
+            v-if="title"
+            class="card__title font-bold mb-8 text-black-100 uppercase"
+          >
+            {{ title }}
+          </h3>
+        </slot>
         <app-button
           variant="outlined"
           button-type="secondary"

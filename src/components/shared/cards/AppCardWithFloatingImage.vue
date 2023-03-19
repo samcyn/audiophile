@@ -21,11 +21,12 @@ withDefaults(defineProps<AppCardProps>(), {
     <div
       class="card__contents flex flex-col items-center justify-center px-6"
     >
-      <figure class="mb-9 relative">
+      <figure class="card__figure mb-9 relative">
         <slot name="image">
           <img
             :src="image"
             alt="product card image"
+            class="card__image"
           />
         </slot>
         <div
@@ -75,12 +76,22 @@ withDefaults(defineProps<AppCardProps>(), {
   background: #000000;
   filter: blur(21.7463px);
 }
+.card__image {
+  height: 104px;
+}
+
 @media (min-width: 1024px) {
   .card__title {
     font-size: 18px;
     line-height: 25px;
     letter-spacing: 1.28571px;
     margin-bottom: 0px;
+  }
+  .card__contents {
+    padding-bottom: 15px;
+  }
+  .card__image {
+    height: 160px;
   }
 }
 </style>

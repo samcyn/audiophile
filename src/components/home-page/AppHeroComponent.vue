@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppButton from '../components/shared/AppButton.vue';
+import AppButton from '../shared/AppButton.vue';
 </script>
 <template>
   <section class="relative bg-black-60">
@@ -65,7 +65,7 @@ import AppButton from '../components/shared/AppButton.vue';
   width: 100%;
   height: 100%;
   opacity: 0.7;
-  background-image: url('../assets/home/mobile/image-header.jpg');
+  background-image: url('/src/assets/home/mobile/image-header.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -112,7 +112,7 @@ import AppButton from '../components/shared/AppButton.vue';
     padding: 126px 0 167px;
   }
   .wrapper__absolute {
-    background-image: url('../assets/home/tablet/image-header.jpg');
+    background-image: url('/src/assets/home/tablet/image-header.jpg');
   }
 }
 @media (min-width: 1024px) {
@@ -120,7 +120,7 @@ import AppButton from '../components/shared/AppButton.vue';
     padding: 64px 0;
   }
   .wrapper__absolute {
-    background-image: url('../assets/home/desktop/image-hero.svg');
+    background-image: url('/src/assets/home/desktop/image-hero.svg');
     background-size: 100%;
     background-position: 0 bottom;
   }
@@ -131,7 +131,7 @@ import AppButton from '../components/shared/AppButton.vue';
     padding: 128px 0 158px;
   }
   .wrapper__absolute {
-    background-image: url('../assets/home/desktop/image-hero.svg');
+    background-image: url('/src/assets/home/desktop/image-hero.svg');
     background-size: 1440px;
     background-position: 0 bottom;
   }

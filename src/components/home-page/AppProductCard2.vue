@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue';
-import AppButton from '../components/shared/AppButton.vue';
-import ImageSpeakerMobile from '../assets/home/mobile/image-speaker-zx9.png';
-import PatternCircle from '../assets/home/desktop/pattern-circles.svg';
+import AppButton from '../shared/AppButton.vue';
+import ImageSpeakerMobile from '../../assets/home/mobile/image-speaker-zx9.png';
+import PatternCircle from '../../assets/home/desktop/pattern-circles.svg';
 
 // define components models
 interface AppCardProps {
@@ -19,48 +19,46 @@ withDefaults(defineProps<AppCardProps>(), {
 });
 </script>
 <template>
-  <div class="container">
+  <div
+    class="card bg-orange-100 rounded-lg relative overflow-hidden m-auto"
+  >
     <div
-      class="card bg-orange-100 rounded-lg relative overflow-hidden m-auto"
+      class="card__overlay absolute left-1/2 -translate-x-1/2 xl:translate-x-0"
     >
-      <div
-        class="card__overlay absolute left-1/2 -translate-x-1/2 xl:translate-x-0"
+      <img
+        :src="PatternCircle"
+        alt="circles"
+        class="w-full h-full"
+      />
+    </div>
+    <div
+      class="card__flexContent relative z-[2] flex items-center flex-col xl:flex-row xl:items-start"
+    >
+      <figure
+        class="card__figure mb-8 md:mb-16 m-auto xl:mb-0"
       >
         <img
-          :src="PatternCircle"
-          alt="circles"
-          class="w-full h-full"
+          :src="image"
+          class="card__image"
+          alt="product image"
         />
-      </div>
+      </figure>
       <div
-        class="card__flexContent relative z-[2] flex items-center flex-col xl:flex-row xl:items-start"
+        class="flex flex-col items-center md:max-w-[349px] xl:items-start xl:pt-10"
       >
-        <figure
-          class="card__figure mb-8 md:mb-16 m-auto xl:mb-0"
+        <h5
+          class="card__title text-white font-bold text-center uppercase mb-6 xl:text-left"
+          v-html="title"
+        ></h5>
+        <p
+          class="card__description text-center text-white/75 font-medium mb-6 md:mb-10 xl:text-left"
+          v-html="description"
+        ></p>
+        <app-button
+          button-type="secondary"
+          class="xl:bg-[#4C4C4C]"
+          >SEE PRODUCT</app-button
         >
-          <img
-            :src="image"
-            class="card__image"
-            alt="product image"
-          />
-        </figure>
-        <div
-          class="flex flex-col items-center md:max-w-[349px] xl:items-start xl:pt-10"
-        >
-          <h5
-            class="card__title text-white font-bold text-center uppercase mb-6 xl:text-left"
-            v-html="title"
-          ></h5>
-          <p
-            class="card__description text-center text-white/75 font-medium mb-6 md:mb-10 xl:text-left"
-            v-html="description"
-          ></p>
-          <app-button
-            button-type="secondary"
-            class="xl:bg-[#4C4C4C]"
-            >SEE PRODUCT</app-button
-          >
-        </div>
       </div>
     </div>
   </div>

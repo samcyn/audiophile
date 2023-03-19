@@ -12,7 +12,6 @@ import type { InjectionKey } from 'vue';
 export type AppGridRowProps = {
   gutterX?: number;
   gutterY?: number;
-  rowReverse?: boolean;
 };
 /**
  * TODOS
@@ -58,8 +57,7 @@ export const useGridRow = (
   props: AppGridRowProps
 ) => {
   // to keep reactivity, destructure using toRefs
-  const { gutterX, gutterY, rowReverse } =
-    toRefs(props);
+  const { gutterX, gutterY } = toRefs(props);
   const computedProps = computed(() => ({
     marginX: gutterX?.value
       ? gutterX.value / 2
@@ -67,23 +65,17 @@ export const useGridRow = (
     marginY: gutterY?.value
       ? gutterY.value / 2
       : 0,
-    flexDirection: rowReverse?.value
-      ? 'row-reverse'
-      : 'row',
   }));
 
-  const { marginX, marginY, flexDirection } =
+  const { marginX, marginY } =
     computedProps.value;
   const rowStyles: CSSProperties = {
     margin: `-${marginY}px -${marginX}px`,
-    flexDirection:
-      flexDirection as CSSProperties['flex-direction'],
   };
   // set providers keys to all children
   provide(INJECT_KEY, {
     gutterX,
     gutterY,
-    rowReverse,
   });
   return {
     rowStyles,
@@ -95,14 +87,12 @@ export const useGridCol = (
 ) => {
   const defaultGutterX = ref(5);
   const defaultGutterY = ref(0);
-  const defaultRowReverse = ref(false);
 
   const groupContext = inject<INJECT_KEY_PROP>(
     INJECT_KEY,
     {
       gutterX: defaultGutterX,
       gutterY: defaultGutterY,
-      rowReverse: defaultRowReverse,
     }
   );
 
