@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ImageSpeakerMobile from '../assets/home/mobile/image-earphones-yx1.jpg';
-import ImageSpeakerTablet from '../assets/home/tablet/image-earphones-yx1.jpg';
-import ImageSpeakerDesktop from '../assets/home/desktop/image-earphones-yx1.jpg';
+import ImageSpeakerMobile from '/src/assets/home/mobile/image-earphones-yx1.jpg';
+import ImageSpeakerTablet from '/src/assets/home/tablet/image-earphones-yx1.jpg';
+import ImageSpeakerDesktop from '/src/assets/home/desktop/image-earphones-yx1.jpg';
 </script>
 <template>
   <div

@@ -60,17 +60,68 @@ exports[`mount component 1`] = `
       </figure> -->
   </div>
 </section>
-<div data-v-01e4321a=\\"\\" class=\\"card relative overflow-hidden max-w-sm m-auto\\">
-  <div data-v-01e4321a=\\"\\" class=\\"card__contents flex flex-col items-center justify-center px-6\\">
-    <figure data-v-01e4321a=\\"\\" class=\\"mb-9 relative\\"><img data-v-01e4321a=\\"\\" src=\\"\\" alt=\\"product card image\\">
-      <div data-v-01e4321a=\\"\\" class=\\"card__oval absolute bottom-0\\"></div>
-    </figure>
-    <h5 data-v-01e4321a=\\"\\" class=\\"card__title\\">Speaker</h5><button data-v-b60abf6a=\\"\\" data-v-01e4321a=\\"\\" class=\\"button rounded-none transition inline-flex items-center border-0 bg-none text-orange-100 opacity-50 hover:text-black-100 hover:opacity-100\\" type=\\"button\\"><span data-v-01e4321a=\\"\\" class=\\"mr-1.5\\">Shop</span><svg data-v-01e4321a=\\"\\" class=\\"text-orange-100 opacity-100\\" viewBox=\\"0 0 24 24\\" width=\\"1em\\" height=\\"1em\\" fill=\\"currentColor\\" xmlns=\\"http://www.w3.org/2000/svg\\">
-        <path d=\\"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z\\" stroke-width=\\"2\\"></path>
-      </svg></button>
-  </div>
-  <div data-v-01e4321a=\\"\\" class=\\"card__overlay absolute top-0 bottom-0 left-0 right-0 -z-10 w-full h-full pt-[52px]\\">
-    <div data-v-01e4321a=\\"\\" class=\\"w-full h-full rounded-lg bg-grey-100\\"></div>
+<div class=\\"container\\">
+  <div data-v-0abde9d3=\\"\\" class=\\"rows\\" style=\\"margin: -0px -5px; flex-direction: row;\\">
+    <div class=\\"col basis-full w-full md:basis-6/12 md:w-6/12 xl:basis-4/12 xl:w-4/12\\" style=\\"padding: 0px 5px;\\">
+      <div data-v-01e4321a=\\"\\" class=\\"card relative overflow-hidden max-w-sm m-auto\\">
+        <div data-v-01e4321a=\\"\\" class=\\"card__contents flex flex-col items-center justify-center px-6\\">
+          <figure data-v-01e4321a=\\"\\" class=\\"mb-9 relative\\"><img data-v-01e4321a=\\"\\" src=\\"\\" alt=\\"product card image\\">
+            <div data-v-01e4321a=\\"\\" class=\\"card__oval absolute bottom-0\\"></div>
+          </figure>
+          <h5 data-v-01e4321a=\\"\\" class=\\"card__title\\">Speaker</h5><button data-v-b60abf6a=\\"\\" data-v-01e4321a=\\"\\" class=\\"button rounded-none transition inline-flex items-center border-0 bg-none text-orange-100 opacity-50 hover:text-black-100 hover:opacity-100\\" type=\\"button\\"><span data-v-01e4321a=\\"\\" class=\\"mr-1.5\\">Shop</span><svg data-v-01e4321a=\\"\\" class=\\"text-orange-100 opacity-100\\" viewBox=\\"0 0 24 24\\" width=\\"1em\\" height=\\"1em\\" fill=\\"currentColor\\" xmlns=\\"http://www.w3.org/2000/svg\\">
+              <path d=\\"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z\\" stroke-width=\\"2\\"></path>
+            </svg></button>
+        </div>
+        <div data-v-01e4321a=\\"\\" class=\\"card__overlay absolute top-0 bottom-0 left-0 right-0 -z-10 w-full h-full pt-[52px]\\">
+          <div data-v-01e4321a=\\"\\" class=\\"w-full h-full rounded-lg bg-grey-100\\"></div>
+        </div>
+      </div>
+    </div>
+    <div class=\\"col basis-full w-full xl:basis-4/12 xl:w-4/12\\" style=\\"padding: 0px 5px;\\">
+      <div data-v-01e4321a=\\"\\" class=\\"card relative overflow-hidden max-w-sm m-auto\\">
+        <div data-v-01e4321a=\\"\\" class=\\"card__contents flex flex-col items-center justify-center px-6\\">
+          <figure data-v-01e4321a=\\"\\" class=\\"mb-9 relative\\"><img data-v-01e4321a=\\"\\" src=\\"\\" alt=\\"product card image\\">
+            <div data-v-01e4321a=\\"\\" class=\\"card__oval absolute bottom-0\\"></div>
+          </figure>
+          <h5 data-v-01e4321a=\\"\\" class=\\"card__title\\">Speaker</h5><button data-v-b60abf6a=\\"\\" data-v-01e4321a=\\"\\" class=\\"button rounded-none transition inline-flex items-center border-0 bg-none text-orange-100 opacity-50 hover:text-black-100 hover:opacity-100\\" type=\\"button\\"><span data-v-01e4321a=\\"\\" class=\\"mr-1.5\\">Shop</span><svg data-v-01e4321a=\\"\\" class=\\"text-orange-100 opacity-100\\" viewBox=\\"0 0 24 24\\" width=\\"1em\\" height=\\"1em\\" fill=\\"currentColor\\" xmlns=\\"http://www.w3.org/2000/svg\\">
+              <path d=\\"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z\\" stroke-width=\\"2\\"></path>
+            </svg></button>
+        </div>
+        <div data-v-01e4321a=\\"\\" class=\\"card__overlay absolute top-0 bottom-0 left-0 right-0 -z-10 w-full h-full pt-[52px]\\">
+          <div data-v-01e4321a=\\"\\" class=\\"w-full h-full rounded-lg bg-grey-100\\"></div>
+        </div>
+      </div>
+    </div>
+    <div class=\\"col basis-full w-full xl:basis-4/12 xl:w-4/12\\" style=\\"padding: 0px 5px;\\">
+      <div data-v-01e4321a=\\"\\" class=\\"card relative overflow-hidden max-w-sm m-auto\\">
+        <div data-v-01e4321a=\\"\\" class=\\"card__contents flex flex-col items-center justify-center px-6\\">
+          <figure data-v-01e4321a=\\"\\" class=\\"mb-9 relative\\"><img data-v-01e4321a=\\"\\" src=\\"\\" alt=\\"product card image\\">
+            <div data-v-01e4321a=\\"\\" class=\\"card__oval absolute bottom-0\\"></div>
+          </figure>
+          <h5 data-v-01e4321a=\\"\\" class=\\"card__title\\">Speaker</h5><button data-v-b60abf6a=\\"\\" data-v-01e4321a=\\"\\" class=\\"button rounded-none transition inline-flex items-center border-0 bg-none text-orange-100 opacity-50 hover:text-black-100 hover:opacity-100\\" type=\\"button\\"><span data-v-01e4321a=\\"\\" class=\\"mr-1.5\\">Shop</span><svg data-v-01e4321a=\\"\\" class=\\"text-orange-100 opacity-100\\" viewBox=\\"0 0 24 24\\" width=\\"1em\\" height=\\"1em\\" fill=\\"currentColor\\" xmlns=\\"http://www.w3.org/2000/svg\\">
+              <path d=\\"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z\\" stroke-width=\\"2\\"></path>
+            </svg></button>
+        </div>
+        <div data-v-01e4321a=\\"\\" class=\\"card__overlay absolute top-0 bottom-0 left-0 right-0 -z-10 w-full h-full pt-[52px]\\">
+          <div data-v-01e4321a=\\"\\" class=\\"w-full h-full rounded-lg bg-grey-100\\"></div>
+        </div>
+      </div>
+    </div>
+    <div class=\\"col basis-full w-full xl:basis-4/12 xl:w-4/12\\" style=\\"padding: 0px 5px;\\">
+      <div data-v-01e4321a=\\"\\" class=\\"card relative overflow-hidden max-w-sm m-auto\\">
+        <div data-v-01e4321a=\\"\\" class=\\"card__contents flex flex-col items-center justify-center px-6\\">
+          <figure data-v-01e4321a=\\"\\" class=\\"mb-9 relative\\"><img data-v-01e4321a=\\"\\" src=\\"\\" alt=\\"product card image\\">
+            <div data-v-01e4321a=\\"\\" class=\\"card__oval absolute bottom-0\\"></div>
+          </figure>
+          <h5 data-v-01e4321a=\\"\\" class=\\"card__title\\">Speaker</h5><button data-v-b60abf6a=\\"\\" data-v-01e4321a=\\"\\" class=\\"button rounded-none transition inline-flex items-center border-0 bg-none text-orange-100 opacity-50 hover:text-black-100 hover:opacity-100\\" type=\\"button\\"><span data-v-01e4321a=\\"\\" class=\\"mr-1.5\\">Shop</span><svg data-v-01e4321a=\\"\\" class=\\"text-orange-100 opacity-100\\" viewBox=\\"0 0 24 24\\" width=\\"1em\\" height=\\"1em\\" fill=\\"currentColor\\" xmlns=\\"http://www.w3.org/2000/svg\\">
+              <path d=\\"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z\\" stroke-width=\\"2\\"></path>
+            </svg></button>
+        </div>
+        <div data-v-01e4321a=\\"\\" class=\\"card__overlay absolute top-0 bottom-0 left-0 right-0 -z-10 w-full h-full pt-[52px]\\">
+          <div data-v-01e4321a=\\"\\" class=\\"w-full h-full rounded-lg bg-grey-100\\"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div data-v-39a79743=\\"\\" class=\\"container\\">

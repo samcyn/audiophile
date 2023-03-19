@@ -4,6 +4,12 @@ module.exports = {
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /basis-(1|2|3|4|5|6|7|8|9|10|11)\/(1|2|3|4|5|6|7|8|9|10|11)/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+  ],
   theme: {
     screens: {
       'sm': '640px',
