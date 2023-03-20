@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import HomePage from './pages/home-page.vue';
+import AppNavigationBarVue from './components/layout/AppNavigationBar.vue';
+import AppFooterVue from './components/layout/AppFooter.vue';
 </script>
-
 <template>
-  <home-page />
+  <app-navigation-bar-vue />
+  <router-view></router-view>
+  <app-footer-vue />
 </template>
 
 <style scoped></style>

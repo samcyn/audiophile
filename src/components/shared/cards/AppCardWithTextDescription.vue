@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import { defineProps, withDefaults } from 'vue';
+import {
+  defineProps,
+  withDefaults,
+  Events,
+} from 'vue';
+
+import AppButton from '../AppButton.vue';
 
 interface AppCardProps {
   subTitle?: string;
   title: string;
   description?: string;
+  buttonText?: string;
 }
 
 // set defaults props
@@ -12,15 +19,22 @@ withDefaults(defineProps<AppCardProps>(), {
   subTitle: '',
   title: '',
   description: '',
+  buttonText: '',
 });
+
+const emit = defineEmits(['onActionButtonClick']);
+
+const onClick = (event: Events['onClick']) => {
+  emit('onActionButtonClick', event);
+};
 </script>
 <template>
   <div class="card overflow-hidden">
     <div class="card__body">
       <slot name="subTitle">
         <h5
-          v-if="title"
-          class="card__subtitle font-normal uppercase text-center mb-4 lg:text-left"
+          v-if="subTitle"
+          class="card__subtitle font-normal uppercase text-center text-orange-100 mb-4 lg:text-left"
         >
           {{ subTitle }}
         </h5>
@@ -28,7 +42,7 @@ withDefaults(defineProps<AppCardProps>(), {
       <slot name="title">
         <h3
           v-if="title"
-          class="card__title font-bold text-center uppercase text-black-100 mb-6 lg:text-left"
+          class="card__title font-bold text-center uppercase text-black-100 mb-6 md:mb-8 lg:text-left"
         >
           {{ title }}
         </h3>
@@ -39,6 +53,19 @@ withDefaults(defineProps<AppCardProps>(), {
           class="card__description font-medium text-center text-black-100/50 lg:text-left"
         >
           {{ description }}
+        </div>
+      </slot>
+      <slot name="buttonText">
+        <div
+          v-if="buttonText"
+          class="flex justify-center items-center mt-6 lg:justify-start lg:mt-10"
+        >
+          <app-button
+            variant="contained"
+            @click="onClick"
+          >
+            {{ buttonText }}
+          </app-button>
         </div>
       </slot>
     </div>

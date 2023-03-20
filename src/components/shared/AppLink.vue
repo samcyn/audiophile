@@ -22,7 +22,8 @@ withDefaults(defineProps<AppLinkProps>(), {
 });
 </script>
 <template>
-  <a :href="url" :target="target" :rel="rel"
+  <!-- <a :href="url" :target="target" :rel="rel"
     ><slot>{{ text }}</slot></a
-  >
+  > -->
+  <router-link :to="url"><slot /></router-link>
 </template>

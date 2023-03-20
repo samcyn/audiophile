@@ -1,84 +1,17 @@
 <script setup lang="ts">
-// layouts
-import AppNavigationBarVue from '../components/layout/AppNavigationBar.vue';
-import AppFooterVue from '../components/layout/AppFooter.vue';
-import AppHeroComponentVue from '../components/home-page/AppHeroComponent.vue';
-
-// cards
-import AppProductCard2 from '../components/home-page/AppProductCard2.vue';
-import AppProductCard3 from '../components/home-page/AppProductCard3.vue';
 import AppCardWithOverlay from '../components/shared/cards/AppCardWithOverlay.vue';
-import AppCardWithActionButton from '../components/shared/cards/AppCardWithActionButton.vue';
 import AppCardWithTextDescription from '../components/shared/cards/AppCardWithTextDescription.vue';
-import AppCardWithFloatingImage from '../components/shared/cards/AppCardWithFloatingImage.vue';
 
 // grids
 import AppGrid from '../components/shared/AppGrid.vue';
 import AppCol from '../components/shared/AppCol.vue';
 
-// uis
-import ImageProduct from '/src/assets/product-xx99-mark-one-headphones/mobile/image-product.svg';
-import ImageSpeakerMobile from '/src/assets/home/mobile/image-speaker-zx9.png';
-import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-product.jpg';
 import ImageBestGear from '/src/assets/shared/mobile/image-best-gear.jpg';
 import ImageBestGearDesktop from '/src/assets/shared/desktop/image-best-gear.jpg';
 import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
 </script>
-
 <template>
-  <app-navigation-bar-vue />
-  <app-hero-component-vue />
-  <section
-    class="container pt-10 md:pt-24 lg:pt-[120px] pb-[120px] md:pb-24 lg:pb-[168px]"
-  >
-    <!-- grid system -->
-    <app-grid class="-my-2">
-      <app-col class="py-2 md:basis-4/12">
-        <app-card-with-floating-image
-          :image="ImageProduct"
-        />
-      </app-col>
-      <app-col class="py-2 md:basis-4/12">
-        <app-card-with-floating-image
-          :image="ImageSpeakerMobile"
-        />
-      </app-col>
-      <app-col class="py-2 md:basis-4/12">
-        <app-card-with-floating-image
-          :image="ImageEarPhone"
-        />
-      </app-col>
-    </app-grid>
-  </section>
-  <!-- products cards -->
   <section class="container">
-    <app-product-card2
-      class="mb-6 md:mb-8 lg:mb-12"
-    />
-    <app-product-card3
-      class="mb-6 md:mb-8 lg:mb-12"
-    />
-  </section>
-
-  <section
-    class="container pb-[120px] md:pb-24 xl:pb-[200px]"
-  >
-    <!-- grid system -->
-    <app-grid>
-      <app-col class="md:basis-1/2">
-        <app-card-with-overlay
-          class="mb-6 md:mb-0 h-[200px] md:h-80"
-        />
-      </app-col>
-      <app-col class="md:basis-1/2">
-        <app-card-with-action-button />
-      </app-col>
-    </app-grid>
-  </section>
-  <!-- use two column component -->
-  <section
-    class="container pb-[120px] md:pb-24 xl:pb-[200px]"
-  >
     <app-grid class="lg:flex-row-reverse">
       <app-col class="lg:basis-1/2">
         <app-card-with-overlay
@@ -127,9 +60,7 @@ import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
       </app-col>
     </app-grid>
   </section>
-  <app-footer-vue />
 </template>
-
 <style scoped>
 .card__title {
   font-size: 28px;

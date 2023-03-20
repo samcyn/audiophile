@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import AppImage from '../AppImage.vue';
+
 import ImageSpeakerMobile from '/src/assets/home/mobile/image-earphones-yx1.jpg';
 import ImageSpeakerTablet from '/src/assets/home/tablet/image-earphones-yx1.jpg';
 import ImageSpeakerDesktop from '/src/assets/home/desktop/image-earphones-yx1.jpg';
@@ -22,17 +24,17 @@ withDefaults(defineProps<AppCardProps>(), {
   >
     <figure class="card__figure w-full h-full">
       <slot>
-        <img
+        <app-image
           :src="imageMobile"
           class="card__image h-full w-full md:hidden"
           alt="product image"
         />
-        <img
+        <app-image
           :src="imageTablet"
           class="card__image h-full w-full hidden md:inline xl:hidden"
           alt="product image"
         />
-        <img
+        <app-image
           :src="imageDesktop"
           class="card__image h-full w-full hidden xl:inline"
           alt="product image"

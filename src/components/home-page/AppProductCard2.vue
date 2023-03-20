@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue';
 import AppButton from '../shared/AppButton.vue';
+import AppImage from '../shared/AppImage.vue';
+
 import ImageSpeakerMobile from '../../assets/home/mobile/image-speaker-zx9.png';
 import PatternCircle from '../../assets/home/desktop/pattern-circles.svg';
 
@@ -37,7 +39,7 @@ withDefaults(defineProps<AppCardProps>(), {
       <figure
         class="card__figure mb-8 md:mb-16 m-auto xl:mb-0"
       >
-        <img
+        <app-image
           :src="image"
           class="card__image"
           alt="product image"
@@ -46,10 +48,10 @@ withDefaults(defineProps<AppCardProps>(), {
       <div
         class="card__textArea flex flex-col items-center xl:items-start xl:pt-10"
       >
-        <h5
+        <p
           class="card__title text-white font-bold text-center uppercase mb-6 xl:text-left"
           v-html="title"
-        ></h5>
+        ></p>
         <p
           class="card__description text-center text-white/75 font-medium mb-6 md:mb-10 xl:text-left"
           v-html="description"

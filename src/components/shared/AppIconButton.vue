@@ -1,5 +1,9 @@
 <template>
-  <button :class="className" type="button">
+  <button
+    :class="className"
+    type="button"
+    :aria-label="icon"
+  >
     <app-icon
       :size="size"
       :color="color"

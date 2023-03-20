@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue';
 import AppButton from '../shared/AppButton.vue';
+import AppImage from '../shared/AppImage.vue';
+
 import ImageSpeakerMobile from '../../assets/home/mobile/image-speaker-zx7.jpg';
 import ImageSpeakerTablet from '../../assets/home/tablet/image-speaker-zx7.jpg';
 import ImageSpeakerDesktop from '../../assets/home/desktop/image-speaker-zx7.jpg';
@@ -23,17 +25,17 @@ withDefaults(defineProps<AppCardProps>(), {
     class="card bg-grey-100/5 relative rounded-lg overflow-hidden"
   >
     <figure class="card__figure w-full absolute">
-      <img
+      <app-image
         :src="image"
         class="card__image h-full w-full md:hidden"
         alt="product image"
       />
-      <img
+      <app-image
         :src="ImageSpeakerTablet"
         class="card__image h-full w-full hidden md:inline xl:hidden"
         alt="product image"
       />
-      <img
+      <app-image
         :src="ImageSpeakerDesktop"
         class="card__image h-full w-full hidden xl:inline"
         alt="product image"

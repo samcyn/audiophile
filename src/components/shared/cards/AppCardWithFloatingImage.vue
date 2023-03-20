@@ -2,6 +2,7 @@
 import { defineProps, withDefaults } from 'vue';
 import AppButton from '../AppButton.vue';
 import AppIcon from '../AppIcon.vue';
+import AppImage from '../AppImage.vue';
 // define components models
 interface AppCardProps {
   title?: string;
@@ -23,7 +24,7 @@ withDefaults(defineProps<AppCardProps>(), {
     >
       <figure class="card__figure mb-9 relative">
         <slot name="image">
-          <img
+          <app-image
             :src="image"
             alt="product card image"
             class="card__image"
@@ -33,9 +34,9 @@ withDefaults(defineProps<AppCardProps>(), {
           class="card__oval absolute bottom-0"
         ></div>
       </figure>
-      <h5 class="card__title">
+      <p class="card__title">
         {{ title }}
-      </h5>
+      </p>
       <app-button variant="text">
         <span class="mr-1.5">Shop</span>
         <app-icon

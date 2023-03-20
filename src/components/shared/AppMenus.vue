@@ -42,7 +42,7 @@ const linksClasses = computed(() => {
   >
     <li class="menus__items md:-ml-4">
       <app-link
-        url="https://icons.getbootstrap.com/"
+        url="/"
         class="links flex text-white font-bold uppercase m-0 hover:text-orange-100"
         :class="linksClasses"
         >Home</app-link
@@ -50,7 +50,7 @@ const linksClasses = computed(() => {
     </li>
     <li>
       <app-link
-        url="https://icons.getbootstrap.com/"
+        url="/headphones"
         class="links flex text-white font-bold uppercase m-0 hover:text-orange-100"
         :class="linksClasses"
         >Headphones</app-link
@@ -58,7 +58,7 @@ const linksClasses = computed(() => {
     </li>
     <li>
       <app-link
-        url="https://icons.getbootstrap.com/"
+        url="/speakers"
         class="links flex text-white font-bold uppercase m-0 hover:text-orange-100"
         :class="linksClasses"
         >Speakers</app-link
@@ -66,7 +66,7 @@ const linksClasses = computed(() => {
     </li>
     <li class="md:-mr-4">
       <app-link
-        url="https://icons.getbootstrap.com/"
+        url="/earphones"
         class="links flex text-white font-bold uppercase m-0 hover:text-orange-100"
         :class="linksClasses"
         >Earphones</app-link

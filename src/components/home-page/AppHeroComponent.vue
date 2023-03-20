@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppButton from '../shared/AppButton.vue';
+import AppImage from '../shared/AppImage.vue';
 
 import ImageHeaderMobile from '/src/assets/home/mobile/image-header.jpg';
 import ImageHeaderTablet from '/src/assets/home/tablet/image-header.jpg';
@@ -52,17 +53,17 @@ withDefaults(
       <figure
         class="card__figure absolute block left-0 top-0 w-full h-full opacity-50"
       >
-        <img
+        <app-image
           class="w-full absolute bottom-0 md:hidden"
           :src="imageMobile"
           alt="image"
         />
-        <img
+        <app-image
           class="w-full absolute bottom-0 hidden md:block lg:hidden"
           :src="imageTablet"
           alt="image"
         />
-        <img
+        <app-image
           class="w-full absolute bottom-0 hidden md:hidden lg:block"
           :src="imageDesktop"
           alt="image"
