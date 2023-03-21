@@ -2,12 +2,14 @@ import {
   createWebHistory,
   createRouter,
   RouteRecordRaw,
+  RouterView,
 } from 'vue-router';
 
 import AppHomePage from './pages/AppHomePage.vue';
 import AppHeadPhonesPage from './pages/AppHeadPhonesPage.vue';
 import AppSpeakersPage from './pages/AppSpeakersPage.vue';
 import AppEarPhonesPage from './pages/AppEarPhonesPage.vue';
+import AppHeadPhonesDetailedPage from './pages/AppHeadPhonesDetailedPage.vue';
 
 const routes: Readonly<RouteRecordRaw[]> = [
   {
@@ -18,7 +20,19 @@ const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: '/headphones',
     name: 'headphones',
-    component: AppHeadPhonesPage,
+    component: RouterView,
+    children: [
+      {
+        path: '',
+        name: 'headphones-root',
+        component: AppHeadPhonesPage,
+      },
+      {
+        path: ':id/detail',
+        name: 'headphones-detailed',
+        component: AppHeadPhonesDetailedPage,
+      },
+    ],
   },
   {
     path: '/speakers',

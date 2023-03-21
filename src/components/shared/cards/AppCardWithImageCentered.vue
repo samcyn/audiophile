@@ -22,7 +22,7 @@ withDefaults(defineProps<AppCardProps>(), {
 </script>
 <template>
   <div
-    class="card bg-grey-100 rounded-lg overflow-hidden flex justify-center pt-10 xl:p-16 mb-8"
+    class="card bg-grey-100 rounded-lg overflow-hidden flex justify-center"
   >
     <figure class="card__figure">
       <slot name="image">
@@ -46,18 +46,7 @@ withDefaults(defineProps<AppCardProps>(), {
   </div>
 </template>
 <style scoped>
-.card {
-  padding-bottom: 68px;
-  padding-left: 42px;
-  padding-right: 42px;
-}
-
 .card__image {
-  height: 244px;
-}
-@media (min-width: 1024px) {
-  .card__image {
-    height: 386px;
-  }
+  max-height: 100%;
 }
 </style>

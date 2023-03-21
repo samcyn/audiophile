@@ -16,6 +16,8 @@ interface AppTwoColumnModuleProps {
   subTitle?: string;
   description?: string;
   buttonText?: string;
+  cardWithTextExtraClass?: string;
+  cardWithImageCentered?: string;
 }
 withDefaults(
   defineProps<AppTwoColumnModuleProps>(),
@@ -28,6 +30,8 @@ withDefaults(
     subTitle: '',
     description: '',
     buttonText: '',
+    cardWithTextExtraClass: '',
+    cardWithImageCentered: '',
   }
 );
 const onActionButtonClick = (ev: Event) => {
@@ -44,13 +48,15 @@ const onActionButtonClick = (ev: Event) => {
       }`"
     >
       <app-card-with-image-centered
-        class="w-full md:mb-[52px] lg:mb-0 lg:w-[540px]"
+        class="w-full md:mb-[52px] lg:mb-0"
+        :class="cardWithImageCentered"
         :image-mobile="imageMobile"
         :image-tablet="imageTablet"
         :image-desktop="imageDesktop"
       />
       <app-card-with-text-description
-        class="w-full md:w-[563px] md:mx-auto lg:w-[445px]"
+        class="w-full md:mx-auto"
+        :class="cardWithTextExtraClass"
         :sub-title="subTitle"
         :title="title"
         :description="description"
@@ -58,7 +64,11 @@ const onActionButtonClick = (ev: Event) => {
         @on-action-button-click="
           onActionButtonClick
         "
-      />
+      >
+        <template #default>
+          <slot name="extraContent"></slot>
+        </template>
+      </app-card-with-text-description>
     </div>
   </section>
 </template>

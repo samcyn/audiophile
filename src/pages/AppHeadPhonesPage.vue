@@ -23,6 +23,8 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
   <!-- two column module -->
   <app-two-column-module
     class="mb-[120px] lg:mb-40"
+    card-with-image-centered="lg:w-[540px]"
+    card-with-text-extra-class="md:w-[563px] lg:w-[445px]"
     title="XX99 Mark I Headphones"
     button-text="see product"
     reverse
@@ -30,6 +32,8 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
 
   <app-two-column-module
     class="mb-[120px] lg:mb-40"
+    card-with-image-centered="lg:w-[540px]"
+    card-with-text-extra-class="md:w-[563px] lg:w-[445px]"
     title="XX99 Mark I Headphones"
     button-text="see product"
   />

@@ -34,7 +34,7 @@ const onClick = (event: Events['onClick']) => {
       <slot name="subTitle">
         <h5
           v-if="subTitle"
-          class="card__subtitle font-normal uppercase text-center text-orange-100 mb-4 lg:text-left"
+          class="card__subtitle font-normal uppercase text-orange-100 mb-4 lg:text-left"
         >
           {{ subTitle }}
         </h5>
@@ -42,7 +42,7 @@ const onClick = (event: Events['onClick']) => {
       <slot name="title">
         <h3
           v-if="title"
-          class="card__title font-bold text-center uppercase text-black-100 mb-6 md:mb-8 lg:text-left"
+          class="card__title font-bold uppercase text-black-100 mb-6 md:mb-8 lg:text-left"
         >
           {{ title }}
         </h3>
@@ -50,7 +50,7 @@ const onClick = (event: Events['onClick']) => {
       <slot name="description">
         <div
           v-if="description"
-          class="card__description font-medium text-center text-black-100/50 lg:text-left"
+          class="card__description font-medium text-black-100/50 lg:text-left"
         >
           {{ description }}
         </div>
@@ -68,6 +68,8 @@ const onClick = (event: Events['onClick']) => {
           </app-button>
         </div>
       </slot>
+      <!-- default slot for other contents -->
+      <slot></slot>
     </div>
   </div>
 </template>
