@@ -13,18 +13,29 @@ import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-produc
 <template>
   <section class="container">
     <!-- grid system -->
-    <app-grid class="-my-2">
-      <app-col class="py-2 md:basis-4/12">
+    <app-grid
+      class="-mx-[5px] md:my-0 lg:-mx-[15px]"
+    >
+      <app-col
+        class="px-[5px] md:py-0 md:basis-4/12 lg:px-[15px]"
+      >
         <app-card-with-floating-image
+          class="mb-4 md:mb-0"
           :image="ImageProduct"
         />
       </app-col>
-      <app-col class="py-2 md:basis-4/12">
+      <app-col
+        class="px-[5px] md:py-0 md:basis-4/12 lg:px-[15px]"
+      >
         <app-card-with-floating-image
+          class="mb-4 md:mb-0"
           :image="ImageSpeakerMobile"
         />
       </app-col>
-      <app-col class="py-2 md:basis-4/12">
+      <app-col
+        class="px-[5px] md:py-0 md:basis-4/12 lg:px-[15px]"
+      >
+        <!-- last item margin bottom is zero -->
         <app-card-with-floating-image
           :image="ImageEarPhone"
         />

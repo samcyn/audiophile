@@ -16,19 +16,50 @@ import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
   >
     <app-link
       url="/headphones"
-      class="text-black-100/50 font-medium"
+      class="text-black-100/50 font-medium lg:text-[15px] lg:leading-[25px]"
       >Go Back</app-link
     >
   </div>
   <!-- two column module -->
   <app-two-column-module
     class="mb-[88px] md:mb-[120px] lg:mb-40"
-    card-with-image-centered="pb-[68px] pl-[42px] pr-[42px] pt-10 xl:p-16 h-[327px] mb-10"
-    title="XX99 Mark II Headphones"
-    description="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound."
+    flex-container-class="flex-col md:flex-row md:gap-[69px] md:items-center lg:flex-row lg:gap-[125px] lg:items-center"
+    card-with-image-centered="
+      pb-[68px] pl-[42px] pr-[42px] pt-10 xl:p-16 
+      h-[327px] mb-10 md:w-[281px] md:mb-0 md:shrink-0 
+      md:h-[480px] lg:w-[540px] lg:h-[560px]
+    "
+    card-with-text-extra-class="md:max-w-[339px] lg:max-w-[445px]"
   >
+    <template #subTitle>
+      <p
+        class="cardSubTitle text-xs font-normal uppercase text-orange-100 mb-4 lg:text-left lg:text-[14px] lg:leading-[19px]"
+      >
+        New Product
+      </p>
+    </template>
+    <template #title>
+      <p
+        class="cardTitle font-bold uppercase text-black-100 mb-6 md:mb-8 lg:text-left"
+      >
+        XX99 Mark II Headphones
+      </p>
+    </template>
+    <template #description>
+      <slot name="description">
+        <div
+          class="cardDescription font-medium text-black-100/50 lg:text-left"
+        >
+          The new XX99 Mark II headphones is the
+          pinnacle of pristine audio. It redefines
+          your premium headphone experience by
+          reproducing the balanced depth and
+          precision of studio-quality sound.
+        </div>
+      </slot>
+    </template>
     <template #extraContent>
-      <div class="mt-6">
+      <div class="mt-6 lg:mt-8">
         <p
           class="item_price font-bold uppercase text-black-100"
         >
@@ -43,6 +74,7 @@ import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
   </app-two-column-module>
 
   <app-in-the-box-module
+    class="flex-col lg:flex-row lg:gap-[125px] lg:items-center"
     box-title="In the Box"
     card-title="Feature"
     :card-description="`Featuring a genuine leather head strap and
@@ -89,5 +121,37 @@ import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
   line-height: 25px;
   letter-spacing: 1.28571px;
   margin-bottom: 31px;
+}
+.cardSubTitle {
+  letter-spacing: 8.57143px;
+}
+.cardTitle {
+  font-size: 28px;
+  line-height: 38px;
+  letter-spacing: 1px;
+}
+.cardDescription {
+  font-size: 15px;
+  line-height: 25px;
+  mix-blend-mode: normal;
+}
+
+@media (min-width: 768px) {
+  .cardTitle {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardTitle {
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: 1.42857px;
+  }
+  .item_price {
+    margin-bottom: 47px;
+  }
 }
 </style>

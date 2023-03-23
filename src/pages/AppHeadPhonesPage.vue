@@ -15,6 +15,7 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
   <!-- two column module -->
   <app-two-column-module
     class="mb-[120px] lg:mb-40"
+    flex-container-class="flex-col lg:flex-row lg:gap-[125px] lg:items-center"
     sub-title="see product"
     title="XX99 Mark II Headphones"
     button-text="see product"
@@ -23,6 +24,7 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
   <!-- two column module -->
   <app-two-column-module
     class="mb-[120px] lg:mb-40"
+    flex-container-class="flex-col lg:flex-row lg:gap-[125px] lg:items-center"
     card-with-image-centered="lg:w-[540px]"
     card-with-text-extra-class="md:w-[563px] lg:w-[445px]"
     title="XX99 Mark I Headphones"
@@ -32,6 +34,7 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
 
   <app-two-column-module
     class="mb-[120px] lg:mb-40"
+    flex-container-class="flex-col lg:flex-row lg:gap-[125px] lg:items-center"
     card-with-image-centered="lg:w-[540px]"
     card-with-text-extra-class="md:w-[563px] lg:w-[445px]"
     title="XX99 Mark I Headphones"

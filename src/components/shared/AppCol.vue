@@ -118,7 +118,7 @@
 // const { colStyles, classes } = useGridCol(props);
 </script>
 <template>
-  <div class="basis-full px-[5px] lg:px-[15px]">
+  <div class="basis-full">
     <slot></slot>
   </div>
 </template>

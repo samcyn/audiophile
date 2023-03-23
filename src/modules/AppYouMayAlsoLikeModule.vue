@@ -2,6 +2,8 @@
 import AppCardWithTextDescription from '../components/shared/cards/AppCardWithTextDescription.vue';
 import AppCardWithImageCentered from '../components/shared/cards/AppCardWithImageCentered.vue';
 
+import AppButton from '../components/shared/AppButton.vue';
+
 // grids
 import AppGrid from '../components/shared/AppGrid.vue';
 import AppCol from '../components/shared/AppCol.vue';
@@ -35,11 +37,13 @@ const onActionButtonClick = (ev: Event) => {
 <template>
   <section class="mb-[120px] lg:mb-40">
     <div class="container">
-      <app-grid>
-        <app-col class="md:basis-4/12 md:w-4/12">
-          <div class="mb-14 lg:mb-0">
+      <app-grid class="-mx-[5px] lg:-mx-[15px]">
+        <app-col
+          class="px-[5px] md:basis-4/12 md:w-4/12 lg:px-[15px]"
+        >
+          <div class="mb-14 md:mb-0">
             <app-card-with-image-centered
-              class="py-3 h-[120px]"
+              class="py-3 h-[120px] md:h-[318px]"
               :image-mobile="imageMobile"
               :image-tablet="imageTablet"
               :image-desktop="imageDesktop"
@@ -53,18 +57,29 @@ const onActionButtonClick = (ev: Event) => {
             >
               <template #title>
                 <p
-                  class="card__title font-bold uppercase text-black-100 text-center mt-8 mb-8 md:mb-8 lg:text-left"
+                  class="card__title font-bold uppercase text-black-100 text-center mt-8 mb-8 lg:mt-10 lg:text-center"
                 >
                   {{ title }}
                 </p>
               </template>
+              <template #buttonText>
+                <div
+                  class="flex justify-center items-center"
+                >
+                  <app-button variant="contained">
+                    {{ buttonText }}
+                  </app-button>
+                </div>
+              </template>
             </app-card-with-text-description>
           </div>
         </app-col>
-        <app-col class="md:basis-4/12 md:w-4/12">
-          <div class="mb-14 lg:mb-0">
+        <app-col
+          class="px-[5px] md:basis-4/12 md:w-4/12 lg:px-[15px]"
+        >
+          <div class="mb-14 md:mb-0">
             <app-card-with-image-centered
-              class="py-3 h-[120px]"
+              class="py-3 h-[120px] md:h-[318px]"
               :image-mobile="imageMobile"
               :image-tablet="imageTablet"
               :image-desktop="imageDesktop"
@@ -78,18 +93,30 @@ const onActionButtonClick = (ev: Event) => {
             >
               <template #title>
                 <p
-                  class="card__title font-bold uppercase text-black-100 text-center mt-8 mb-8 md:mb-8 lg:text-left"
+                  class="card__title font-bold uppercase text-black-100 text-center mt-8 mb-8 lg:mt-10 lg:text-center"
                 >
                   {{ title }}
                 </p>
               </template>
+              <template #buttonText>
+                <div
+                  class="flex justify-center items-center"
+                >
+                  <app-button variant="contained">
+                    {{ buttonText }}
+                  </app-button>
+                </div>
+              </template>
             </app-card-with-text-description>
           </div>
         </app-col>
-        <app-col class="md:basis-4/12 md:w-4/12">
+        <app-col
+          class="px-[5px] md:basis-4/12 md:w-4/12 lg:px-[15px]"
+        >
+          <!-- last item margin bottom is zero -->
           <div>
             <app-card-with-image-centered
-              class="py-3 h-[120px]"
+              class="py-3 h-[120px] md:h-[318px]"
               :image-mobile="imageMobile"
               :image-tablet="imageTablet"
               :image-desktop="imageDesktop"
@@ -103,10 +130,19 @@ const onActionButtonClick = (ev: Event) => {
             >
               <template #title>
                 <p
-                  class="card__title font-bold uppercase text-black-100 text-center mt-8 mb-8 md:mb-8 lg:text-left"
+                  class="card__title font-bold uppercase text-black-100 text-center mt-8 mb-8 lg:mt-10 lg:text-center"
                 >
                   {{ title }}
                 </p>
+              </template>
+              <template #buttonText>
+                <div
+                  class="flex justify-center items-center"
+                >
+                  <app-button variant="contained">
+                    {{ buttonText }}
+                  </app-button>
+                </div>
               </template>
             </app-card-with-text-description>
           </div>

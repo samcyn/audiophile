@@ -23,26 +23,30 @@ withDefaults(defineProps<Props>(), {
 <template>
   <section class="mb-[120px] lg:mb-40">
     <div class="container">
-      <app-grid class="-my-2 md:-mx-2.5">
+      <app-grid
+        class="-mx-[5px] -my-2 md:my-0 md:-mx-[9px] lg:-mx-[15px]"
+      >
         <app-col
-          class="py-2 md:px-2.5 md:basis-5/12"
+          class="px-[5px] py-2 md:py-0 md:px-[9px] md:basis-5/12 lg:px-[15px]"
         >
-          <app-grid class="-my-2 md:-my-2.5">
+          <app-grid
+            class="-mx-[5px] -my-2 md:-my-2.5 lg:-my-4"
+          >
             <app-col
-              class="py-2 md:py-2.5 md:basis-full"
+              class="px-[5px] py-2 md:py-2.5 md:basis-full lg:py-4"
             >
               <app-card-with-overlay
-                class="h-[174px]"
+                class="h-[174px] lg:h-[280px]"
                 :image-mobile="imageMobile"
                 :image-tablet="imageTablet"
                 :image-desktop="imageDesktop"
               />
             </app-col>
             <app-col
-              class="py-2 md:py-2.5 md:basis-full"
+              class="px-[5px] py-2 md:py-2.5 md:basis-full lg:py-4"
             >
               <app-card-with-overlay
-                class="h-[174px]"
+                class="h-[174px] lg:h-[280px]"
                 :image-mobile="imageMobile"
                 :image-tablet="imageTablet"
                 :image-desktop="imageDesktop"
@@ -51,10 +55,10 @@ withDefaults(defineProps<Props>(), {
           </app-grid>
         </app-col>
         <app-col
-          class="py-2 md:px-2.5 md:basis-7/12"
+          class="px-[5px] py-2 md:py-0 md:px-[9px] md:basis-7/12 lg:px-[15px]"
         >
           <app-card-with-overlay
-            class="h-[368px]"
+            class="h-[368px] lg:h-[592px]"
             :image-mobile="imageMobile"
             :image-tablet="imageTablet"
             :image-desktop="imageDesktop"

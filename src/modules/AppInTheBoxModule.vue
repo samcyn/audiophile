@@ -39,7 +39,7 @@ withDefaults(defineProps<Props>(), {
 
         <!-- box -->
         <div
-          class="box flex flex-col gap-6 md:gap-0 lg:gap-8 md:flex-row lg:flex-col"
+          class="box flex flex-col gap-6 md:gap-[11px] md:flex-row lg:flex-col lg:gap-8"
         >
           <slot name="boxTitle">
             <p
@@ -51,7 +51,7 @@ withDefaults(defineProps<Props>(), {
           <ul class="list-none p-0 m-0">
             <li class="box__listItem">
               <span
-                class="box__spanIndicator font-bold text-orange-100"
+                class="box__spanIndicator font-bold text-orange-100 mr-6"
                 >2x</span
               ><span
                 class="box__spanText font-medium text-black-100/50"
@@ -60,7 +60,7 @@ withDefaults(defineProps<Props>(), {
             </li>
             <li class="box__listItem">
               <span
-                class="box__spanIndicator font-bold text-orange-100"
+                class="box__spanIndicator font-bold text-orange-100 mr-6"
                 >2x</span
               ><span
                 class="box__spanText font-medium text-black-100/50"
@@ -103,7 +103,7 @@ withDefaults(defineProps<Props>(), {
 
 @media (min-width: 768px) {
   .box {
-    gap: 11px;
+    /* gap: 11px; */
   }
   .box__title,
   .card__title {

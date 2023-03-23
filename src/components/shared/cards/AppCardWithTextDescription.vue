@@ -58,7 +58,7 @@ const onClick = (event: Events['onClick']) => {
       <slot name="buttonText">
         <div
           v-if="buttonText"
-          class="flex justify-center items-center mt-6 lg:justify-start lg:mt-10"
+          class="flex justify-center items-center lg:justify-start"
         >
           <app-button
             variant="contained"

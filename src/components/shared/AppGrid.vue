@@ -17,9 +17,7 @@
 // const { rowStyles } = useGridRow(props);
 </script>
 <template>
-  <div
-    class="flex flex-wrap -mx-[5px] lg:-mx-[15px]"
-  >
+  <div class="flex flex-wrap">
     <slot></slot>
   </div>
 </template>

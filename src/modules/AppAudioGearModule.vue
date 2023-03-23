@@ -15,7 +15,7 @@ import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
     <app-grid class="lg:flex-row-reverse">
       <app-col class="lg:basis-1/2">
         <app-card-with-overlay
-          class="mb-10 md:mb-[63px] lg:mb-0 h-[300px] lg:h-[400px] xl:h-[588px]"
+          class="mb-10 md:mb-[63px] lg:mb-0 h-[300px] lg:h-[400px] xl:w-[540px] xl:h-[588px] xl:ml-auto"
           :image-mobile="ImageBestGear"
           :image-tablet="ImageBestGearTablet"
           :image-desktop="ImageBestGearDesktop"
@@ -25,7 +25,7 @@ import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
         class="flex items-center lg:basis-1/2"
       >
         <app-card-with-text-description
-          class="xl:max-w-[445px] md:w-[563px] md:mx-auto"
+          class="lg:max-w-[445px] md:w-[563px] md:mx-auto lg:mx-0"
         >
           <template #title>
             <h3
