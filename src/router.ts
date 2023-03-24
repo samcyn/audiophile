@@ -37,12 +37,36 @@ const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: '/speakers',
     name: 'speakers',
-    component: AppSpeakersPage,
+    component: RouterView,
+    children: [
+      {
+        path: '',
+        name: 'speakers-root',
+        component: AppSpeakersPage,
+      },
+      {
+        path: ':id/detail',
+        name: 'speakers-detailed',
+        component: AppSpeakersPage,
+      },
+    ],
   },
   {
     path: '/earphones',
     name: 'earphones',
-    component: AppEarPhonesPage,
+    component: RouterView,
+    children: [
+      {
+        path: '',
+        name: 'earphones-root',
+        component: AppEarPhonesPage,
+      },
+      {
+        path: ':id/detail',
+        name: 'earphones-detailed',
+        component: AppEarPhonesPage,
+      },
+    ],
   },
 ];
 

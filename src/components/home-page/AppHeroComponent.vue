@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { Events } from 'vue';
-
 import AppButton from '../shared/AppButton.vue';
 import AppImage from '../shared/AppImage.vue';
+
+import useNavigations from '../../hooks/useNavigations';
 
 import ImageHeaderMobile from '/src/assets/home/mobile/image-header.jpg';
 import ImageHeaderTablet from '/src/assets/home/tablet/image-header.jpg';
 import ImageHeaderDesktop from '/src/assets/home/desktop/image-hero.svg';
 
 interface AppHeroComponentProps {
+  slug: string;
   subTitle?: string;
   title?: string;
   description?: string;
@@ -18,7 +19,7 @@ interface AppHeroComponentProps {
 }
 
 // set defaults props
-withDefaults(
+const props = withDefaults(
   defineProps<AppHeroComponentProps>(),
   {
     subTitle: 'NEW PRODUCT',
@@ -31,10 +32,14 @@ withDefaults(
     imageDesktop: ImageHeaderDesktop,
   }
 );
-const emit = defineEmits(['onActionButtonClick']);
 
-const onClick = (event: Events['onClick']) => {
-  emit('onActionButtonClick', event);
+const { pushToRoute } = useNavigations();
+
+const onClick = () => {
+  pushToRoute({
+    name: 'headphones-detailed',
+    params: { id: props.slug },
+  });
 };
 </script>
 <template>

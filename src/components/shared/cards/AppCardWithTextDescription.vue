@@ -9,7 +9,7 @@ import AppButton from '../AppButton.vue';
 
 interface AppCardProps {
   subTitle?: string;
-  title: string;
+  title?: string;
   description?: string;
   buttonText?: string;
 }

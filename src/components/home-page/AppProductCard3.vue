@@ -3,11 +3,14 @@ import { defineProps, withDefaults } from 'vue';
 import AppButton from '../shared/AppButton.vue';
 import AppImage from '../shared/AppImage.vue';
 
+import useNavigations from '../../hooks/useNavigations';
+
 import ImageSpeakerMobile from '../../assets/home/mobile/image-speaker-zx7.jpg';
 import ImageSpeakerTablet from '../../assets/home/tablet/image-speaker-zx7.jpg';
 import ImageSpeakerDesktop from '../../assets/home/desktop/image-speaker-zx7.jpg';
 // define components models
 interface AppCardProps {
+  slug: string;
   title?: string;
   imageMobile?: string;
   imageTablet?: string;
@@ -15,12 +18,24 @@ interface AppCardProps {
 }
 
 // set defaults props
-withDefaults(defineProps<AppCardProps>(), {
-  title: 'ZX7 SPEAKER',
-  imageMobile: ImageSpeakerMobile,
-  imageTablet: ImageSpeakerTablet,
-  imageDesktop: ImageSpeakerDesktop,
-});
+const props = withDefaults(
+  defineProps<AppCardProps>(),
+  {
+    title: 'ZX7 SPEAKER',
+    imageMobile: ImageSpeakerMobile,
+    imageTablet: ImageSpeakerTablet,
+    imageDesktop: ImageSpeakerDesktop,
+  }
+);
+
+const { pushToRoute } = useNavigations();
+
+const onClick = () => {
+  pushToRoute({
+    name: 'speakers-detailed',
+    params: { id: props.slug },
+  });
+};
 </script>
 <template>
   <div
@@ -51,6 +66,7 @@ withDefaults(defineProps<AppCardProps>(), {
       <app-button
         variant="outlined"
         button-type="secondary"
+        @click="onClick"
         >SEE PRODUCT</app-button
       >
     </div>

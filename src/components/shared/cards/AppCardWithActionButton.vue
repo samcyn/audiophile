@@ -1,14 +1,28 @@
 <script setup lang="ts">
 import AppButton from '../AppButton.vue';
+import useNavigations from '../../../hooks/useNavigations';
 
 interface AppCardProps {
+  slug: string;
   title?: string;
 }
 
 // set defaults props
-withDefaults(defineProps<AppCardProps>(), {
-  title: 'YX1 EARPHONES',
-});
+const props = withDefaults(
+  defineProps<AppCardProps>(),
+  {
+    title: 'YX1 EARPHONES',
+  }
+);
+
+const { pushToRoute } = useNavigations();
+
+const onClick = () => {
+  pushToRoute({
+    name: 'earphones-detailed',
+    params: { id: props.slug },
+  });
+};
 </script>
 <template>
   <div
@@ -27,6 +41,7 @@ withDefaults(defineProps<AppCardProps>(), {
         <app-button
           variant="outlined"
           button-type="secondary"
+          @click="onClick"
           >SEE PRODUCT</app-button
         >
       </div>

@@ -5,10 +5,20 @@ import AppCardWithFloatingImage from '../components/shared/cards/AppCardWithFloa
 import AppGrid from '../components/shared/AppGrid.vue';
 import AppCol from '../components/shared/AppCol.vue';
 
+import useNavigations from '../hooks/useNavigations';
+
 // images
 import ImageProduct from '/src/assets/product-xx99-mark-one-headphones/mobile/image-product.svg';
 import ImageSpeakerMobile from '/src/assets/home/mobile/image-speaker-zx9.png';
 import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-product.jpg';
+
+const { pushToRoute } = useNavigations();
+
+const onClick = (name: string) => {
+  pushToRoute({
+    name,
+  });
+};
 </script>
 <template>
   <section class="container">
@@ -20,6 +30,9 @@ import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-produc
         <app-card-with-floating-image
           class="mb-4 md:mb-0"
           :image="ImageProduct"
+          @on-button-click="
+            onClick('headphones-root')
+          "
         />
       </app-col>
       <app-col
@@ -28,6 +41,9 @@ import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-produc
         <app-card-with-floating-image
           class="mb-4 md:mb-0"
           :image="ImageSpeakerMobile"
+          @on-button-click="
+            onClick('speakers-root')
+          "
         />
       </app-col>
       <app-col
@@ -36,6 +52,9 @@ import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-produc
         <!-- last item margin bottom is zero -->
         <app-card-with-floating-image
           :image="ImageEarPhone"
+          @on-button-click="
+            onClick('earphones-root')
+          "
         />
       </app-col>
     </app-grid>

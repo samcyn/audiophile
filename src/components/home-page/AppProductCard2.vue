@@ -3,11 +3,14 @@ import { defineProps, withDefaults } from 'vue';
 import AppButton from '../shared/AppButton.vue';
 import AppImage from '../shared/AppImage.vue';
 
+import useNavigations from '../../hooks/useNavigations';
+
 import ImageSpeakerMobile from '../../assets/home/mobile/image-speaker-zx9.png';
 import PatternCircle from '../../assets/home/desktop/pattern-circles.svg';
 
 // define components models
 interface AppCardProps {
+  slug: string;
   title?: string;
   description?: string;
   imageMobile?: string;
@@ -16,14 +19,26 @@ interface AppCardProps {
 }
 
 // set defaults props
-withDefaults(defineProps<AppCardProps>(), {
-  title: `ZX9 <br /> SPEAKER`,
-  description: `Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.`,
-  image: ImageSpeakerMobile,
-  imageMobile: ImageSpeakerMobile,
-  imageTablet: ImageSpeakerMobile,
-  imageDesktop: ImageSpeakerMobile,
-});
+const props = withDefaults(
+  defineProps<AppCardProps>(),
+  {
+    title: `ZX9 <br /> SPEAKER`,
+    description: `Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.`,
+    image: ImageSpeakerMobile,
+    imageMobile: ImageSpeakerMobile,
+    imageTablet: ImageSpeakerMobile,
+    imageDesktop: ImageSpeakerMobile,
+  }
+);
+
+const { pushToRoute } = useNavigations();
+
+const onClick = () => {
+  pushToRoute({
+    name: 'speakers-detailed',
+    params: { id: props.slug },
+  });
+};
 </script>
 <template>
   <div
@@ -74,6 +89,7 @@ withDefaults(defineProps<AppCardProps>(), {
         <app-button
           button-type="secondary"
           class="card__actionBtn"
+          @click="onClick"
           >SEE PRODUCT</app-button
         >
       </div>

@@ -2,6 +2,7 @@
 import AppButton from '../components/shared/AppButton.vue';
 import AppNumberInput from '../components/shared/AppNumberInput.vue';
 import AppLink from '../components/shared/AppLink.vue';
+
 // modules
 import AppTwoColumnModule from '../modules/AppTwoColumnModule.vue';
 import AppAudioGearModule from '../modules/AppAudioGearModule.vue';
@@ -9,16 +10,25 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
 import AppYouMayAlsoLikeModule from '../modules/AppYouMayAlsoLikeModule.vue';
 import AppSampleModule from '../modules/AppSampleModule.vue';
 import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
+
+import useNavigations from '../hooks/useNavigations';
+
+const { goTo } = useNavigations();
+
+const goBack = () => {
+  goTo(-1);
+};
 </script>
 <template>
   <div
     class="container back-link mt-4 mb-6 md:mt-8 md:mb-6 lg:mt-20 lg:mb-14"
   >
-    <app-link
-      url="/headphones"
-      class="text-black-100/50 font-medium lg:text-[15px] lg:leading-[25px]"
-      >Go Back</app-link
+    <button
+      @click="goBack"
+      class="text-black-100/50 border-0 outline-0 no-underline font-medium lg:text-[15px] lg:leading-[25px]"
     >
+      Go Back
+    </button>
   </div>
   <!-- two column module -->
   <app-two-column-module

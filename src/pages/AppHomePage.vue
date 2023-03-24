@@ -18,6 +18,7 @@ import AppCol from '../components/shared/AppCol.vue';
 
 <template>
   <app-hero-component-vue
+    slug="xx99-mark-two-headphones"
     class="mb-10 md:mb-24 lg:mb-30"
   />
   <app-category-module
@@ -26,9 +27,11 @@ import AppCol from '../components/shared/AppCol.vue';
   <!-- products cards -->
   <section class="container">
     <app-product-card2
+      slug="zx9-speaker"
       class="mb-6 md:mb-8 lg:mb-12"
     />
     <app-product-card3
+      slug="zx7-speaker"
       class="mb-6 md:mb-8 lg:mb-12"
     />
   </section>
@@ -48,7 +51,9 @@ import AppCol from '../components/shared/AppCol.vue';
       <app-col
         class="px-5px lg:px-15px md:basis-1/2"
       >
-        <app-card-with-action-button />
+        <app-card-with-action-button
+          slug="yx1-earphones"
+        />
       </app-col>
     </app-grid>
   </section>

@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { defineProps, withDefaults } from 'vue';
+import {
+  defineProps,
+  withDefaults,
+  defineEmits,
+  Events,
+} from 'vue';
 import AppButton from '../AppButton.vue';
 import AppIcon from '../AppIcon.vue';
 import AppImage from '../AppImage.vue';
@@ -14,6 +19,11 @@ withDefaults(defineProps<AppCardProps>(), {
   title: 'Speaker',
   image: '',
 });
+const emit = defineEmits(['onButtonClick']);
+
+const onClick = (event: Events['onClick']) => {
+  emit('onButtonClick', event);
+};
 </script>
 <template>
   <div
@@ -37,7 +47,7 @@ withDefaults(defineProps<AppCardProps>(), {
       <p class="card__title">
         {{ title }}
       </p>
-      <app-button variant="text">
+      <app-button variant="text" @click="onClick">
         <span class="mr-1.5">Shop</span>
         <app-icon
           class-name="text-orange-100 opacity-100"
