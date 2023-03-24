@@ -9,15 +9,17 @@ import ImageSpeakerDesktop from '../../assets/home/desktop/image-speaker-zx7.jpg
 // define components models
 interface AppCardProps {
   title?: string;
-  description?: string;
-  image?: string;
+  imageMobile?: string;
+  imageTablet?: string;
+  imageDesktop?: string;
 }
 
 // set defaults props
 withDefaults(defineProps<AppCardProps>(), {
   title: 'ZX7 SPEAKER',
-  description: `Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.`,
-  image: ImageSpeakerMobile,
+  imageMobile: ImageSpeakerMobile,
+  imageTablet: ImageSpeakerTablet,
+  imageDesktop: ImageSpeakerDesktop,
 });
 </script>
 <template>
@@ -26,17 +28,17 @@ withDefaults(defineProps<AppCardProps>(), {
   >
     <figure class="card__figure w-full absolute">
       <app-image
-        :src="image"
+        :src="imageMobile"
         class="card__image h-full w-full md:hidden"
         alt="product image"
       />
       <app-image
-        :src="ImageSpeakerTablet"
+        :src="imageTablet"
         class="card__image h-full w-full hidden md:inline xl:hidden"
         alt="product image"
       />
       <app-image
-        :src="ImageSpeakerDesktop"
+        :src="imageDesktop"
         class="card__image h-full w-full hidden xl:inline"
         alt="product image"
       />

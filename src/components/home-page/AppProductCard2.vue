@@ -10,7 +10,9 @@ import PatternCircle from '../../assets/home/desktop/pattern-circles.svg';
 interface AppCardProps {
   title?: string;
   description?: string;
-  image?: string;
+  imageMobile?: string;
+  imageTablet?: string;
+  imageDesktop?: string;
 }
 
 // set defaults props
@@ -18,6 +20,9 @@ withDefaults(defineProps<AppCardProps>(), {
   title: `ZX9 <br /> SPEAKER`,
   description: `Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.`,
   image: ImageSpeakerMobile,
+  imageMobile: ImageSpeakerMobile,
+  imageTablet: ImageSpeakerMobile,
+  imageDesktop: ImageSpeakerMobile,
 });
 </script>
 <template>
@@ -40,9 +45,19 @@ withDefaults(defineProps<AppCardProps>(), {
         class="card__figure mb-8 md:mb-16 m-auto xl:mb-0"
       >
         <app-image
-          :src="image"
-          class="card__image"
-          alt="product image"
+          class="card__image md:hidden"
+          :src="imageMobile"
+          alt="image"
+        />
+        <app-image
+          class="card__image hidden md:block lg:hidden"
+          :src="imageTablet"
+          alt="image"
+        />
+        <app-image
+          class="card__image hidden md:hidden lg:block"
+          :src="imageDesktop"
+          alt="image"
         />
       </figure>
       <div

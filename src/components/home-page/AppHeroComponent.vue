@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Events } from 'vue';
+
 import AppButton from '../shared/AppButton.vue';
 import AppImage from '../shared/AppImage.vue';
 
@@ -7,6 +9,9 @@ import ImageHeaderTablet from '/src/assets/home/tablet/image-header.jpg';
 import ImageHeaderDesktop from '/src/assets/home/desktop/image-hero.svg';
 
 interface AppHeroComponentProps {
+  subTitle?: string;
+  title?: string;
+  description?: string;
   imageMobile?: string;
   imageTablet?: string;
   imageDesktop?: string;
@@ -16,11 +21,21 @@ interface AppHeroComponentProps {
 withDefaults(
   defineProps<AppHeroComponentProps>(),
   {
+    subTitle: 'NEW PRODUCT',
+    title: 'XX99 Mark II HeadphoneS',
+    description: `Experience natural, lifelike audio and
+      exceptional build quality made for the
+      passionate music enthusiast.`,
     imageMobile: ImageHeaderMobile,
     imageTablet: ImageHeaderTablet,
     imageDesktop: ImageHeaderDesktop,
   }
 );
+const emit = defineEmits(['onActionButtonClick']);
+
+const onClick = (event: Events['onClick']) => {
+  emit('onActionButtonClick', event);
+};
 </script>
 <template>
   <section class="relative bg-black-60">
@@ -32,19 +47,19 @@ withDefaults(
           class="product relative text-center mx-auto lg:text-left lg:mx-0 pl-6 pr-6 md:pl-0 md:pr-0"
         >
           <p class="product__subtitle">
-            NEW PRODUCT
+            {{ subTitle }}
           </p>
           <h3 class="product__title">
-            XX99 Mark II HeadphoneS
+            {{ title }}
           </h3>
           <p
             class="product__description mx-auto lg:mx-0"
           >
-            Experience natural, lifelike audio and
-            exceptional build quality made for the
-            passionate music enthusiast.
+            {{ description }}
           </p>
-          <app-button class="mt-7 md:mt-10"
+          <app-button
+            class="mt-7 md:mt-10"
+            @click="onClick"
             >SEE PRODUCT</app-button
           >
         </div>
