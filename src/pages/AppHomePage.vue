@@ -37,13 +37,17 @@ import AppCol from '../components/shared/AppCol.vue';
     class="container mb-[120px] md:mb-24 xl:mb-[200px]"
   >
     <!-- grid system -->
-    <app-grid>
-      <app-col class="md:basis-1/2">
+    <app-grid class="-mx-[5px] lg:-mx-[15px]">
+      <app-col
+        class="px-[5px] lg:px-[15px] md:basis-1/2"
+      >
         <app-card-with-overlay
           class="mb-6 md:mb-0 h-[200px] md:h-80"
         />
       </app-col>
-      <app-col class="md:basis-1/2">
+      <app-col
+        class="px-[5px] lg:px-[15px] md:basis-1/2"
+      >
         <app-card-with-action-button />
       </app-col>
     </app-grid>

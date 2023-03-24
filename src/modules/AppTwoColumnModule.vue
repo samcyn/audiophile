@@ -99,10 +99,7 @@ const onClick = (event: Events['onClick']) => {
         </template>
         <template #buttonText>
           <slot name="buttonText">
-            <div
-              v-if="buttonText"
-              class="flex justify-center items-center lg:justify-start"
-            >
+            <div v-if="buttonText" class="flex">
               <app-button
                 variant="contained"
                 @click="onClick"
