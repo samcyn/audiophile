@@ -22,12 +22,12 @@ import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
   </div>
   <!-- two column module -->
   <app-two-column-module
-    class="mb-[88px] md:mb-[120px] lg:mb-40"
-    flex-container-class="flex-col md:flex-row md:gap-[69px] md:items-center lg:flex-row lg:gap-[125px] lg:items-center"
+    class="mb-22 md:mb-30 lg:mb-40"
+    flex-container-class="flex-col md:flex-row md:gap-[69px] md:items-center lg:flex-row lg:gap-125px lg:items-center"
     card-with-image-centered="
-      pb-[68px] pl-[42px] pr-[42px] pt-10 xl:p-16 
+      pb-17 pl-42px pr-42px pt-10 xl:p-16 
       h-[327px] mb-10 md:w-[281px] md:mb-0 md:shrink-0 
-      md:h-[480px] lg:w-[540px] lg:h-[560px]
+      md:h-120 lg:w-135 lg:h-140
     "
     card-with-text-extra-class="md:max-w-[339px] lg:max-w-[445px]"
   >
@@ -74,7 +74,7 @@ import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
   </app-two-column-module>
 
   <app-in-the-box-module
-    class="flex-col lg:flex-row lg:gap-[125px] lg:items-center"
+    class="flex-col lg:flex-row lg:gap-125px lg:items-center"
     box-title="In the Box"
     card-title="Feature"
     :card-description="`Featuring a genuine leather head strap and
@@ -103,13 +103,9 @@ import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
 
   <app-you-may-also-like-module />
 
-  <app-category-module
-    class="mb-[120px] xl:mb-40"
-  />
+  <app-category-module class="mb-30 xl:mb-40" />
 
-  <app-audio-gear-module
-    class="mb-[120px] xl:mb-40"
-  />
+  <app-audio-gear-module class="mb-30 xl:mb-40" />
 </template>
 <style scoped>
 .back-link {

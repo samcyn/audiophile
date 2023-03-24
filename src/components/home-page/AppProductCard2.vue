@@ -131,8 +131,8 @@ withDefaults(defineProps<AppCardProps>(), {
     top: -36px;
     left: -149px;
   }
-  .card__actionBtn {
+  /* .card__actionBtn {
     background: #4c4c4c;
-  }
+  } */
 }
 </style>

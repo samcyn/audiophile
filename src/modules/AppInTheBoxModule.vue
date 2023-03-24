@@ -11,15 +11,11 @@ withDefaults(defineProps<Props>(), {
 });
 </script>
 <template>
-  <section
-    class="mb-[88px] md:mb-[120px] lg:mb-40"
-  >
+  <section class="mb-22 md:mb-30 lg:mb-40">
     <div class="container">
       <div class="lg:flex lg:justify-between">
         <!-- card -->
-        <div
-          class="card mb-[88px] md:mb-[120px] lg:mb-0"
-        >
+        <div class="card mb-22 md:mb-30 lg:mb-0">
           <slot name="cardTitle">
             <p
               class="card__title font-bold text-black-100 uppercase mb-6 md:mb-8"
@@ -39,7 +35,7 @@ withDefaults(defineProps<Props>(), {
 
         <!-- box -->
         <div
-          class="box flex flex-col gap-6 md:gap-[11px] md:flex-row lg:flex-col lg:gap-8"
+          class="box flex flex-col gap-6 md:gap-11px md:flex-row lg:flex-col lg:gap-8"
         >
           <slot name="boxTitle">
             <p

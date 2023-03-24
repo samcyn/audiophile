@@ -10,18 +10,18 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
 <template>
   <app-mini-hero
     title="HEADPHONES"
-    class="mb-16 md:mb-[120px] lg:mb-40"
+    class="mb-16 md:mb-30 lg:mb-40"
   />
 
   <!-- two column module -->
   <app-two-column-module
-    class="mb-[120px] md:mb-[120px] lg:mb-40"
-    flex-container-class="flex-col lg:flex-row lg:gap-14 xl:gap-[125px] lg:items-center"
+    class="mb-30 lg:mb-40"
+    flex-container-class="flex-col lg:flex-row lg:gap-14 xl:gap-125px lg:items-center"
     card-with-image-centered="
-      pb-[68px] pl-[42px] pr-[42px] pt-10 xl:p-16 
-      h-[352px] mb-8 md:mb-[52px] lg:mb-0 lg:w-[460px]  xl:w-[540px] lg:h-[560px]
+      pb-17 pl-42px pr-42px pt-10 xl:p-16 
+      h-88 mb-8 md:mb-13 lg:mb-0 lg:w-115 xl:w-135 lg:h-140
     "
-    card-with-text-extra-class="lg:max-w-[420px] xl:max-w-[445px]"
+    card-with-text-extra-class="lg:max-w-105 xl:max-w-[445px]"
   >
     <template #subTitle>
       <p
@@ -59,31 +59,7 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
     </template>
   </app-two-column-module>
 
-  <!-- two column module -->
-  <!-- <app-two-column-module
-    class="mb-[120px] lg:mb-40"
-    flex-container-class="flex-col lg:flex-row lg:gap-[125px] lg:items-center"
-    card-with-image-centered="lg:w-[540px]"
-    card-with-text-extra-class="md:w-[563px] lg:w-[445px]"
-    title="XX99 Mark I Headphones"
-    button-text="see product"
-    reverse
-  /> -->
+  <app-category-module class="mb-30 xl:mb-40" />
 
-  <!-- <app-two-column-module
-    class="mb-[120px] lg:mb-40"
-    flex-container-class="flex-col lg:flex-row lg:gap-[125px] lg:items-center"
-    card-with-image-centered="lg:w-[540px]"
-    card-with-text-extra-class="md:w-[563px] lg:w-[445px]"
-    title="XX99 Mark I Headphones"
-    button-text="see product"
-  /> -->
-
-  <app-category-module
-    class="mb-[120px] xl:mb-40"
-  />
-
-  <app-audio-gear-module
-    class="mb-[120px] xl:mb-40"
-  />
+  <app-audio-gear-module class="mb-30 xl:mb-40" />
 </template>

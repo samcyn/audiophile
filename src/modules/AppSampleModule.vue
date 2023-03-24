@@ -21,32 +21,32 @@ withDefaults(defineProps<Props>(), {
 });
 </script>
 <template>
-  <section class="mb-[120px] lg:mb-40">
+  <section class="mb-30 lg:mb-40">
     <div class="container">
       <app-grid
-        class="-mx-[5px] -my-2 md:my-0 md:-mx-[9px] lg:-mx-[15px]"
+        class="-mx-5px -my-2 md:my-0 md:-mx-9px lg:-mx-15px"
       >
         <app-col
-          class="px-[5px] py-2 md:py-0 md:px-[9px] md:basis-5/12 lg:px-[15px]"
+          class="px-5px py-2 md:py-0 md:px-9px md:basis-5/12 lg:px-15px"
         >
           <app-grid
-            class="-mx-[5px] -my-2 md:-my-2.5 lg:-my-4"
+            class="-mx-5px -my-2 md:-my-2.5 lg:-my-4"
           >
             <app-col
-              class="px-[5px] py-2 md:py-2.5 md:basis-full lg:py-4"
+              class="px-5px py-2 md:py-2.5 md:basis-full lg:py-4"
             >
               <app-card-with-overlay
-                class="h-[174px] lg:h-[280px]"
+                class="h-174px lg:h-70"
                 :image-mobile="imageMobile"
                 :image-tablet="imageTablet"
                 :image-desktop="imageDesktop"
               />
             </app-col>
             <app-col
-              class="px-[5px] py-2 md:py-2.5 md:basis-full lg:py-4"
+              class="px-5px py-2 md:py-2.5 md:basis-full lg:py-4"
             >
               <app-card-with-overlay
-                class="h-[174px] lg:h-[280px]"
+                class="h-174px lg:h-70"
                 :image-mobile="imageMobile"
                 :image-tablet="imageTablet"
                 :image-desktop="imageDesktop"
@@ -55,10 +55,10 @@ withDefaults(defineProps<Props>(), {
           </app-grid>
         </app-col>
         <app-col
-          class="px-[5px] py-2 md:py-0 md:px-[9px] md:basis-7/12 lg:px-[15px]"
+          class="px-5px py-2 md:py-0 md:px-9px md:basis-7/12 lg:px-15px"
         >
           <app-card-with-overlay
-            class="h-[368px] lg:h-[592px]"
+            class="h-92 lg:h-148"
             :image-mobile="imageMobile"
             :image-tablet="imageTablet"
             :image-desktop="imageDesktop"

@@ -18,10 +18,10 @@ import AppCol from '../components/shared/AppCol.vue';
 
 <template>
   <app-hero-component-vue
-    class="mb-10 md:mb-24 lg:mb-[120px]"
+    class="mb-10 md:mb-24 lg:mb-30"
   />
   <app-category-module
-    class="mb-[120px] md:mb-24 lg:mb-[168px]"
+    class="mb-30 md:mb-24 lg:mb-42"
   />
   <!-- products cards -->
   <section class="container">
@@ -34,19 +34,19 @@ import AppCol from '../components/shared/AppCol.vue';
   </section>
 
   <section
-    class="container mb-[120px] md:mb-24 xl:mb-[200px]"
+    class="container mb-30 md:mb-24 xl:mb-50"
   >
     <!-- grid system -->
-    <app-grid class="-mx-[5px] lg:-mx-[15px]">
+    <app-grid class="-mx-5px lg:-mx-15px">
       <app-col
-        class="px-[5px] lg:px-[15px] md:basis-1/2"
+        class="px-5px lg:px-15px md:basis-1/2"
       >
         <app-card-with-overlay
-          class="mb-6 md:mb-0 h-[200px] md:h-80"
+          class="mb-6 md:mb-0 h-50 md:h-80"
         />
       </app-col>
       <app-col
-        class="px-[5px] lg:px-[15px] md:basis-1/2"
+        class="px-5px lg:px-15px md:basis-1/2"
       >
         <app-card-with-action-button />
       </app-col>
@@ -54,7 +54,7 @@ import AppCol from '../components/shared/AppCol.vue';
   </section>
   <!-- audio gear module -->
   <app-audio-gear-module
-    class="mb-[120px] md:mb-24 xl:mb-[200px]"
+    class="mb-30 md:mb-24 xl:mb-50"
   />
 </template>
 

@@ -15,7 +15,7 @@ import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
     <app-grid class="lg:flex-row-reverse">
       <app-col class="lg:basis-1/2">
         <app-card-with-overlay
-          class="mb-10 md:mb-[63px] lg:mb-0 h-[300px] lg:h-[400px] xl:w-[540px] xl:h-[588px] xl:ml-auto"
+          class="mb-10 md:mb-[63px] lg:mb-0 h-75 lg:h-100 xl:w-135 xl:h-147 xl:ml-auto"
           :image-mobile="ImageBestGear"
           :image-tablet="ImageBestGearTablet"
           :image-desktop="ImageBestGearDesktop"

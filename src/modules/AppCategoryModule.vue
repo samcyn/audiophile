@@ -13,11 +13,9 @@ import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-produc
 <template>
   <section class="container">
     <!-- grid system -->
-    <app-grid
-      class="-mx-[5px] md:my-0 lg:-mx-[15px]"
-    >
+    <app-grid class="-mx-5px md:my-0 lg:-mx-15px">
       <app-col
-        class="px-[5px] md:py-0 md:basis-4/12 lg:px-[15px]"
+        class="px-5px md:py-0 md:basis-4/12 lg:px-15px"
       >
         <app-card-with-floating-image
           class="mb-4 md:mb-0"
@@ -25,7 +23,7 @@ import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-produc
         />
       </app-col>
       <app-col
-        class="px-[5px] md:py-0 md:basis-4/12 lg:px-[15px]"
+        class="px-5px md:py-0 md:basis-4/12 lg:px-15px"
       >
         <app-card-with-floating-image
           class="mb-4 md:mb-0"
@@ -33,7 +31,7 @@ import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-produc
         />
       </app-col>
       <app-col
-        class="px-[5px] md:py-0 md:basis-4/12 lg:px-[15px]"
+        class="px-5px md:py-0 md:basis-4/12 lg:px-15px"
       >
         <!-- last item margin bottom is zero -->
         <app-card-with-floating-image

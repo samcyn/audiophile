@@ -35,15 +35,15 @@ const onActionButtonClick = (ev: Event) => {
 };
 </script>
 <template>
-  <section class="mb-[120px] lg:mb-40">
+  <section class="mb-30 lg:mb-40">
     <div class="container">
-      <app-grid class="-mx-[5px] lg:-mx-[15px]">
+      <app-grid class="-mx-5px lg:-mx-15px">
         <app-col
-          class="px-[5px] md:basis-4/12 md:w-4/12 lg:px-[15px]"
+          class="px-5px md:basis-4/12 md:w-4/12 lg:px-15px"
         >
           <div class="mb-14 md:mb-0">
             <app-card-with-image-centered
-              class="py-3 h-[120px] md:h-[318px]"
+              class="py-3 h-30 md:h-318px"
               :image-mobile="imageMobile"
               :image-tablet="imageTablet"
               :image-desktop="imageDesktop"
@@ -75,11 +75,11 @@ const onActionButtonClick = (ev: Event) => {
           </div>
         </app-col>
         <app-col
-          class="px-[5px] md:basis-4/12 md:w-4/12 lg:px-[15px]"
+          class="px-5px md:basis-4/12 md:w-4/12 lg:px-15px"
         >
           <div class="mb-14 md:mb-0">
             <app-card-with-image-centered
-              class="py-3 h-[120px] md:h-[318px]"
+              class="py-3 h-30 md:h-318px"
               :image-mobile="imageMobile"
               :image-tablet="imageTablet"
               :image-desktop="imageDesktop"
@@ -111,12 +111,12 @@ const onActionButtonClick = (ev: Event) => {
           </div>
         </app-col>
         <app-col
-          class="px-[5px] md:basis-4/12 md:w-4/12 lg:px-[15px]"
+          class="px-5px md:basis-4/12 md:w-4/12 lg:px-15px"
         >
           <!-- last item margin bottom is zero -->
           <div>
             <app-card-with-image-centered
-              class="py-3 h-[120px] md:h-[318px]"
+              class="py-3 h-30 md:h-318px"
               :image-mobile="imageMobile"
               :image-tablet="imageTablet"
               :image-desktop="imageDesktop"
