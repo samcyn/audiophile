@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { defineProps, withDefaults } from 'vue';
+
 import AppCardWithOverlay from '../components/shared/cards/AppCardWithOverlay.vue';
 
 // grids
@@ -9,15 +11,48 @@ import AppCol from '../components/shared/AppCol.vue';
 import ImageBestGear from '/src/assets/shared/mobile/image-best-gear.jpg';
 import ImageBestGearDesktop from '/src/assets/shared/desktop/image-best-gear.jpg';
 import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
+
+type Gallery = {
+  first: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+  second: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+  third: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+};
+
 interface Props {
-  imageMobile?: string;
-  imageTablet?: string;
-  imageDesktop?: string;
+  gallery: Gallery;
 }
+
 withDefaults(defineProps<Props>(), {
-  imageMobile: ImageBestGear,
-  imageTablet: ImageBestGearDesktop,
-  imageDesktop: ImageBestGearTablet,
+  // eslint-disable-next-line vue/require-valid-default-prop
+  gallery: () => ({
+    first: {
+      mobile: ImageBestGear,
+      tablet: ImageBestGearTablet,
+      desktop: ImageBestGearDesktop,
+    },
+    second: {
+      mobile: ImageBestGear,
+      tablet: ImageBestGearTablet,
+      desktop: ImageBestGearDesktop,
+    },
+    third: {
+      mobile: ImageBestGear,
+      tablet: ImageBestGearTablet,
+      desktop: ImageBestGearDesktop,
+    },
+  }),
 });
 </script>
 <template>
@@ -37,9 +72,15 @@ withDefaults(defineProps<Props>(), {
             >
               <app-card-with-overlay
                 class="h-174px lg:h-70"
-                :image-mobile="imageMobile"
-                :image-tablet="imageTablet"
-                :image-desktop="imageDesktop"
+                :image-mobile="
+                  gallery.first.mobile
+                "
+                :image-tablet="
+                  gallery.first.tablet
+                "
+                :image-desktop="
+                  gallery.first.desktop
+                "
               />
             </app-col>
             <app-col
@@ -47,9 +88,15 @@ withDefaults(defineProps<Props>(), {
             >
               <app-card-with-overlay
                 class="h-174px lg:h-70"
-                :image-mobile="imageMobile"
-                :image-tablet="imageTablet"
-                :image-desktop="imageDesktop"
+                :image-mobile="
+                  gallery.second.mobile
+                "
+                :image-tablet="
+                  gallery.second.tablet
+                "
+                :image-desktop="
+                  gallery.second.desktop
+                "
               />
             </app-col>
           </app-grid>
@@ -59,9 +106,9 @@ withDefaults(defineProps<Props>(), {
         >
           <app-card-with-overlay
             class="h-92 lg:h-148"
-            :image-mobile="imageMobile"
-            :image-tablet="imageTablet"
-            :image-desktop="imageDesktop"
+            :image-mobile="gallery.third.mobile"
+            :image-tablet="gallery.third.tablet"
+            :image-desktop="gallery.third.desktop"
           />
         </app-col>
       </app-grid>

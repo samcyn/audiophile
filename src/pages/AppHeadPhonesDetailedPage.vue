@@ -1,19 +1,36 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
+
 import AppButton from '../components/shared/AppButton.vue';
 import AppNumberInput from '../components/shared/AppNumberInput.vue';
-import AppLink from '../components/shared/AppLink.vue';
 
 // modules
 import AppTwoColumnModule from '../modules/AppTwoColumnModule.vue';
 import AppAudioGearModule from '../modules/AppAudioGearModule.vue';
 import AppCategoryModule from '../modules/AppCategoryModule.vue';
 import AppYouMayAlsoLikeModule from '../modules/AppYouMayAlsoLikeModule.vue';
-import AppSampleModule from '../modules/AppSampleModule.vue';
+import AppGalleryModule from '../modules/AppGalleryModule.vue';
 import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
 
+// productService
+import productService from '../services';
+
+// vue router navigations api
 import useNavigations from '../hooks/useNavigations';
 
-const { goTo } = useNavigations();
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const product = ref<Record<string, any>>({});
+
+const { goTo, getParamValue } = useNavigations();
+
+onMounted(async () => {
+  const slug = getParamValue('slug');
+  const response =
+    await productService.getOneProduct(
+      slug as string
+    );
+  product.value = response || {};
+});
 
 const goBack = () => {
   goTo(-1);
@@ -40,9 +57,11 @@ const goBack = () => {
       md:h-120 lg:w-135 lg:h-140
     "
     card-with-text-extra-class="md:max-w-[339px] lg:max-w-[445px]"
+    :image="product.image"
   >
     <template #subTitle>
       <p
+        v-if="product.new"
         class="cardSubTitle text-xs font-normal uppercase text-orange-100 mb-4 lg:text-left lg:text-[14px] lg:leading-[19px]"
       >
         New Product
@@ -52,7 +71,7 @@ const goBack = () => {
       <p
         class="cardTitle font-bold uppercase text-black-100 mb-6 md:mb-8 lg:text-left"
       >
-        XX99 Mark II Headphones
+        {{ product.name }}
       </p>
     </template>
     <template #description>
@@ -60,11 +79,7 @@ const goBack = () => {
         <div
           class="cardDescription font-medium text-black-100/50 lg:text-left"
         >
-          The new XX99 Mark II headphones is the
-          pinnacle of pristine audio. It redefines
-          your premium headphone experience by
-          reproducing the balanced depth and
-          precision of studio-quality sound.
+          {{ product.description }}
         </div>
       </slot>
     </template>
@@ -73,7 +88,7 @@ const goBack = () => {
         <p
           class="item_price font-bold uppercase text-black-100"
         >
-          23344
+          {{ product.price }}
         </p>
         <div class="flex items-center gap-4">
           <app-number-input />
@@ -87,31 +102,19 @@ const goBack = () => {
     class="flex-col lg:flex-row lg:gap-125px lg:items-center"
     box-title="In the Box"
     card-title="Feature"
-    :card-description="`Featuring a genuine leather head strap and
-      premium earcups, these headphones deliver
-      superior comfort for those who like to enjoy
-      endless listening. It includes intuitive
-      controls designed for any situation. Whether
-      you’re taking a business call or just in
-      your own personal space, the auto on/off and
-      pause features ensure that you’ll never miss
-      a beat. <br /><br /> The advanced Active Noise
-      Cancellation with built-in equalizer allow
-      you to experience your audio world on your
-      terms. It lets you enjoy your audio in
-      peace, but quickly interact with your
-      surroundings when you need to. Combined with
-      Bluetooth 5. 0 compliant connectivity and 17
-      hourbattery life, the XX99 Mark II
-      headphones gives you superior sound,
-      cutting-edge technology, and a modern design
-      aesthetic.`"
+    :card-description="product.features"
+    :items-included="product.includes"
   >
   </app-in-the-box-module>
 
-  <app-sample-module />
+  <app-gallery-module
+    :gallery="product.gallery"
+  />
 
-  <app-you-may-also-like-module />
+  <app-you-may-also-like-module
+    :category="product.category"
+    :items="product.others"
+  />
 
   <app-category-module class="mb-30 xl:mb-40" />
 

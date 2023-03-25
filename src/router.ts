@@ -28,7 +28,7 @@ const routes: Readonly<RouteRecordRaw[]> = [
         component: AppHeadPhonesPage,
       },
       {
-        path: ':id/detail',
+        path: ':slug/detail',
         name: 'headphones-detailed',
         component: AppHeadPhonesDetailedPage,
       },
@@ -45,7 +45,7 @@ const routes: Readonly<RouteRecordRaw[]> = [
         component: AppSpeakersPage,
       },
       {
-        path: ':id/detail',
+        path: ':slug/detail',
         name: 'speakers-detailed',
         component: AppSpeakersPage,
       },
@@ -62,7 +62,7 @@ const routes: Readonly<RouteRecordRaw[]> = [
         component: AppEarPhonesPage,
       },
       {
-        path: ':id/detail',
+        path: ':slug/detail',
         name: 'earphones-detailed',
         component: AppEarPhonesPage,
       },

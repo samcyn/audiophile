@@ -14,11 +14,8 @@ import ImageBestGear from '/src/assets/shared/mobile/image-xx99-mark-two-headpho
 import ImageBestGearDesktop from '/src/assets/shared/tablet/image-xx99-mark-two-headphones.jpg';
 import ImageBestGearTablet from '/src/assets/shared/desktop/image-xx99-mark-two-headphones.jpg';
 
-interface AppTwoColumnModuleProps {
+interface Props {
   reverse?: boolean;
-  imageMobile?: string;
-  imageTablet?: string;
-  imageDesktop?: string;
   title?: string;
   subTitle?: string;
   description?: string;
@@ -26,23 +23,27 @@ interface AppTwoColumnModuleProps {
   cardWithTextExtraClass?: string;
   cardWithImageCentered?: string;
   flexContainerClass?: string;
+  image: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
 }
-withDefaults(
-  defineProps<AppTwoColumnModuleProps>(),
-  {
-    reverse: false,
-    imageMobile: ImageBestGear,
-    imageTablet: ImageBestGearDesktop,
-    imageDesktop: ImageBestGearTablet,
-    title: '',
-    subTitle: '',
-    description: '',
-    buttonText: '',
-    cardWithTextExtraClass: '',
-    cardWithImageCentered: '',
-    flexContainerClass: '',
-  }
-);
+withDefaults(defineProps<Props>(), {
+  reverse: false,
+  image: () => ({
+    mobile: ImageBestGear,
+    tablet: ImageBestGearTablet,
+    desktop: ImageBestGearDesktop,
+  }),
+  title: '',
+  subTitle: '',
+  description: '',
+  buttonText: '',
+  cardWithTextExtraClass: '',
+  cardWithImageCentered: '',
+  flexContainerClass: '',
+});
 const emit = defineEmits(['onActionButtonClick']);
 
 const onClick = (event: Events['onClick']) => {
@@ -55,9 +56,9 @@ const onClick = (event: Events['onClick']) => {
       <app-card-with-image-centered
         class="w-full"
         :class="cardWithImageCentered"
-        :image-mobile="imageMobile"
-        :image-tablet="imageTablet"
-        :image-desktop="imageDesktop"
+        :image-mobile="image.mobile"
+        :image-tablet="image.tablet"
+        :image-desktop="image.desktop"
       />
       <app-card-with-text-description
         class="w-full"

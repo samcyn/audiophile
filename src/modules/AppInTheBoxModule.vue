@@ -3,11 +3,16 @@ interface Props {
   boxTitle?: string;
   cardTitle?: string;
   cardDescription?: '';
+  itemsIncluded?: {
+    quantity: number;
+    item: string;
+  }[];
 }
 withDefaults(defineProps<Props>(), {
   boxTitle: '',
   cardTitle: '',
   cardDescription: '',
+  itemsIncluded: () => [],
 });
 </script>
 <template>
@@ -45,22 +50,17 @@ withDefaults(defineProps<Props>(), {
             </p>
           </slot>
           <ul class="list-none p-0 m-0">
-            <li class="box__listItem">
+            <li
+              class="box__listItem"
+              v-for="record in itemsIncluded"
+              :key="record.item"
+            >
               <span
                 class="box__spanIndicator font-bold text-orange-100 mr-6"
-                >2x</span
+                >{{ record.quantity }}x</span
               ><span
                 class="box__spanText font-medium text-black-100/50"
-                >Speaker</span
-              >
-            </li>
-            <li class="box__listItem">
-              <span
-                class="box__spanIndicator font-bold text-orange-100 mr-6"
-                >2x</span
-              ><span
-                class="box__spanText font-medium text-black-100/50"
-                >Speaker</span
+                >{{ record.item }}</span
               >
             </li>
           </ul>

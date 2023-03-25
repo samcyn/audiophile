@@ -11,6 +11,7 @@ import AppCardWithActionButton from '../components/shared/cards/AppCardWithActio
 // modules
 import AppAudioGearModule from '../modules/AppAudioGearModule.vue';
 import AppCategoryModule from '../modules/AppCategoryModule.vue';
+
 // grids
 import AppGrid from '../components/shared/AppGrid.vue';
 import AppCol from '../components/shared/AppCol.vue';
