@@ -5,9 +5,9 @@ import AppMiniHero from '../components/shared/AppMiniHero.vue';
 import AppButton from '../components/shared/AppButton.vue';
 
 // modules
-import AppTwoColumnModule from './AppTwoColumnModule.vue';
-import AppAudioGearModule from './AppAudioGearModule.vue';
-import AppCategoryModule from './AppCategoryModule.vue';
+import AppTwoColumnModule from '../modules/AppTwoColumnModule.vue';
+import AppAudioGearModule from '../modules/AppAudioGearModule.vue';
+import AppCategoryModule from '../modules/AppCategoryModule.vue';
 
 // productService
 import productService from '../services';

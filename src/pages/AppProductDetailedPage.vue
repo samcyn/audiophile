@@ -56,7 +56,7 @@ const goBack = () => {
       Go Back
     </button>
   </div>
-  <!-- two column module -->
+  <!-- Two Column Modules to manage cards -->
   <app-two-column-module
     class="mb-22 md:mb-30 lg:mb-40"
     flex-container-class="flex-col md:flex-row md:gap-[69px] md:items-center lg:flex-row lg:gap-125px lg:items-center"

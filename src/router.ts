@@ -2,13 +2,10 @@ import {
   createWebHistory,
   createRouter,
   RouteRecordRaw,
-  RouterView,
 } from 'vue-router';
 
 import AppHomePage from './pages/AppHomePage.vue';
-import AppHeadPhonesPage from './pages/AppHeadPhonesPage.vue';
-import AppSpeakersPage from './pages/AppSpeakersPage.vue';
-import AppEarPhonesPage from './pages/AppEarPhonesPage.vue';
+import AppProductPage from './pages/AppProductPage.vue';
 import AppProductDetailedPage from './pages/AppProductDetailedPage.vue';
 
 const routes: Readonly<RouteRecordRaw[]> = [
@@ -20,17 +17,32 @@ const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: '/headphones',
     name: 'headphones',
-    component: AppHeadPhonesPage,
+    component: AppProductPage,
+    props: {
+      pageTitle: 'Headphones',
+      category: 'headphones',
+      detailPageName: 'product-details',
+    },
   },
   {
     path: '/speakers',
     name: 'speakers',
-    component: AppSpeakersPage,
+    component: AppProductPage,
+    props: {
+      pageTitle: 'Speakers',
+      category: 'speakers',
+      detailPageName: 'product-details',
+    },
   },
   {
     path: '/earphones',
     name: 'earphones',
-    component: AppEarPhonesPage,
+    component: AppProductPage,
+    props: {
+      pageTitle: 'Earphones',
+      category: 'earphones',
+      detailPageName: 'product-details',
+    },
   },
   {
     path: '/product/:slug/details',

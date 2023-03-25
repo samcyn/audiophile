@@ -4,7 +4,9 @@ import AppFooterVue from './components/layout/AppFooter.vue';
 </script>
 <template>
   <app-navigation-bar-vue />
-  <router-view></router-view>
+  <router-view
+    :key="$route.fullPath"
+  ></router-view>
   <app-footer-vue />
 </template>
 
