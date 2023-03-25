@@ -8,11 +8,6 @@ import AppButton from '../components/shared/AppButton.vue';
 import AppGrid from '../components/shared/AppGrid.vue';
 import AppCol from '../components/shared/AppCol.vue';
 
-// images
-import ImageBestGear from '/src/assets/shared/mobile/image-xx99-mark-two-headphones.jpg';
-import ImageBestGearDesktop from '/src/assets/shared/tablet/image-xx99-mark-two-headphones.jpg';
-import ImageBestGearTablet from '/src/assets/shared/desktop/image-xx99-mark-two-headphones.jpg';
-
 // custom hooks for vue router
 import useNavigations from '../hooks/useNavigations';
 
@@ -27,26 +22,25 @@ type IP = {
 };
 
 interface Props {
-  category?: string;
   buttonText?: string;
   items: IP[];
 }
 
-const { pushToRoute } = useNavigations();
+const { replaceToRoute, getRouteName } =
+  useNavigations();
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   buttonText: 'SEE PRODUCT',
-  category: '',
   items: () => [],
 });
 
 const onClick = (slug: string) => {
-  console.log(props.category, 1223333444);
-  // const name = `${props.category}-detailed`;
-  // pushToRoute({
-  //   name,
-  //   params: { slug },
-  // });
+  const name =
+    getRouteName() || 'product-details';
+  replaceToRoute({
+    name,
+    params: { slug },
+  });
 };
 </script>
 <template>

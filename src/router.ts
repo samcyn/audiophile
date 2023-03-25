@@ -9,7 +9,7 @@ import AppHomePage from './pages/AppHomePage.vue';
 import AppHeadPhonesPage from './pages/AppHeadPhonesPage.vue';
 import AppSpeakersPage from './pages/AppSpeakersPage.vue';
 import AppEarPhonesPage from './pages/AppEarPhonesPage.vue';
-import AppHeadPhonesDetailedPage from './pages/AppHeadPhonesDetailedPage.vue';
+import AppProductDetailedPage from './pages/AppProductDetailedPage.vue';
 
 const routes: Readonly<RouteRecordRaw[]> = [
   {
@@ -20,53 +20,23 @@ const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: '/headphones',
     name: 'headphones',
-    component: RouterView,
-    children: [
-      {
-        path: '',
-        name: 'headphones-root',
-        component: AppHeadPhonesPage,
-      },
-      {
-        path: ':slug/detail',
-        name: 'headphones-detailed',
-        component: AppHeadPhonesDetailedPage,
-      },
-    ],
+    component: AppHeadPhonesPage,
   },
   {
     path: '/speakers',
     name: 'speakers',
-    component: RouterView,
-    children: [
-      {
-        path: '',
-        name: 'speakers-root',
-        component: AppSpeakersPage,
-      },
-      {
-        path: ':slug/detail',
-        name: 'speakers-detailed',
-        component: AppSpeakersPage,
-      },
-    ],
+    component: AppSpeakersPage,
   },
   {
     path: '/earphones',
     name: 'earphones',
-    component: RouterView,
-    children: [
-      {
-        path: '',
-        name: 'earphones-root',
-        component: AppEarPhonesPage,
-      },
-      {
-        path: ':slug/detail',
-        name: 'earphones-detailed',
-        component: AppEarPhonesPage,
-      },
-    ],
+    component: AppEarPhonesPage,
+  },
+  {
+    path: '/product/:slug/details',
+    name: 'product-details',
+    component: AppProductDetailedPage,
+    props: true,
   },
 ];
 

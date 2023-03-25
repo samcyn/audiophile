@@ -32,8 +32,8 @@ const { pushToRoute } = useNavigations();
 
 const onClick = () => {
   pushToRoute({
-    name: 'speakers-detailed',
-    params: { id: props.slug },
+    name: 'product-details',
+    params: { slug: props.slug },
   });
 };
 </script>

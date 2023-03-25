@@ -24,7 +24,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   pageTitle: 'HEADPHONES',
   category: 'headphones',
-  detailPageName: 'headphones-detailed',
+  detailPageName: 'product-details',
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -71,6 +71,7 @@ onUnmounted(() => {
       h-88 mb-8 md:mb-13 lg:mb-0 lg:w-115 xl:w-135 lg:h-140
     "
     card-with-text-extra-class="lg:max-w-[105px] xl:max-w-[445px]"
+    :image="product.image"
   >
     <template #subTitle>
       <p

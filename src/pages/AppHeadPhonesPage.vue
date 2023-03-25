@@ -5,6 +5,6 @@ import AppCategoryPageTemplate from '../modules/AppCategoryPageTemplate.vue';
   <app-category-page-template
     page-title="HEADPHONES"
     category="headphones"
-    detail-page-name="headphones-detailed"
+    detail-page-name="product-details"
   />
 </template>

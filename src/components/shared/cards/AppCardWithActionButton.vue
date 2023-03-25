@@ -19,8 +19,8 @@ const { pushToRoute } = useNavigations();
 
 const onClick = () => {
   pushToRoute({
-    name: 'earphones-detailed',
-    params: { id: props.slug },
+    name: 'product-details',
+    params: { slug: props.slug },
   });
 };
 </script>

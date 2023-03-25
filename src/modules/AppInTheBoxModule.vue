@@ -98,9 +98,6 @@ withDefaults(defineProps<Props>(), {
 }
 
 @media (min-width: 768px) {
-  .box {
-    /* gap: 11px; */
-  }
   .box__title,
   .card__title {
     font-size: 32px;

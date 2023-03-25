@@ -12,6 +12,10 @@ const useNavigations = () => {
     router.push(to);
   };
 
+  const replace = (to: RouteLocationRaw) => {
+    router.replace(to);
+  };
+
   const goTo = (delta: number) => {
     router.go(delta);
   };
@@ -22,10 +26,16 @@ const useNavigations = () => {
     return route.params[value];
   };
 
+  const getRouteName = () => {
+    return route.name;
+  };
+
   return {
     goTo,
     pushToRoute: push,
+    replaceToRoute: replace,
     getParamValue,
+    getRouteName,
   };
 };
 

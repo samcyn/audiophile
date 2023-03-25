@@ -18,13 +18,22 @@ import productService from '../services';
 // vue router navigations api
 import useNavigations from '../hooks/useNavigations';
 
+interface Props {
+  slug: string;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const product = ref<Record<string, any>>({});
 
-const { goTo, getParamValue } = useNavigations();
+const props = withDefaults(
+  defineProps<Props>(),
+  {}
+);
+
+const { goTo } = useNavigations();
 
 onMounted(async () => {
-  const slug = getParamValue('slug');
+  const slug = props.slug;
   const response =
     await productService.getOneProduct(
       slug as string
@@ -88,10 +97,13 @@ const goBack = () => {
         <p
           class="item_price font-bold uppercase text-black-100"
         >
-          {{ product.price }}
+          $ {{ product.price }}
         </p>
         <div class="flex items-center gap-4">
-          <app-number-input />
+          <app-number-input
+            id="shdhdhd"
+            name="here"
+          />
           <app-button>Add to cart</app-button>
         </div>
       </div>
@@ -112,7 +124,6 @@ const goBack = () => {
   />
 
   <app-you-may-also-like-module
-    :category="product.category"
     :items="product.others"
   />
 
