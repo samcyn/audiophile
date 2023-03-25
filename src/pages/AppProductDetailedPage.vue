@@ -30,17 +30,33 @@ const props = withDefaults(
   {}
 );
 
-const { goTo } = useNavigations();
+// vue router apis from custom hook
+const { goTo, onBeforeRouteUpdate } =
+  useNavigations();
 
-onMounted(async () => {
-  const slug = props.slug;
+// fetch product
+const getOneProduct = async (slug: string) => {
   const response =
     await productService.getOneProduct(
       slug as string
     );
   product.value = response || {};
+};
+
+// get product on first mounted
+onMounted(async () => {
+  const slug = props.slug;
+  await getOneProduct(slug);
 });
 
+// fetch product when params changes
+onBeforeRouteUpdate(async (to, from, next) => {
+  const slug = to.params.slug as string;
+  getOneProduct(slug);
+  next();
+});
+
+// go back to previous route
 const goBack = () => {
   goTo(-1);
 };

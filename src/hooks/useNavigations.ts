@@ -2,6 +2,7 @@ import {
   useRouter,
   useRoute,
   RouteLocationRaw,
+  onBeforeRouteUpdate,
 } from 'vue-router';
 
 const useNavigations = () => {
@@ -36,6 +37,7 @@ const useNavigations = () => {
     replaceToRoute: replace,
     getParamValue,
     getRouteName,
+    onBeforeRouteUpdate,
   };
 };
 

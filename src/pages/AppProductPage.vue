@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import {
+  ref,
+  onMounted,
+  onUnmounted,
+  watch,
+} from 'vue';
 
 import AppMiniHero from '../components/shared/AppMiniHero.vue';
 import AppButton from '../components/shared/AppButton.vue';
@@ -30,8 +35,10 @@ const props = withDefaults(defineProps<Props>(), {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const products = ref<Record<string, any>[]>([]);
 
+// vue router api in custom hook
 const { pushToRoute } = useNavigations();
 
+//  action to go to a specific page
 const onClick = (slug: string) => {
   pushToRoute({
     name: props.detailPageName,
@@ -39,12 +46,28 @@ const onClick = (slug: string) => {
   });
 };
 
-onMounted(async () => {
+// get category method
+const getCategory = async () => {
   const P = await productService.getCategory(
     props.category
   );
   products.value = P;
+};
+
+// fecth categories on mounted
+onMounted(async () => {
+  await getCategory();
 });
+
+// watch out for category changes and fetch data again
+watch(
+  () => props.category,
+  async () => {
+    await getCategory();
+  }
+);
+
+// turn off timers to prevent memory leakage
 onUnmounted(() => {
   // off all timers
   productService.clearTimerId();
