@@ -3,6 +3,7 @@ import { createWebHistory, createRouter, RouteRecordRaw } from 'vue-router';
 import AppHomePage from './pages/AppHomePage.vue';
 import AppProductPage from './pages/AppProductPage.vue';
 import AppProductDetailedPage from './pages/AppProductDetailedPage.vue';
+import AppCheckoutPage from './pages/AppCheckoutPage.vue';
 
 const routes: Readonly<RouteRecordRaw[]> = [
   {
@@ -45,6 +46,11 @@ const routes: Readonly<RouteRecordRaw[]> = [
     name: 'product-details',
     component: AppProductDetailedPage,
     props: true,
+  },
+  {
+    path: '/checkout',
+    name: 'checkout',
+    component: AppCheckoutPage,
   },
 ];
 

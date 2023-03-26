@@ -17,6 +17,7 @@ interface AppInputFieldProps extends Omit<InputHTMLAttributes, 'class'> {
   ariaLabelledby?: string;
   helperText?: string;
   hasError?: boolean;
+  type?: string;
 }
 
 // set default props
@@ -29,6 +30,7 @@ withDefaults(defineProps<AppInputFieldProps>(), {
   helperText: undefined,
   modelValue: '',
   hasError: false,
+  type: 'text',
 });
 const emit = defineEmits(['update:modelValue']);
 
@@ -42,7 +44,7 @@ const onInputChange = (event: Events['onInput']) => {
   <div class="field relative">
     <label
       :for="id"
-      class="label inline-flex items-center justify-between w-full text-black-100 text-xs"
+      class="label flex items-center justify-between w-full text-black-100 text-xs"
       :class="{
         visuallyhidden: label === '',
         'text-red': hasError,
@@ -59,7 +61,7 @@ const onInputChange = (event: Events['onInput']) => {
       v-bind="$attrs"
       :aria-label="ariaLabel"
       :aria-labelledby="ariaLabelledby"
-      type="text"
+      :type="type"
       class="input relative block w-full border-0 rounded-lg bg-transparent ring-1 ring-inset ring-grey-80 font-bold text-black-100 placeholder:text-black-100 placeholder:opacity-40 placeholder:font-bold focus:ring-1 focus:ring-inset focus:ring-orange-100"
       :class="{
         'ring-red': hasError,

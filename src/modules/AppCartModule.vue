@@ -37,7 +37,7 @@ const onHideCart = (show: boolean) => {
           Remove all
         </button>
       </div>
-      <ul class="flex flex-col gap-6 h-60 overflow-y-auto">
+      <ul class="flex flex-col gap-6 max-h-60 list-none overflow-y-auto">
         <li class="flex items-center justify-between">
           <div class="flex gap-4 items-center">
             <app-card-with-image-centered class="h-16 w-16 flex justify-center items-center p-2" />
