@@ -7,20 +7,15 @@ export default {
   argTypes: {},
 } as Meta<typeof AppRadioGroupVue>;
 
-const Template: StoryFn<
-  typeof AppRadioGroupVue
-> = (args) => ({
+const Template: StoryFn<typeof AppRadioGroupVue> = (args) => ({
   components: { AppRadioGroupVue },
   setup() {
     return { args };
   },
-  template:
-    '<app-radio-group-vue v-bind="args" />',
+  template: '<app-radio-group-vue v-bind="args" />',
 });
 
-export const DefaultRadioGroup = Template.bind(
-  {}
-);
+export const DefaultRadioGroup = Template.bind({});
 
 DefaultRadioGroup.args = {
   name: 'contained',
@@ -37,8 +32,7 @@ DefaultRadioGroup.args = {
   ],
 };
 
-export const RadioGroupWithDefaultValue =
-  Template.bind({});
+export const RadioGroupWithDefaultValue = Template.bind({});
 RadioGroupWithDefaultValue.args = {
   name: 'outlined',
   label: 'Checked',

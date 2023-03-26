@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  ref,
-  onMounted,
-  onUnmounted,
-  watch,
-} from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
 
 import AppMiniHero from '../components/shared/AppMiniHero.vue';
 import AppButton from '../components/shared/AppButton.vue';
@@ -48,9 +43,7 @@ const onClick = (slug: string) => {
 
 // get category method
 const getCategory = async () => {
-  const P = await productService.getCategory(
-    props.category
-  );
+  const P = await productService.getCategory(props.category);
   products.value = P;
 };
 
@@ -74,10 +67,7 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <app-mini-hero
-    :title="pageTitle"
-    class="mb-16 md:mb-30 lg:mb-40"
-  />
+  <app-mini-hero :title="pageTitle" class="mb-16 md:mb-30 lg:mb-40" />
 
   <!-- two column module -->
   <app-two-column-module
@@ -85,9 +75,7 @@ onUnmounted(() => {
     :key="product.slug"
     class="mb-30 lg:mb-40"
     :flex-container-class="`flex-col lg:gap-14 xl:gap-125px lg:items-center ${
-      index % 2 === 0
-        ? 'lg:flex-row'
-        : 'lg:flex-row-reverse'
+      index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
     }`"
     card-with-image-centered="
       pb-17 pl-42px pr-42px pt-10 xl:p-16 
@@ -121,12 +109,8 @@ onUnmounted(() => {
       </slot>
     </template>
     <template #buttonText>
-      <div
-        class="flex justify-center lg:justify-start mt-6 xl:mt-10"
-      >
-        <app-button @click="onClick(product.slug)"
-          >See product</app-button
-        >
+      <div class="flex justify-center lg:justify-start mt-6 xl:mt-10">
+        <app-button @click="onClick(product.slug)">See product</app-button>
       </div>
     </template>
   </app-two-column-module>

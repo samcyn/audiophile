@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
-import AppButton from '../components/shared/AppButton.vue';
 import AppNumberInput from '../components/shared/AppNumberInput.vue';
+import AppCartModule from '../modules/AppCartModule.vue';
 
 // modules
 import AppTwoColumnModule from '../modules/AppTwoColumnModule.vue';
@@ -25,21 +25,14 @@ interface Props {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const product = ref<Record<string, any>>({});
 
-const props = withDefaults(
-  defineProps<Props>(),
-  {}
-);
+const props = withDefaults(defineProps<Props>(), {});
 
 // vue router apis from custom hook
-const { goTo, onBeforeRouteUpdate } =
-  useNavigations();
+const { goTo, onBeforeRouteUpdate } = useNavigations();
 
 // fetch product
 const getOneProduct = async (slug: string) => {
-  const response =
-    await productService.getOneProduct(
-      slug as string
-    );
+  const response = await productService.getOneProduct(slug as string);
   product.value = response || {};
 };
 
@@ -62,9 +55,7 @@ const goBack = () => {
 };
 </script>
 <template>
-  <div
-    class="container back-link mt-4 mb-6 md:mt-8 md:mb-6 lg:mt-20 lg:mb-14"
-  >
+  <div class="container back-link mt-4 mb-6 md:mt-8 md:mb-6 lg:mt-20 lg:mb-14">
     <button
       @click="goBack"
       class="text-black-100/50 border-0 outline-0 no-underline font-medium lg:text-[15px] lg:leading-[25px]"
@@ -93,34 +84,24 @@ const goBack = () => {
       </p>
     </template>
     <template #title>
-      <p
-        class="cardTitle font-bold uppercase text-black-100 mb-6 md:mb-8 lg:text-left"
-      >
+      <p class="cardTitle font-bold uppercase text-black-100 mb-6 md:mb-8 lg:text-left">
         {{ product.name }}
       </p>
     </template>
     <template #description>
       <slot name="description">
-        <div
-          class="cardDescription font-medium text-black-100/50 lg:text-left"
-        >
+        <div class="cardDescription font-medium text-black-100/50 lg:text-left">
           {{ product.description }}
         </div>
       </slot>
     </template>
     <template #extraContent>
       <div class="mt-6 lg:mt-8">
-        <p
-          class="item_price font-bold uppercase text-black-100"
-        >
-          $ {{ product.price }}
-        </p>
+        <p class="item_price font-bold uppercase text-black-100">$ {{ product.price }}</p>
         <div class="flex items-center gap-4">
-          <app-number-input
-            id="shdhdhd"
-            name="here"
-          />
-          <app-button>Add to cart</app-button>
+          <app-number-input class="py-15px px-[15.5px] gap-[20.5px]" id="shdhdhd" name="here" />
+          <!-- cart module right here -->
+          <app-cart-module :product="product" />
         </div>
       </div>
     </template>
@@ -135,13 +116,9 @@ const goBack = () => {
   >
   </app-in-the-box-module>
 
-  <app-gallery-module
-    :gallery="product.gallery"
-  />
+  <app-gallery-module :gallery="product.gallery" />
 
-  <app-you-may-also-like-module
-    :items="product.others"
-  />
+  <app-you-may-also-like-module :items="product.others" />
 
   <app-category-module class="mb-30 xl:mb-40" />
 

@@ -9,9 +9,7 @@ export default {
   component: AppProductCardVue,
 } as Meta<typeof AppProductCardVue>;
 
-const Template: StoryFn<
-  typeof AppProductCardVue
-> = (args) => ({
+const Template: StoryFn<typeof AppProductCardVue> = (args) => ({
   components: { AppProductCardVue },
   setup() {
     return { args };

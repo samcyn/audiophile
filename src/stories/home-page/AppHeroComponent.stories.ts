@@ -9,9 +9,7 @@ export default {
   component: AppHeroComponentVue,
 } as Meta<typeof AppHeroComponentVue>;
 
-const Template: StoryFn<
-  typeof AppHeroComponentVue
-> = (args) => ({
+const Template: StoryFn<typeof AppHeroComponentVue> = (args) => ({
   components: { AppHeroComponentVue },
   setup() {
     return { args };

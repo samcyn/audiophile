@@ -8,10 +8,6 @@ import AppLink from '../shared/AppLink.vue';
     url="/"
     aria-label="audioPhile"
   >
-    <app-icon
-      icon="logo"
-      width="143"
-      height="25"
-    />
+    <app-icon icon="logo" width="143" height="25" />
   </app-link>
 </template>

@@ -12,15 +12,12 @@ export default {
   },
 } as Meta<typeof AppInputFieldVue>;
 
-const Template: StoryFn<
-  typeof AppInputFieldVue
-> = (args) => ({
+const Template: StoryFn<typeof AppInputFieldVue> = (args) => ({
   components: { AppInputFieldVue },
   setup() {
     return { args };
   },
-  template:
-    '<app-input-field-vue v-bind="args" />',
+  template: '<app-input-field-vue v-bind="args" />',
 });
 
 export const Primary = Template.bind({});

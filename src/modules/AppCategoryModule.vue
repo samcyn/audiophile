@@ -24,37 +24,28 @@ const onClick = (name: string) => {
   <section class="container">
     <!-- grid system -->
     <app-grid class="-mx-5px md:my-0 lg:-mx-15px">
-      <app-col
-        class="px-5px md:py-0 md:basis-4/12 lg:px-15px"
-      >
+      <app-col class="px-5px md:py-0 md:basis-4/12 lg:px-15px">
         <app-card-with-floating-image
           class="mb-4 md:mb-0"
           :image="ImageProduct"
-          @on-button-click="
-            onClick('headphones-root')
-          "
+          title="Headphones"
+          @on-button-click="onClick('headphones')"
         />
       </app-col>
-      <app-col
-        class="px-5px md:py-0 md:basis-4/12 lg:px-15px"
-      >
+      <app-col class="px-5px md:py-0 md:basis-4/12 lg:px-15px">
         <app-card-with-floating-image
           class="mb-4 md:mb-0"
           :image="ImageSpeakerMobile"
-          @on-button-click="
-            onClick('speakers-root')
-          "
+          title="Speakers"
+          @on-button-click="onClick('speakers')"
         />
       </app-col>
-      <app-col
-        class="px-5px md:py-0 md:basis-4/12 lg:px-15px"
-      >
+      <app-col class="px-5px md:py-0 md:basis-4/12 lg:px-15px">
         <!-- last item margin bottom is zero -->
         <app-card-with-floating-image
           :image="ImageEarPhone"
-          @on-button-click="
-            onClick('earphones-root')
-          "
+          title="Earphones"
+          @on-button-click="onClick('earphones')"
         />
       </app-col>
     </app-grid>

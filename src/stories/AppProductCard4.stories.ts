@@ -6,9 +6,7 @@ export default {
   component: AppProductCardVue,
 } as Meta<typeof AppProductCardVue>;
 
-const Template: StoryFn<
-  typeof AppProductCardVue
-> = (args) => ({
+const Template: StoryFn<typeof AppProductCardVue> = (args) => ({
   components: { AppProductCardVue },
   setup() {
     return { args };
@@ -18,9 +16,7 @@ const Template: StoryFn<
 
 export const DefaultCard = Template.bind({});
 
-const TemplateTwo: StoryFn<
-  typeof AppProductCardVue
-> = (args) => ({
+const TemplateTwo: StoryFn<typeof AppProductCardVue> = (args) => ({
   components: { AppProductCardVue },
   setup() {
     return { args };

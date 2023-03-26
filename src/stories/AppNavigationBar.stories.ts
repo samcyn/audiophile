@@ -10,15 +10,12 @@ export default {
   argTypes: {},
 } as Meta<typeof AppNavigationBarVue>;
 
-const Template: StoryFn<
-  typeof AppNavigationBarVue
-> = (args) => ({
+const Template: StoryFn<typeof AppNavigationBarVue> = (args) => ({
   components: { AppNavigationBarVue },
   setup() {
     return { args };
   },
-  template:
-    '<app-navigation-bar-vue v-bind="args" />',
+  template: '<app-navigation-bar-vue v-bind="args" />',
 });
 
 export const Default = Template.bind({});

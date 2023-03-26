@@ -18,15 +18,12 @@ interface AppCardProps {
 }
 
 // set defaults props
-const props = withDefaults(
-  defineProps<AppCardProps>(),
-  {
-    title: 'ZX7 SPEAKER',
-    imageMobile: ImageSpeakerMobile,
-    imageTablet: ImageSpeakerTablet,
-    imageDesktop: ImageSpeakerDesktop,
-  }
-);
+const props = withDefaults(defineProps<AppCardProps>(), {
+  title: 'ZX7 SPEAKER',
+  imageMobile: ImageSpeakerMobile,
+  imageTablet: ImageSpeakerTablet,
+  imageDesktop: ImageSpeakerDesktop,
+});
 
 const { pushToRoute } = useNavigations();
 
@@ -38,9 +35,7 @@ const onClick = () => {
 };
 </script>
 <template>
-  <div
-    class="card bg-grey-100/5 relative rounded-lg overflow-hidden"
-  >
+  <div class="card bg-grey-100/5 relative rounded-lg overflow-hidden">
     <figure class="card__figure w-full absolute">
       <app-image
         :src="imageMobile"
@@ -59,14 +54,8 @@ const onClick = () => {
       />
     </figure>
     <div class="card__body relative">
-      <h3
-        v-html="title"
-        class="card__title font-bold uppercase mb-8"
-      ></h3>
-      <app-button
-        variant="outlined"
-        button-type="secondary"
-        @click="onClick"
+      <h3 v-html="title" class="card__title font-bold uppercase mb-8"></h3>
+      <app-button variant="outlined" button-type="secondary" @click="onClick"
         >SEE PRODUCT</app-button
       >
     </div>

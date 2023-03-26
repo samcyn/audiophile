@@ -12,15 +12,12 @@ export default {
   },
 } as Meta<typeof AppButtonVue>;
 
-const Template: StoryFn<typeof AppButtonVue> = (
-  args
-) => ({
+const Template: StoryFn<typeof AppButtonVue> = (args) => ({
   components: { AppButtonVue },
   setup() {
     return { args };
   },
-  template:
-    '<app-button-vue v-bind="args">CLICK ME PLEASE</app-button-vue>',
+  template: '<app-button-vue v-bind="args">CLICK ME PLEASE</app-button-vue>',
 });
 
 export const ContainedButton = Template.bind({});

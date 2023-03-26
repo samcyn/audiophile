@@ -19,19 +19,16 @@ interface AppHeroComponentProps {
 }
 
 // set defaults props
-const props = withDefaults(
-  defineProps<AppHeroComponentProps>(),
-  {
-    subTitle: 'NEW PRODUCT',
-    title: 'XX99 Mark II HeadphoneS',
-    description: `Experience natural, lifelike audio and
+const props = withDefaults(defineProps<AppHeroComponentProps>(), {
+  subTitle: 'NEW PRODUCT',
+  title: 'XX99 Mark II HeadphoneS',
+  description: `Experience natural, lifelike audio and
       exceptional build quality made for the
       passionate music enthusiast.`,
-    imageMobile: ImageHeaderMobile,
-    imageTablet: ImageHeaderTablet,
-    imageDesktop: ImageHeaderDesktop,
-  }
-);
+  imageMobile: ImageHeaderMobile,
+  imageTablet: ImageHeaderTablet,
+  imageDesktop: ImageHeaderDesktop,
+});
 
 const { pushToRoute } = useNavigations();
 
@@ -44,9 +41,7 @@ const onClick = () => {
 </script>
 <template>
   <section class="relative bg-black-60">
-    <div
-      class="container relative overflow-hidden"
-    >
+    <div class="container relative overflow-hidden">
       <div class="wrapper relative -mx-6 sm:mx-0">
         <div
           class="product relative text-center mx-auto lg:text-left lg:mx-0 pl-6 pr-6 md:pl-0 md:pr-0"
@@ -57,27 +52,15 @@ const onClick = () => {
           <h3 class="product__title">
             {{ title }}
           </h3>
-          <p
-            class="product__description mx-auto lg:mx-0"
-          >
+          <p class="product__description mx-auto lg:mx-0">
             {{ description }}
           </p>
-          <app-button
-            class="mt-7 md:mt-10"
-            @click="onClick"
-            >SEE PRODUCT</app-button
-          >
+          <app-button class="mt-7 md:mt-10" @click="onClick">SEE PRODUCT</app-button>
         </div>
       </div>
 
-      <figure
-        class="card__figure absolute block left-0 top-0 w-full h-full opacity-50"
-      >
-        <app-image
-          class="w-full absolute bottom-0 md:hidden"
-          :src="imageMobile"
-          alt="image"
-        />
+      <figure class="card__figure absolute block left-0 top-0 w-full h-full opacity-50">
+        <app-image class="w-full absolute bottom-0 md:hidden" :src="imageMobile" alt="image" />
         <app-image
           class="w-full absolute bottom-0 hidden md:block lg:hidden"
           :src="imageTablet"

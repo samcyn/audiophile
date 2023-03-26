@@ -21,20 +21,14 @@ import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
           :image-desktop="ImageBestGearDesktop"
         />
       </app-col>
-      <app-col
-        class="flex items-center lg:basis-1/2"
-      >
-        <app-card-with-text-description
-          class="lg:max-w-[445px] md:w-[563px] md:mx-auto lg:mx-0"
-        >
+      <app-col class="flex items-center lg:basis-1/2">
+        <app-card-with-text-description class="lg:max-w-[445px] md:w-[563px] md:mx-auto lg:mx-0">
           <template #title>
             <h3
               class="card__title font-bold text-center uppercase text-black-100 mb-8 md:mb-8 lg:text-left"
             >
               Bringing you the <br />
-              <span class="text-orange-100"
-                >best</span
-              >
+              <span class="text-orange-100">best</span>
               audio gear
             </h3>
           </template>
@@ -42,18 +36,11 @@ import ImageBestGearTablet from '/src/assets/shared/tablet/image-best-gear.jpg';
             <div
               class="card__description font-medium text-center text-black-100/50 lg:text-left lg:max-w-none"
             >
-              Located at the heart of New York
-              City, Audiophile is the premier
-              store for high end headphones,
-              earphones, speakers, and audio
-              accessories. We have a large
-              showroom and luxury demonstration
-              rooms available for you to browse
-              and experience a wide range of our
-              products. Stop by our store to meet
-              some of the fantastic people who
-              make Audiophile the best place to
-              buy your portable audio equipment.
+              Located at the heart of New York City, Audiophile is the premier store for high end
+              headphones, earphones, speakers, and audio accessories. We have a large showroom and
+              luxury demonstration rooms available for you to browse and experience a wide range of
+              our products. Stop by our store to meet some of the fantastic people who make
+              Audiophile the best place to buy your portable audio equipment.
             </div>
           </template>
         </app-card-with-text-description>

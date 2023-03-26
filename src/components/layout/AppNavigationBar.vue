@@ -13,36 +13,23 @@ import AppMenus from '../shared/AppMenus.vue';
       >
         <!-- hamburger bar starts -->
         <div class="flex mr-auto lg:hidden">
-          <app-icon-button
-            icon="hamburger"
-            width="16"
-            height="15"
-          />
+          <app-icon-button icon="hamburger" width="16" height="15" />
         </div>
         <!-- hamburger bar ends -->
 
         <!-- logo/brand starts -->
-        <app-brand-logo
-          class="logo"
-          aria-label="audioPhile"
-        />
+        <app-brand-logo class="logo" aria-label="audioPhile" />
         <!-- logo/brand ends -->
 
         <!-- menus starts -->
-        <div
-          class="hidden lg:flex flex-grow items-center justify-center"
-        >
+        <div class="hidden lg:flex flex-grow items-center justify-center">
           <app-menus />
         </div>
         <!-- menus ended -->
 
         <!-- carts starts -->
         <div class="flex ml-auto">
-          <app-icon-button
-            icon="cart"
-            width="23"
-            height="20"
-          />
+          <app-icon-button icon="cart" width="23" height="20" />
         </div>
         <!-- cart ends -->
       </nav>
@@ -54,15 +41,9 @@ import AppMenus from '../shared/AppMenus.vue';
   padding: 0;
 }
 .header__nav {
-  --tw-shadow: 0 1px 0px 0px
-    rgba(255, 255, 255, 0.2);
-  --tw-shadow-colored: 0 1px 0px 0px
-    var(--tw-shadow-color);
-  box-shadow: var(
-      --tw-ring-offset-shadow,
-      0 0 #0000
-    ),
-    var(--tw-ring-shadow, 0 0 #0000),
+  --tw-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0.2);
+  --tw-shadow-colored: 0 1px 0px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
     var(--tw-shadow);
 }
 @media (min-width: 1024px) {

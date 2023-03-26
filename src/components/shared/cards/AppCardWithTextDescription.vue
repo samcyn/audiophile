@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import {
-  defineProps,
-  withDefaults,
-  Events,
-} from 'vue';
+import { defineProps, withDefaults, Events } from 'vue';
 
 import AppButton from '../AppButton.vue';
 
@@ -56,14 +52,8 @@ const onClick = (event: Events['onClick']) => {
         </div>
       </slot>
       <slot name="buttonText">
-        <div
-          v-if="buttonText"
-          class="flex justify-center items-center lg:justify-start"
-        >
-          <app-button
-            variant="contained"
-            @click="onClick"
-          >
+        <div v-if="buttonText" class="flex justify-center items-center lg:justify-start">
+          <app-button variant="contained" @click="onClick">
             {{ buttonText }}
           </app-button>
         </div>

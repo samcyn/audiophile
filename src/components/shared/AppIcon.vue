@@ -12,16 +12,8 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  h,
-  CSSProperties,
-  SVGAttributes,
-  PropType,
-} from 'vue';
-import IconsLibrary, {
-  IconTypes,
-} from '../../lib/iconLibrary';
+import { defineComponent, h, CSSProperties, SVGAttributes, PropType } from 'vue';
+import IconsLibrary, { IconTypes } from '../../lib/iconLibrary';
 
 interface IconBaseProps extends SVGAttributes {
   size?: number;
@@ -48,17 +40,11 @@ const IconBase = ({
       class: className,
       style,
       viewBox,
-      width: width
-        ? width
-        : `${size ? size + 'px' : '1em'}`,
-      height: height
-        ? height
-        : `${size ? size + 'px' : '1em'}`,
+      width: width ? width : `${size ? size + 'px' : '1em'}`,
+      height: height ? height : `${size ? size + 'px' : '1em'}`,
       fill: color || 'currentColor',
       xmlns: 'http://www.w3.org/2000/svg',
-      innerHTML: icon
-        ? IconsLibrary[icon]
-        : undefined,
+      innerHTML: icon ? IconsLibrary[icon] : undefined,
     },
     [h('title', icon?.toUpperCase())]
   );

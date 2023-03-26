@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import {
-  defineProps,
-  withDefaults,
-  computed,
-} from 'vue';
+import { defineProps, withDefaults, computed } from 'vue';
 import AppLink from './AppLink.vue';
 
 // define components models
@@ -12,12 +8,9 @@ interface AppMenusProps {
 }
 
 // set defaults props
-const props = withDefaults(
-  defineProps<AppMenusProps>(),
-  {
-    mode: 'header',
-  }
-);
+const props = withDefaults(defineProps<AppMenusProps>(), {
+  mode: 'header',
+});
 
 const menusClasses = computed(() => {
   if (props.mode === 'footer') {
@@ -36,10 +29,7 @@ const linksClasses = computed(() => {
 });
 </script>
 <template>
-  <ul
-    class="menus flex flex-wrap p-0 m-0 list-none"
-    :class="menusClasses"
-  >
+  <ul class="menus flex flex-wrap p-0 m-0 list-none" :class="menusClasses">
     <li class="menus__items md:-ml-4">
       <app-link
         url="/"

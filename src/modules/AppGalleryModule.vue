@@ -58,52 +58,28 @@ withDefaults(defineProps<Props>(), {
 <template>
   <section class="mb-30 lg:mb-40">
     <div class="container">
-      <app-grid
-        class="-mx-5px -my-2 md:my-0 md:-mx-9px lg:-mx-15px"
-      >
-        <app-col
-          class="px-5px py-2 md:py-0 md:px-9px md:basis-5/12 lg:px-15px"
-        >
-          <app-grid
-            class="-mx-5px -my-2 md:-my-2.5 lg:-my-4"
-          >
-            <app-col
-              class="px-5px py-2 md:py-2.5 md:basis-full lg:py-4"
-            >
+      <app-grid class="-mx-5px -my-2 md:my-0 md:-mx-9px lg:-mx-15px">
+        <app-col class="px-5px py-2 md:py-0 md:px-9px md:basis-5/12 lg:px-15px">
+          <app-grid class="-mx-5px -my-2 md:-my-2.5 lg:-my-4">
+            <app-col class="px-5px py-2 md:py-2.5 md:basis-full lg:py-4">
               <app-card-with-overlay
                 class="h-174px lg:h-70"
-                :image-mobile="
-                  gallery.first.mobile
-                "
-                :image-tablet="
-                  gallery.first.tablet
-                "
-                :image-desktop="
-                  gallery.first.desktop
-                "
+                :image-mobile="gallery.first.mobile"
+                :image-tablet="gallery.first.tablet"
+                :image-desktop="gallery.first.desktop"
               />
             </app-col>
-            <app-col
-              class="px-5px py-2 md:py-2.5 md:basis-full lg:py-4"
-            >
+            <app-col class="px-5px py-2 md:py-2.5 md:basis-full lg:py-4">
               <app-card-with-overlay
                 class="h-174px lg:h-70"
-                :image-mobile="
-                  gallery.second.mobile
-                "
-                :image-tablet="
-                  gallery.second.tablet
-                "
-                :image-desktop="
-                  gallery.second.desktop
-                "
+                :image-mobile="gallery.second.mobile"
+                :image-tablet="gallery.second.tablet"
+                :image-desktop="gallery.second.desktop"
               />
             </app-col>
           </app-grid>
         </app-col>
-        <app-col
-          class="px-5px py-2 md:py-0 md:px-9px md:basis-7/12 lg:px-15px"
-        >
+        <app-col class="px-5px py-2 md:py-0 md:px-9px md:basis-7/12 lg:px-15px">
           <app-card-with-overlay
             class="h-92 lg:h-148"
             :image-mobile="gallery.third.mobile"

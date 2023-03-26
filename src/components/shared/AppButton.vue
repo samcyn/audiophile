@@ -1,30 +1,17 @@
 <script setup lang="ts">
-import {
-  defineProps,
-  withDefaults,
-  computed,
-  ButtonHTMLAttributes,
-  useAttrs,
-} from 'vue';
+import { defineProps, withDefaults, computed, ButtonHTMLAttributes, useAttrs } from 'vue';
 
 // define components models
-interface AppButtonProps
-  extends ButtonHTMLAttributes {
+interface AppButtonProps extends ButtonHTMLAttributes {
   variant?: 'contained' | 'text' | 'outlined';
-  buttonType?:
-    | 'primary'
-    | 'secondary'
-    | 'default';
+  buttonType?: 'primary' | 'secondary' | 'default';
 }
 
 // set defaults props
-const props = withDefaults(
-  defineProps<AppButtonProps>(),
-  {
-    variant: 'contained',
-    buttonType: 'primary',
-  }
-);
+const props = withDefaults(defineProps<AppButtonProps>(), {
+  variant: 'contained',
+  buttonType: 'primary',
+});
 
 // pick attrs
 const attrs = useAttrs();
@@ -33,18 +20,14 @@ const attrs = useAttrs();
 const classComputed = computed<string>(() => {
   const variant = props.variant;
   const buttonType = props.buttonType;
-  let className =
-    'rounded-none transition inline-flex items-center ';
+  let className = 'rounded-none transition inline-flex items-center ';
   if (variant === 'contained') {
     if (buttonType === 'primary') {
-      className +=
-        'bg-orange-100 text-white hover:bg-orange-90';
+      className += 'bg-orange-100 text-white hover:bg-orange-90';
     } else if (buttonType === 'secondary') {
-      className +=
-        'bg-black-100 text-white hover:bg-black-90';
+      className += 'bg-black-100 text-white hover:bg-black-90';
     } else {
-      className +=
-        'bg-grey-100 text-white hover:bg-grey-90';
+      className += 'bg-grey-100 text-white hover:bg-grey-90';
     }
   }
   if (variant === 'outlined') {
@@ -76,11 +59,7 @@ const classComputed = computed<string>(() => {
 </script>
 
 <template>
-  <button
-    class="button"
-    :class="classComputed"
-    type="button"
-  >
+  <button class="button" :class="classComputed" type="button">
     <slot></slot>
   </button>
 </template>

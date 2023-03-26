@@ -1,8 +1,4 @@
-import {
-  createWebHistory,
-  createRouter,
-  RouteRecordRaw,
-} from 'vue-router';
+import { createWebHistory, createRouter, RouteRecordRaw } from 'vue-router';
 
 import AppHomePage from './pages/AppHomePage.vue';
 import AppProductPage from './pages/AppProductPage.vue';

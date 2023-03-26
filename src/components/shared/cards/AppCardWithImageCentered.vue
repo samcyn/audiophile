@@ -21,26 +21,16 @@ withDefaults(defineProps<AppCardProps>(), {
 });
 </script>
 <template>
-  <div
-    class="card bg-grey-100 rounded-lg overflow-hidden flex justify-center"
-  >
+  <div class="card bg-grey-100 rounded-lg overflow-hidden flex justify-center">
     <figure class="card__figure">
       <slot name="image">
-        <app-image
-          :src="imageMobile"
-          class="card__image md:hidden"
-          alt="product image"
-        />
+        <app-image :src="imageMobile" class="card__image md:hidden" alt="product image" />
         <app-image
           :src="imageTablet"
           class="card__image hidden md:inline xl:hidden"
           alt="product image"
         />
-        <app-image
-          :src="imageDesktop"
-          class="card__image hidden xl:inline"
-          alt="product image"
-        />
+        <app-image :src="imageDesktop" class="card__image hidden xl:inline" alt="product image" />
       </slot>
     </figure>
   </div>

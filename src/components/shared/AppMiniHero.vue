@@ -15,9 +15,7 @@ withDefaults(defineProps<AppMiniHeroProps>(), {
   <section class="relative bg-black-100">
     <div class="container py-8 text-center">
       <slot name="title">
-        <p
-          class="title text-center text-white font-bold uppercase"
-        >
+        <p class="title text-center text-white font-bold uppercase">
           {{ title }}
         </p>
       </slot>

@@ -8,12 +8,9 @@ interface AppCardProps {
 }
 
 // set defaults props
-const props = withDefaults(
-  defineProps<AppCardProps>(),
-  {
-    title: 'YX1 EARPHONES',
-  }
-);
+const props = withDefaults(defineProps<AppCardProps>(), {
+  title: 'YX1 EARPHONES',
+});
 
 const { pushToRoute } = useNavigations();
 
@@ -25,23 +22,15 @@ const onClick = () => {
 };
 </script>
 <template>
-  <div
-    class="card w-full bg-grey-100 relative rounded-lg overflow-hidden"
-  >
+  <div class="card w-full bg-grey-100 relative rounded-lg overflow-hidden">
     <div class="card__body flex items-center">
       <div>
         <slot name="title">
-          <h3
-            v-if="title"
-            class="card__title font-bold mb-8 text-black-100 uppercase"
-          >
+          <h3 v-if="title" class="card__title font-bold mb-8 text-black-100 uppercase">
             {{ title }}
           </h3>
         </slot>
-        <app-button
-          variant="outlined"
-          button-type="secondary"
-          @click="onClick"
+        <app-button variant="outlined" button-type="secondary" @click="onClick"
           >SEE PRODUCT</app-button
         >
       </div>

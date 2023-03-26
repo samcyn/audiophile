@@ -1,9 +1,5 @@
 <template>
-  <button
-    :class="className"
-    type="button"
-    :aria-label="icon"
-  >
+  <button :class="className" type="button" :aria-label="icon">
     <app-icon
       :size="size"
       :color="color"
@@ -16,11 +12,7 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  CSSProperties,
-  PropType,
-} from 'vue';
+import { defineComponent, CSSProperties, PropType } from 'vue';
 
 import AppIcon from './AppIcon.vue';
 import { IconTypes } from '../../lib/iconLibrary';
@@ -36,8 +28,7 @@ const IconBaseDefaults = {
   },
   className: {
     type: String as PropType<string>,
-    default:
-      'text-white border-0 outline-0 hover:text-orange-100',
+    default: 'text-white border-0 outline-0 hover:text-orange-100',
   },
   style: {
     type: Object as PropType<CSSProperties>,

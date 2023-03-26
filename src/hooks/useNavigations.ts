@@ -1,9 +1,4 @@
-import {
-  useRouter,
-  useRoute,
-  RouteLocationRaw,
-  onBeforeRouteUpdate,
-} from 'vue-router';
+import { useRouter, useRoute, RouteLocationRaw, onBeforeRouteUpdate } from 'vue-router';
 
 const useNavigations = () => {
   const router = useRouter();
@@ -21,9 +16,7 @@ const useNavigations = () => {
     router.go(delta);
   };
 
-  const getParamValue = (
-    value: string
-  ): string | string[] => {
+  const getParamValue = (value: string): string | string[] => {
     return route.params[value];
   };
 

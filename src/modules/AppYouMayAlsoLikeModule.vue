@@ -26,8 +26,7 @@ interface Props {
   items: IP[];
 }
 
-const { replaceToRoute, getRouteName } =
-  useNavigations();
+const { replaceToRoute, getRouteName } = useNavigations();
 
 withDefaults(defineProps<Props>(), {
   buttonText: 'SEE PRODUCT',
@@ -35,8 +34,7 @@ withDefaults(defineProps<Props>(), {
 });
 
 const onClick = (slug: string) => {
-  const name =
-    getRouteName() || 'product-details';
+  const name = getRouteName() || 'product-details';
   replaceToRoute({
     name,
     params: { slug },
@@ -53,22 +51,14 @@ const onClick = (slug: string) => {
           class="px-5px md:basis-4/12 md:w-4/12 lg:px-15px"
         >
           <!-- last item margin-bottom is 0 -->
-          <div
-            :class="`${
-              index + 1 === items.length
-                ? 'mb-14'
-                : ''
-            } md:mb-0`"
-          >
+          <div :class="`${index + 1 === items.length ? 'mb-14' : ''} md:mb-0`">
             <app-card-with-image-centered
               class="py-3 h-30 md:h-318px"
               :image-mobile="item.image.mobile"
               :image-tablet="item.image.tablet"
               :image-desktop="item.image.desktop"
             />
-            <app-card-with-text-description
-              class="w-full"
-            >
+            <app-card-with-text-description class="w-full">
               <template #title>
                 <p
                   class="card__title font-bold uppercase text-black-100 text-center mt-8 mb-8 lg:mt-10 lg:text-center"
@@ -77,13 +67,8 @@ const onClick = (slug: string) => {
                 </p>
               </template>
               <template #buttonText>
-                <div
-                  class="flex justify-center items-center"
-                >
-                  <app-button
-                    variant="contained"
-                    @click="onClick(item.slug)"
-                  >
+                <div class="flex justify-center items-center">
+                  <app-button variant="contained" @click="onClick(item.slug)">
                     {{ buttonText }}
                   </app-button>
                 </div>

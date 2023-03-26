@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import {
-  defineProps,
-  withDefaults,
-  AnchorHTMLAttributes,
-} from 'vue';
+import { defineProps, withDefaults, AnchorHTMLAttributes } from 'vue';
 
 // define components models
-interface AppLinkProps
-  extends AnchorHTMLAttributes {
+interface AppLinkProps extends AnchorHTMLAttributes {
   text?: string;
   url: string;
   target?: string;

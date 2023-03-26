@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import {
-  defineProps,
-  withDefaults,
-  Events,
-} from 'vue';
+import { defineProps, withDefaults, Events } from 'vue';
 
 import AppCardWithTextDescription from '../components/shared/cards/AppCardWithTextDescription.vue';
 import AppCardWithImageCentered from '../components/shared/cards/AppCardWithImageCentered.vue';
@@ -101,10 +97,7 @@ const onClick = (event: Events['onClick']) => {
         <template #buttonText>
           <slot name="buttonText">
             <div v-if="buttonText" class="flex">
-              <app-button
-                variant="contained"
-                @click="onClick"
-              >
+              <app-button variant="contained" @click="onClick">
                 {{ buttonText }}
               </app-button>
             </div>

@@ -7,9 +7,7 @@ export default {
   argTypes: {},
 } as Meta<typeof AppImageVue>;
 
-const Template: StoryFn<typeof AppImageVue> = (
-  args
-) => ({
+const Template: StoryFn<typeof AppImageVue> = (args) => ({
   components: { AppImageVue },
   setup() {
     return { args };

@@ -5,12 +5,7 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import {
-  InputHTMLAttributes,
-  defineProps,
-  defineEmits,
-  withDefaults,
-} from 'vue';
+import { InputHTMLAttributes, defineProps, defineEmits, withDefaults } from 'vue';
 import {
   useRadio,
   /** // AppRadioProps,
@@ -21,8 +16,7 @@ import {
 } from '../../hooks/useRadio';
 
 // define component models
-interface AppRadioProps
-  extends Omit<InputHTMLAttributes, 'class'> {
+interface AppRadioProps extends Omit<InputHTMLAttributes, 'class'> {
   label?: string;
   name?: string;
   id?: string;
@@ -35,20 +29,17 @@ interface AppRadioProps
 }
 
 // set default props
-const props = withDefaults(
-  defineProps<AppRadioProps>(),
-  {
-    label: undefined,
-    name: '',
-    id: '',
-    ariaLabel: undefined,
-    ariaLabelledby: undefined,
-    helperText: undefined,
-    hasError: false,
-    modelValue: undefined,
-    value: undefined,
-  }
-);
+const props = withDefaults(defineProps<AppRadioProps>(), {
+  label: undefined,
+  name: '',
+  id: '',
+  ariaLabel: undefined,
+  ariaLabelledby: undefined,
+  helperText: undefined,
+  hasError: false,
+  modelValue: undefined,
+  value: undefined,
+});
 const emit = defineEmits(['update:modelValue']);
 
 const {
@@ -84,10 +75,7 @@ const {
       @change="onChange"
     />
     <!-- contents -->
-    <span
-      class="inline-flex items-center"
-      :aria-disabled="disabled"
-    >
+    <span class="inline-flex items-center" :aria-disabled="disabled">
       <!-- circle -->
       <span
         class="w-5 h-5 flex items-center justify-center ring-1 ring-inset ring-grey-80 rounded-full mr-4"
@@ -102,12 +90,9 @@ const {
         ></span>
       </span>
       <!-- text -->
-      <span
-        v-if="label"
-        :aria-hidden="!label"
-        class="labelText font-bold text-black-100"
-        >{{ label }}</span
-      >
+      <span v-if="label" :aria-hidden="!label" class="labelText font-bold text-black-100">{{
+        label
+      }}</span>
     </span>
   </label>
 </template>

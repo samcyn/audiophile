@@ -5,16 +5,10 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import {
-  defineProps,
-  withDefaults,
-  InputHTMLAttributes,
-  Events,
-} from 'vue';
+import { defineProps, withDefaults, InputHTMLAttributes, Events } from 'vue';
 
 // define component models
-interface AppInputFieldProps
-  extends Omit<InputHTMLAttributes, 'class'> {
+interface AppInputFieldProps extends Omit<InputHTMLAttributes, 'class'> {
   label?: string;
   name?: string;
   id?: string;
@@ -38,11 +32,8 @@ withDefaults(defineProps<AppInputFieldProps>(), {
 });
 const emit = defineEmits(['update:modelValue']);
 
-const onInputChange = (
-  event: Events['onInput']
-) => {
-  const value = (event.target as HTMLInputElement)
-    .value;
+const onInputChange = (event: Events['onInput']) => {
+  const value = (event.target as HTMLInputElement).value;
   emit('update:modelValue', value);
 };
 </script>
@@ -60,10 +51,7 @@ const onInputChange = (
       <span class="text-inherit font-bold">
         {{ label }}
       </span>
-      <span
-        v-if="helperText"
-        class="text-inherit font-medium"
-      >
+      <span v-if="helperText" class="text-inherit font-medium">
         {{ helperText }}
       </span>
     </label>

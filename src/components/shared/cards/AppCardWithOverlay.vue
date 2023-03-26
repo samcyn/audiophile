@@ -19,9 +19,7 @@ withDefaults(defineProps<AppCardProps>(), {
 });
 </script>
 <template>
-  <div
-    class="card w-full bg-grey-100/50 relative rounded-lg overflow-hidden"
-  >
+  <div class="card w-full bg-grey-100/50 relative rounded-lg overflow-hidden">
     <figure class="card__figure w-full h-full">
       <slot>
         <app-image

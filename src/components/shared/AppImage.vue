@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import {
-  Directive,
-  defineProps,
-  withDefaults,
-  ImgHTMLAttributes,
-} from 'vue';
+import { Directive, defineProps, withDefaults, ImgHTMLAttributes } from 'vue';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface AppImageProps
-  extends ImgHTMLAttributes {
+interface AppImageProps extends ImgHTMLAttributes {
   src?: string;
   alt?: string;
 }
@@ -23,26 +17,20 @@ const vLazy: Directive<P> = {
   mounted: (el) => {
     const loadImage = () => {
       el.addEventListener('load', () => {
-        setTimeout(
-          () => el.classList.add('loaded'),
-          100
-        );
+        setTimeout(() => el.classList.add('loaded'), 100);
       });
-      el.addEventListener('error', (event) =>
-        console.log('error', event)
-      );
+      el.addEventListener('error', (event) => console.log('error', event));
       el.src = el.dataset.url || '';
     };
 
-    const handleIntersect: IntersectionObserverCallback =
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            loadImage();
-            observer.unobserve(el);
-          }
-        });
-      };
+    const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadImage();
+          observer.unobserve(el);
+        }
+      });
+    };
 
     const createObserver = () => {
       const options: IntersectionObserverInit = {
@@ -50,10 +38,7 @@ const vLazy: Directive<P> = {
         threshold: 0,
       };
 
-      const observer = new IntersectionObserver(
-        handleIntersect,
-        options
-      );
+      const observer = new IntersectionObserver(handleIntersect, options);
       observer.observe(el);
     };
 

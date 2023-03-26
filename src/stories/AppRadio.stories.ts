@@ -7,9 +7,7 @@ export default {
   argTypes: {},
 } as Meta<typeof AppRadioVue>;
 
-const Template: StoryFn<typeof AppRadioVue> = (
-  args
-) => ({
+const Template: StoryFn<typeof AppRadioVue> = (args) => ({
   components: { AppRadioVue },
   setup() {
     return { args };

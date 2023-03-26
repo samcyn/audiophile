@@ -1,9 +1,3 @@
-<script lang="ts">
-// prevent inheritting attributes on root elements
-export default {
-  inheritAttrs: false,
-};
-</script>
 <script setup lang="ts">
 import {
   defineProps,
@@ -18,7 +12,6 @@ interface Props {
   ariaLabel?: string;
   ariaLabelledby?: string;
   defaultValue?: boolean;
-  modalPositionClass?: string;
 }
 
 // set default props
@@ -26,8 +19,6 @@ const props = withDefaults(defineProps<Props>(), {
   show: false,
   ariaLabel: undefined,
   ariaLabelledby: undefined,
-  modalPositionClass:
-    'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
 });
 const emit = defineEmits(['hide']);
 
@@ -57,16 +48,15 @@ const onClose = (event: Events['onClick']) => {
       data-non-active="true"
     ></div>
     <div
-      class="container absolute opacity-100"
-      :class="modalPositionClass"
+      class="modalPositionClass container absolute opacity-100"
       data-non-active="true"
       tabindex="-1"
     >
-      <slot>
-        <div class="p-20 bg-white">
-          <h1>HELLO</h1>
-        </div>
-      </slot>
+      <slot
+        :show="show"
+        :on-close="onClose"
+      ></slot>
     </div>
   </div>
 </template>
+<!-- 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', -->

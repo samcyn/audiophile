@@ -10,9 +10,7 @@ export default {
   argTypes: {},
 } as Meta<typeof AppFooterVue>;
 
-const Template: StoryFn<typeof AppFooterVue> = (
-  args
-) => ({
+const Template: StoryFn<typeof AppFooterVue> = (args) => ({
   components: { AppFooterVue },
   setup() {
     return { args };

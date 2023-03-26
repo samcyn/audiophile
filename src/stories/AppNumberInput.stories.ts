@@ -12,9 +12,7 @@ export default {
   },
 } as Meta<typeof AppNumberInput>;
 
-const Template: StoryFn<typeof AppNumberInput> = (
-  args
-) => ({
+const Template: StoryFn<typeof AppNumberInput> = (args) => ({
   components: { AppNumberInput },
   setup() {
     return { args };

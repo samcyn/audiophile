@@ -21,22 +21,16 @@ class ProductService {
             }
             return accumulator;
           }, [] as typeof dataJson)
-          .sort((x, y) =>
-            x === y ? 0 : x ? -1 : 1
-          );
+          .sort((x, y) => (x === y ? 0 : x ? -1 : 1));
         resolve(records);
       }, this.delay);
     });
   }
 
-  getOneProduct(
-    slug: string
-  ): Promise<Product | undefined> {
+  getOneProduct(slug: string): Promise<Product | undefined> {
     return new Promise((resolve) => {
       this.timerId = setTimeout(() => {
-        const record = this.products.find(
-          (product) => product.slug === slug
-        );
+        const record = this.products.find((product) => product.slug === slug);
         resolve(record);
       }, this.delay);
     });

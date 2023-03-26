@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  defineProps,
-  withDefaults,
-  defineEmits,
-  Events,
-} from 'vue';
+import { defineProps, withDefaults, defineEmits, Events } from 'vue';
 import AppButton from '../AppButton.vue';
 import AppIcon from '../AppIcon.vue';
 import AppImage from '../AppImage.vue';
@@ -26,23 +21,13 @@ const onClick = (event: Events['onClick']) => {
 };
 </script>
 <template>
-  <div
-    class="card relative overflow-hidden max-w-sm m-auto"
-  >
-    <div
-      class="card__contents flex flex-col items-center justify-center px-6"
-    >
+  <div class="card relative overflow-hidden max-w-sm m-auto">
+    <div class="card__contents flex flex-col items-center justify-center px-6">
       <figure class="card__figure mb-9 relative">
         <slot name="image">
-          <app-image
-            :src="image"
-            alt="product card image"
-            class="card__image"
-          />
+          <app-image :src="image" alt="product card image" class="card__image" />
         </slot>
-        <div
-          class="card__oval absolute bottom-0"
-        ></div>
+        <div class="card__oval absolute bottom-0"></div>
       </figure>
       <p class="card__title">
         {{ title }}
@@ -56,12 +41,8 @@ const onClick = (event: Events['onClick']) => {
         />
       </app-button>
     </div>
-    <div
-      class="card__overlay absolute top-0 bottom-0 left-0 right-0 -z-10 w-full h-full"
-    >
-      <div
-        class="w-full h-full rounded-lg bg-grey-100"
-      ></div>
+    <div class="card__overlay absolute top-0 bottom-0 left-0 right-0 -z-10 w-full h-full">
+      <div class="w-full h-full rounded-lg bg-grey-100"></div>
     </div>
   </div>
 </template>
