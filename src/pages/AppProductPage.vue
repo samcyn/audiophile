@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 
 import AppMiniHero from '../components/shared/AppMiniHero.vue';
 import AppButton from '../components/shared/AppButton.vue';

@@ -4,6 +4,7 @@ import AppGrid from '../components/shared/AppGrid.vue';
 import AppCol from '../components/shared/AppCol.vue';
 import AppRadioGroup from '../components/shared/AppRadioGroup.vue';
 import AppRadio from '../components/shared/AppRadio.vue';
+import AppButton from '../components/shared/AppButton.vue';
 import AppCardWithImageCentered from '../components/shared/cards/AppCardWithImageCentered.vue';
 
 import useNavigations from '../hooks/useNavigations';
@@ -142,7 +143,6 @@ const goBack = () => {
             Summary
           </p>
           <ul class="flex flex-col gap-6 max-h-60 list-none overflow-y-auto">
-            <!-- todo work from here -->
             <li class="flex items-center justify-between">
               <div class="flex gap-4 items-center">
                 <app-card-with-image-centered
@@ -158,6 +158,51 @@ const goBack = () => {
               <span
                 class="font-bold text-[15px] leading-[25px] text-black-100 opacity-50 mix-blend-normal"
                 >x1</span
+              >
+            </li>
+          </ul>
+          <ul class="flex flex-col gap-2 list-none mt-8">
+            <li class="flex items-center justify-between">
+              <p
+                class="mb-0 font-medium text-[15px] leading-[25px] text-black-100 opacity-50 uppercase"
+              >
+                Total
+              </p>
+              <p class="mb-0 font-bold text-[18px] leading-[25px] uppercase text-black-100">
+                $5000
+              </p>
+            </li>
+            <li class="flex items-center justify-between">
+              <p
+                class="mb-0 font-medium text-[15px] leading-[25px] text-black-100 opacity-50 uppercase"
+              >
+                Shipping
+              </p>
+              <p class="mb-0 font-bold text-[18px] leading-[25px] uppercase text-black-100">$50</p>
+            </li>
+            <li class="flex items-center justify-between">
+              <p
+                class="mb-0 font-medium text-[15px] leading-[25px] text-black-100 opacity-50 uppercase"
+              >
+                VAT (INCLUDED)
+              </p>
+              <p class="mb-0 font-bold text-[18px] leading-[25px] uppercase text-black-100">
+                $1.50
+              </p>
+            </li>
+            <li class="flex items-center justify-between mt-4">
+              <p
+                class="mb-0 font-medium text-[15px] leading-[25px] text-black-100 opacity-50 uppercase"
+              >
+                Grand Total
+              </p>
+              <p class="mb-0 font-bold text-[18px] leading-[25px] uppercase text-orange-100">
+                $1.50
+              </p>
+            </li>
+            <li class="mt-8">
+              <app-button class="w-full text-center justify-center" type="button"
+                >Continue & Pay</app-button
               >
             </li>
           </ul>

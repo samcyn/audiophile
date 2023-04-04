@@ -2,7 +2,6 @@
 import { onMounted, ref } from 'vue';
 
 import AppNumberInput from '../components/shared/AppNumberInput.vue';
-import AppCartModule from '../modules/AppCartModule.vue';
 
 // modules
 import AppTwoColumnModule from '../modules/AppTwoColumnModule.vue';
@@ -11,6 +10,7 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
 import AppYouMayAlsoLikeModule from '../modules/AppYouMayAlsoLikeModule.vue';
 import AppGalleryModule from '../modules/AppGalleryModule.vue';
 import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
+import AppCartModule from '../modules/AppCartModule.vue';
 
 // productService
 import productService from '../services';

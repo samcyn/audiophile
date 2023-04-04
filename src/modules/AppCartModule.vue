@@ -6,6 +6,8 @@ import AppButton from '../components/shared/AppButton.vue';
 import AppCardWithImageCentered from '../components/shared/cards/AppCardWithImageCentered.vue';
 import AppNumberInput from '../components/shared/AppNumberInput.vue';
 
+import useNavigations from '../hooks/useNavigations';
+
 interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   product: Record<string, any>;
@@ -14,6 +16,7 @@ interface Props {
 const showCart = ref(false);
 
 const props = withDefaults(defineProps<Props>(), {});
+const { pushToRoute } = useNavigations();
 
 const onAddToCart = () => {
   console.log(props.product, 1222233444545);
@@ -22,6 +25,12 @@ const onAddToCart = () => {
 
 const onHideCart = (show: boolean) => {
   showCart.value = show;
+};
+
+const goToCheckoutpage = () => {
+  pushToRoute({
+    name: 'checkout',
+  });
 };
 </script>
 <template>
@@ -95,7 +104,9 @@ const onHideCart = (show: boolean) => {
         >
         <small class="cart__amout uppercase font-bold text-black-100">$ 43444</small>
       </div>
-      <app-button class="w-full text-center justify-center">Checkout</app-button>
+      <app-button class="w-full text-center justify-center" @click="goToCheckoutpage"
+        >Checkout</app-button
+      >
     </div>
   </app-modal>
 </template>
