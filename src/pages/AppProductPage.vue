@@ -59,12 +59,6 @@ watch(
     await getCategory();
   }
 );
-
-// turn off timers to prevent memory leakage
-onUnmounted(() => {
-  // off all timers
-  productService.clearTimerId();
-});
 </script>
 <template>
   <app-mini-hero :title="pageTitle" class="mb-16 md:mb-30 lg:mb-40" />

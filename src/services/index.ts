@@ -11,8 +11,8 @@ class ProductService {
     this.products = dataJson;
     this.delay = delay || 100;
   }
-  getCategory(url: string): Promise<Product[]> {
-    return new Promise((resolve) => {
+  async getCategory(url: string): Promise<Product[]> {
+    const records = await new Promise<Product[]>((resolve) => {
       this.timerId = setTimeout(() => {
         const records = this.products
           .reduce((accumulator, product) => {
@@ -25,15 +25,21 @@ class ProductService {
         resolve(records);
       }, this.delay);
     });
+    // turn off timer...
+    this.clearTimerId();
+    return records;
   }
 
-  getOneProduct(slug: string): Promise<Product | undefined> {
-    return new Promise((resolve) => {
+  async getOneProduct(slug: string): Promise<Product | undefined> {
+    const record = await new Promise<Product | undefined>((resolve) => {
       this.timerId = setTimeout(() => {
         const record = this.products.find((product) => product.slug === slug);
         resolve(record);
       }, this.delay);
     });
+    // turn off timer...
+    this.clearTimerId();
+    return record;
   }
 
   clearTimerId() {
