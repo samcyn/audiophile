@@ -40,7 +40,7 @@ const onInputChange = (degree: string) => {
   if (degree === 'INCREMENT') {
     if (currentModelValue < props.max) {
       if (props.modelValue !== undefined) {
-        emit('update:modelValue', currentModelValue + 1);
+        emit('update:modelValue', currentModelValue + 1, 'INCREMENT');
       } else {
         setRealVal(currentModelValue + 1);
       }
@@ -49,7 +49,7 @@ const onInputChange = (degree: string) => {
   }
   if (currentModelValue > props.min) {
     if (props.modelValue !== undefined) {
-      emit('update:modelValue', currentModelValue - 1);
+      emit('update:modelValue', currentModelValue - 1, 'DECREMENT');
     } else {
       setRealVal(currentModelValue - 1);
     }

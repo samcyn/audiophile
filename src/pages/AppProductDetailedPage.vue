@@ -98,11 +98,8 @@ const goBack = () => {
     <template #extraContent>
       <div class="mt-6 lg:mt-8">
         <p class="item_price font-bold uppercase text-black-100">$ {{ product.price }}</p>
-        <div class="flex items-center gap-4">
-          <app-number-input class="py-15px px-[15.5px] gap-[20.5px]" id="shdhdhd" name="here" />
-          <!-- cart module right here -->
-          <app-cart-module :product="product" />
-        </div>
+        <!-- cart module right here -->
+        <app-cart-module :product="product" />
       </div>
     </template>
   </app-two-column-module>

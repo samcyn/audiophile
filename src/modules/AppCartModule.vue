@@ -7,11 +7,13 @@ import AppCardWithImageCentered from '../components/shared/cards/AppCardWithImag
 import AppNumberInput from '../components/shared/AppNumberInput.vue';
 
 import useNavigations from '../hooks/useNavigations';
+import { useCart, CartItemProp } from '../hooks/useCart';
 
 interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   product: Record<string, any>;
 }
+const { carts, addToCart, clearCart, onQuantityChangeInCart } = useCart();
 
 const showCart = ref(false);
 
@@ -19,7 +21,13 @@ const props = withDefaults(defineProps<Props>(), {});
 const { pushToRoute } = useNavigations();
 
 const onAddToCart = () => {
-  console.log(props.product, 1222233444545);
+  const { name, price, slug } = props.product;
+  addToCart({
+    name,
+    slug,
+    price,
+    quantity: 1,
+  });
   showCart.value = true;
 };
 
@@ -32,9 +40,17 @@ const goToCheckoutpage = () => {
     name: 'checkout',
   });
 };
+
+const onQuantityChange = (record: Props['product'], quantity: number) => {
+  onQuantityChangeInCart(record as CartItemProp, quantity);
+};
 </script>
 <template>
-  <app-button @click="onAddToCart">Add to cart</app-button>
+  <div class="flex items-center gap-4">
+    <app-number-input class="py-15px px-[15.5px] gap-[20.5px]" id="shdhdhd" name="here" />
+    <!-- cart module right here -->
+    <app-button @click="onAddToCart">Add to cart</app-button>
+  </div>
   <app-modal :show="showCart" class="modalClass" @hide="onHideCart">
     <div class="cart py-8 px-7 bg-white round-lg md:ml-auto">
       <div class="flex justify-between mb-[31px] xl:mb-8">
@@ -42,60 +58,29 @@ const goToCheckoutpage = () => {
         <button
           type="button"
           class="cart__delete outline-0 font-medium border-0 text-black-100 opacity-50 underline mix-blend-normal"
+          @click="clearCart"
         >
           Remove all
         </button>
       </div>
       <ul class="flex flex-col gap-6 max-h-60 list-none overflow-y-auto">
-        <li class="flex items-center justify-between">
+        <li class="flex items-center justify-between" v-for="record in carts" :key="record.slug">
           <div class="flex gap-4 items-center">
             <app-card-with-image-centered class="h-16 w-16 flex justify-center items-center p-2" />
             <div>
-              <p class="font-bold text-[15px] leading-[25px] text-black-100 m-0">xxx99</p>
-              <small class="font-bold text-[14px] leading-[25px] text-black-100/50">$23444</small>
+              <p class="font-bold text-[15px] leading-[25px] text-black-100 m-0">
+                {{ record.name }}
+              </p>
+              <small class="font-bold text-[14px] leading-[25px] text-black-100/50">{{
+                record.price
+              }}</small>
             </div>
           </div>
-          <app-number-input class="py-[7px] px-[11.5px] gap-[12.5px]" />
-        </li>
-        <li class="flex items-center justify-between">
-          <div class="flex gap-4 items-center">
-            <app-card-with-image-centered class="h-16 w-16 flex justify-center items-center p-2" />
-            <div>
-              <p class="font-bold text-[15px] leading-[25px] text-black-100 m-0">xxx99</p>
-              <small class="font-bold text-[14px] leading-[25px] text-black-100/50">$23444</small>
-            </div>
-          </div>
-          <app-number-input class="py-[7px] px-[11.5px] gap-[12.5px]" />
-        </li>
-        <li class="flex items-center justify-between">
-          <div class="flex gap-4 items-center">
-            <app-card-with-image-centered class="h-16 w-16 flex justify-center items-center p-2" />
-            <div>
-              <p class="font-bold text-[15px] leading-[25px] text-black-100 m-0">xxx99</p>
-              <small class="font-bold text-[14px] leading-[25px] text-black-100/50">$23444</small>
-            </div>
-          </div>
-          <app-number-input class="py-[7px] px-[11.5px] gap-[12.5px]" />
-        </li>
-        <li class="flex items-center justify-between">
-          <div class="flex gap-4 items-center">
-            <app-card-with-image-centered class="h-16 w-16 flex justify-center items-center p-2" />
-            <div>
-              <p class="font-bold text-[15px] leading-[25px] text-black-100 m-0">xxx99</p>
-              <small class="font-bold text-[14px] leading-[25px] text-black-100/50">$23444</small>
-            </div>
-          </div>
-          <app-number-input class="py-[7px] px-[11.5px] gap-[12.5px]" />
-        </li>
-        <li class="flex items-center justify-between">
-          <div class="flex gap-4 items-center">
-            <app-card-with-image-centered class="h-16 w-16 flex justify-center items-center p-2" />
-            <div>
-              <p class="font-bold text-[15px] leading-[25px] text-black-100 m-0">xxx99</p>
-              <small class="font-bold text-[14px] leading-[25px] text-black-100/50">$23444</small>
-            </div>
-          </div>
-          <app-number-input class="py-[7px] px-[11.5px] gap-[12.5px]" />
+          <app-number-input
+            class="py-[7px] px-[11.5px] gap-[12.5px]"
+            :model-value="record.quantity"
+            @update:model-value="(degree) => onQuantityChange(record, degree)"
+          />
         </li>
       </ul>
       <div class="mt-8 mb-6 flex justify-between">
