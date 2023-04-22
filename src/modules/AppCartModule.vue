@@ -13,7 +13,14 @@ interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   product: Record<string, any>;
 }
-const { carts, addToCart, clearCart, onQuantityChangeInCart } = useCart();
+const {
+  currentItemQuantity,
+  carts,
+  totalPriceInCart,
+  addToCart,
+  clearCart,
+  onQuantityChangeInCart,
+} = useCart();
 
 const showCart = ref(false);
 
@@ -26,7 +33,7 @@ const onAddToCart = () => {
     name,
     slug,
     price,
-    quantity: 1,
+    quantity: currentItemQuantity.value,
   });
   showCart.value = true;
 };
@@ -47,7 +54,13 @@ const onQuantityChange = (record: Props['product'], quantity: number) => {
 </script>
 <template>
   <div class="flex items-center gap-4">
-    <app-number-input class="py-15px px-[15.5px] gap-[20.5px]" id="shdhdhd" name="here" />
+    <app-number-input
+      class="py-15px px-[15.5px] gap-[20.5px]"
+      id="shdhdhd"
+      name="here"
+      :model-value="currentItemQuantity"
+      @update:model-value="(degree) => onQuantityChange(product, degree)"
+    />
     <!-- cart module right here -->
     <app-button @click="onAddToCart">Add to cart</app-button>
   </div>
@@ -87,7 +100,9 @@ const onQuantityChange = (record: Props['product'], quantity: number) => {
         <small class="cart__total font-medium text-black-100 mix-blend-normal opacity-50 uppercase"
           >Total</small
         >
-        <small class="cart__amout uppercase font-bold text-black-100">$ 43444</small>
+        <small class="cart__amout uppercase font-bold text-black-100"
+          >$ {{ totalPriceInCart }}</small
+        >
       </div>
       <app-button class="w-full text-center justify-center" @click="goToCheckoutpage"
         >Checkout</app-button

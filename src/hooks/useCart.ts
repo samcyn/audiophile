@@ -10,6 +10,7 @@ export type CartItemProp = {
 };
 
 type INJECT_KEY_PROP = {
+  currentItemQuantity: Ref<number>;
   carts: Ref<CartItemProp[]>;
   totalPriceInCart: ComputedRef<number>;
   addToCart: (record: CartItemProp) => void;
@@ -29,22 +30,30 @@ export const CartProvider = () => {
       slug: '23ssdff',
     },
   ]);
+  // this value hold the local state value
+  const currentItemQuantity = ref(0);
 
   const addToCart = (record: CartItemProp) => {
+    // get items in cart
     const items = carts.value;
+    // find if item exist in cart
     const existingItemIndex = items.findIndex((cartItem) => cartItem.slug === record.slug);
-
+    // if it does exist in cart, increase the quantity added
     if (existingItemIndex !== -1) {
       items[existingItemIndex].quantity += record.quantity;
     } else {
-      items.unshift(record);
+      items.unshift(record); // add a new item for the first time
     }
+    // update cart value
     carts.value = items;
   };
 
   const removeAnItemFromCart = (slug: string) => {
+    // get cart items
     const items = carts.value;
+    // filter out current slug
     const newRecords = items.filter((item) => item.slug !== slug);
+    // update cart value
     carts.value = newRecords;
   };
 
@@ -52,13 +61,17 @@ export const CartProvider = () => {
     carts.value = [];
   };
 
+  // quantity change in two ways, from the cart or from the local form
   const onQuantityChangeInCart = (record: CartItemProp, quantity: number) => {
+    // get cart
     const items = carts.value;
+    // check if item exist in cart
     const existingItemIndex = items.findIndex((cartItem) => cartItem.slug === record.slug);
-
+    // if it does increase the quantity
     if (existingItemIndex !== -1) {
       items[existingItemIndex].quantity = quantity;
     }
+    // update cart
     carts.value = items;
   };
 
@@ -69,6 +82,7 @@ export const CartProvider = () => {
 
   // set providers keys to all children
   provide<INJECT_KEY_PROP>(INJECT_KEY, {
+    currentItemQuantity,
     carts,
     totalPriceInCart,
     addToCart,
