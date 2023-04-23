@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineProps, withDefaults } from 'vue';
+import { ref, defineProps, withDefaults, watch } from 'vue';
 
 import AppModal from '../components/shared/AppModal.vue';
 import AppButton from '../components/shared/AppButton.vue';
@@ -13,43 +13,31 @@ interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   product: Record<string, any>;
 }
-const {
-  currentItemQuantity,
-  carts,
-  totalPriceInCart,
-  addToCart,
-  clearCart,
-  onQuantityChangeInCart,
-} = useCart();
-
-const showCart = ref(false);
 
 const props = withDefaults(defineProps<Props>(), {});
 const { pushToRoute } = useNavigations();
+const {
+  showCart,
+  carts,
+  totalPriceInCart,
+  currentLocalStateProduct,
+  addToCart,
+  clearCart,
+  onHideCart,
+  onQuantityChangeInCart,
+  updateCurrentProduct,
+} = useCart();
 
-const onAddToCart = () => {
-  const { name, price, slug } = props.product;
-  addToCart({
-    name,
-    slug,
-    price,
-    quantity: currentItemQuantity.value,
-  });
-  showCart.value = true;
-};
-
-const onHideCart = (show: boolean) => {
-  showCart.value = show;
-};
+// update the current product in this page
+watch(
+  () => props.product.slug,
+  () => updateCurrentProduct(props.product as CartItemProp)
+);
 
 const goToCheckoutpage = () => {
   pushToRoute({
     name: 'checkout',
   });
-};
-
-const onQuantityChange = (record: Props['product'], quantity: number) => {
-  onQuantityChangeInCart(record as CartItemProp, quantity);
 };
 </script>
 <template>
@@ -58,11 +46,11 @@ const onQuantityChange = (record: Props['product'], quantity: number) => {
       class="py-15px px-[15.5px] gap-[20.5px]"
       id="shdhdhd"
       name="here"
-      :model-value="currentItemQuantity"
-      @update:model-value="(degree) => onQuantityChange(product, degree)"
+      :model-value="currentLocalStateProduct.quantity"
+      @update:model-value="(degree) => onQuantityChangeInCart(product as CartItemProp, degree)"
     />
     <!-- cart module right here -->
-    <app-button @click="onAddToCart">Add to cart</app-button>
+    <app-button @click="addToCart">Add to cart</app-button>
   </div>
   <app-modal :show="showCart" class="modalClass" @hide="onHideCart">
     <div class="cart py-8 px-7 bg-white round-lg md:ml-auto">
@@ -92,7 +80,7 @@ const onQuantityChange = (record: Props['product'], quantity: number) => {
           <app-number-input
             class="py-[7px] px-[11.5px] gap-[12.5px]"
             :model-value="record.quantity"
-            @update:model-value="(degree) => onQuantityChange(record, degree)"
+            @update:model-value="(degree) => onQuantityChangeInCart(record as CartItemProp, degree)"
           />
         </li>
       </ul>

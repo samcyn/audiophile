@@ -10,18 +10,23 @@ export type CartItemProp = {
 };
 
 type INJECT_KEY_PROP = {
-  currentItemQuantity: Ref<number>;
+  showCart: Ref<boolean>;
   carts: Ref<CartItemProp[]>;
   totalPriceInCart: ComputedRef<number>;
-  addToCart: (record: CartItemProp) => void;
+  currentLocalStateProduct: Ref<CartItemProp>;
+  addToCart: () => void;
   removeAnItemFromCart: (slug: string) => void;
   clearCart: () => void;
   onQuantityChangeInCart: (record: CartItemProp, quantity: number) => void;
+  updateCurrentProduct: (product?: CartItemProp) => void;
+  onHideCart: () => void;
 };
 
 const INJECT_KEY = Symbol() as InjectionKey<INJECT_KEY_PROP>;
 
 export const CartProvider = () => {
+  const showCart = ref(false);
+
   const carts = ref<CartItemProp[]>([
     {
       name: 'herroes',
@@ -30,22 +35,32 @@ export const CartProvider = () => {
       slug: '23ssdff',
     },
   ]);
-  // this value hold the local state value
-  const currentItemQuantity = ref(0);
 
-  const addToCart = (record: CartItemProp) => {
+  // this value hold the local state value, it's used to sync local state with cart state values
+  const currentLocalStateProduct = ref<CartItemProp>({
+    name: '',
+    quantity: 0,
+    price: 0,
+    slug: 'xxx',
+  });
+
+  const addToCart = () => {
+    const record = currentLocalStateProduct.value;
     // get items in cart
     const items = carts.value;
     // find if item exist in cart
     const existingItemIndex = items.findIndex((cartItem) => cartItem.slug === record.slug);
     // if it does exist in cart, increase the quantity added
     if (existingItemIndex !== -1) {
-      items[existingItemIndex].quantity += record.quantity;
+      items[existingItemIndex].quantity = record.quantity;
     } else {
       items.unshift(record); // add a new item for the first time
     }
     // update cart value
     carts.value = items;
+
+    // show cart to user
+    showCart.value = true;
   };
 
   const removeAnItemFromCart = (slug: string) => {
@@ -70,9 +85,16 @@ export const CartProvider = () => {
     // if it does increase the quantity
     if (existingItemIndex !== -1) {
       items[existingItemIndex].quantity = quantity;
+      // update cart
+      carts.value = items;
     }
-    // update cart
-    carts.value = items;
+    // update local state;
+    if (currentLocalStateProduct.value.slug === record.slug) {
+      currentLocalStateProduct.value = {
+        ...currentLocalStateProduct.value,
+        quantity,
+      };
+    }
   };
 
   const totalPriceInCart = computed(() => {
@@ -80,15 +102,37 @@ export const CartProvider = () => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
   });
 
+  const updateCurrentProduct = (product?: CartItemProp) => {
+    console.log(product, 12233);
+    if (product) {
+      const currentProduct = carts.value.find((item) => item.slug === product.slug);
+      if (currentProduct) {
+        currentLocalStateProduct.value = currentProduct;
+      } else {
+        currentLocalStateProduct.value = {
+          ...product,
+          quantity: product.quantity || 0,
+        };
+      }
+    }
+  };
+
+  const onHideCart = () => {
+    showCart.value = false;
+  };
+
   // set providers keys to all children
   provide<INJECT_KEY_PROP>(INJECT_KEY, {
-    currentItemQuantity,
+    showCart,
     carts,
     totalPriceInCart,
+    currentLocalStateProduct,
     addToCart,
     removeAnItemFromCart,
     clearCart,
     onQuantityChangeInCart,
+    updateCurrentProduct,
+    onHideCart,
   });
 };
 
