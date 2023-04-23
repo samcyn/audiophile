@@ -14,13 +14,13 @@ withDefaults(defineProps<AppImageProps>(), {
 });
 
 const vLazy: Directive<P> = {
-  mounted: (el) => {
+  updated: (el) => {
     const loadImage = () => {
       el.addEventListener('load', () => {
         setTimeout(() => el.classList.add('loaded'), 100);
       });
       el.addEventListener('error', (event) => console.log('error', event));
-      el.src = el.dataset.url || '';
+      // el.src = el.dataset.url || '';
     };
 
     const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
@@ -52,5 +52,5 @@ const vLazy: Directive<P> = {
 </script>
 
 <template>
-  <img v-lazy :alt="alt" :data-url="src" />
+  <img v-lazy :alt="alt" :src="src" />
 </template>
