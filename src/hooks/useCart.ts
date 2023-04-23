@@ -20,6 +20,7 @@ type INJECT_KEY_PROP = {
   onQuantityChangeInCart: (record: CartItemProp, quantity: number) => void;
   updateCurrentProduct: (product?: CartItemProp) => void;
   onHideCart: () => void;
+  onShowCart: () => void;
 };
 
 const INJECT_KEY = Symbol() as InjectionKey<INJECT_KEY_PROP>;
@@ -117,6 +118,10 @@ export const CartProvider = () => {
     }
   };
 
+  const onShowCart = () => {
+    showCart.value = true;
+  };
+
   const onHideCart = () => {
     showCart.value = false;
   };
@@ -133,6 +138,7 @@ export const CartProvider = () => {
     onQuantityChangeInCart,
     updateCurrentProduct,
     onHideCart,
+    onShowCart,
   });
 };
 

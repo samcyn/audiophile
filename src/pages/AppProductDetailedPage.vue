@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
-import AppNumberInput from '../components/shared/AppNumberInput.vue';
-
 // modules
 import AppTwoColumnModule from '../modules/AppTwoColumnModule.vue';
 import AppAudioGearModule from '../modules/AppAudioGearModule.vue';

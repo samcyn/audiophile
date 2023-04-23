@@ -75,7 +75,7 @@ watch(
       pb-17 pl-42px pr-42px pt-10 xl:p-16 
       h-88 mb-8 md:mb-13 lg:mb-0 lg:w-115 xl:w-135 lg:h-140
     "
-    card-with-text-extra-class="lg:max-w-[105px] xl:max-w-[445px]"
+    card-with-text-extra-class="lg:max-w-[400px] xl:max-w-[445px]"
     :image="product.image"
   >
     <template #subTitle>

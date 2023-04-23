@@ -12,6 +12,7 @@ const { showCart, carts, totalPriceInCart, clearCart, onHideCart, onQuantityChan
   useCart();
 
 const goToCheckoutpage = () => {
+  onHideCart();
   pushToRoute({
     name: 'checkout',
   });

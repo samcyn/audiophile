@@ -2,6 +2,10 @@
 import AppBrandLogo from '../shared/AppBrandLogo.vue';
 import AppIconButton from '../shared/AppIconButton.vue';
 import AppMenus from '../shared/AppMenus.vue';
+
+import { useCart } from '../../hooks/useCart';
+
+const { onShowCart } = useCart();
 </script>
 
 <template>
@@ -29,7 +33,7 @@ import AppMenus from '../shared/AppMenus.vue';
 
         <!-- carts starts -->
         <div class="flex ml-auto">
-          <app-icon-button icon="cart" width="23" height="20" />
+          <app-icon-button icon="cart" width="23" height="20" @click="onShowCart" />
         </div>
         <!-- cart ends -->
       </nav>
