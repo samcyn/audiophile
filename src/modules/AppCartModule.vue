@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref, defineProps, withDefaults, watch } from 'vue';
-
 import AppModal from '../components/shared/AppModal.vue';
 import AppButton from '../components/shared/AppButton.vue';
 import AppCardWithImageCentered from '../components/shared/cards/AppCardWithImageCentered.vue';
@@ -9,30 +7,9 @@ import AppNumberInput from '../components/shared/AppNumberInput.vue';
 import useNavigations from '../hooks/useNavigations';
 import { useCart, CartItemProp } from '../hooks/useCart';
 
-interface Props {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  product: Record<string, any>;
-}
-
-const props = withDefaults(defineProps<Props>(), {});
 const { pushToRoute } = useNavigations();
-const {
-  showCart,
-  carts,
-  totalPriceInCart,
-  currentLocalStateProduct,
-  addToCart,
-  clearCart,
-  onHideCart,
-  onQuantityChangeInCart,
-  updateCurrentProduct,
-} = useCart();
-
-// update the current product in this page
-watch(
-  () => props.product.slug,
-  () => updateCurrentProduct(props.product as CartItemProp)
-);
+const { showCart, carts, totalPriceInCart, clearCart, onHideCart, onQuantityChangeInCart } =
+  useCart();
 
 const goToCheckoutpage = () => {
   pushToRoute({
@@ -41,17 +18,6 @@ const goToCheckoutpage = () => {
 };
 </script>
 <template>
-  <div class="flex items-center gap-4">
-    <app-number-input
-      class="py-15px px-[15.5px] gap-[20.5px]"
-      id="shdhdhd"
-      name="here"
-      :model-value="currentLocalStateProduct.quantity"
-      @update:model-value="(degree) => onQuantityChangeInCart(product as CartItemProp, degree)"
-    />
-    <!-- cart module right here -->
-    <app-button @click="addToCart">Add to cart</app-button>
-  </div>
   <app-modal :show="showCart" class="modalClass" @hide="onHideCart">
     <div class="cart py-8 px-7 bg-white round-lg md:ml-auto">
       <div class="flex justify-between mb-[31px] xl:mb-8">
@@ -88,7 +54,7 @@ const goToCheckoutpage = () => {
         <small class="cart__total font-medium text-black-100 mix-blend-normal opacity-50 uppercase"
           >Total</small
         >
-        <small class="cart__amout uppercase font-bold text-black-100"
+        <small class="cart__amount uppercase font-bold text-black-100"
           >$ {{ totalPriceInCart }}</small
         >
       </div>
@@ -119,7 +85,7 @@ const goToCheckoutpage = () => {
   font-size: 15px;
   line-height: 25px;
 }
-.cart__amout {
+.cart__amount {
   font-size: 18px;
   line-height: 25px;
 }

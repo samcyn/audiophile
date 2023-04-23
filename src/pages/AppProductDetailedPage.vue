@@ -10,7 +10,7 @@ import AppCategoryModule from '../modules/AppCategoryModule.vue';
 import AppYouMayAlsoLikeModule from '../modules/AppYouMayAlsoLikeModule.vue';
 import AppGalleryModule from '../modules/AppGalleryModule.vue';
 import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
-import AppCartModule from '../modules/AppCartModule.vue';
+import AppAddToCartWidget from '../components/product-detailed-page/AppAddToCartWidget.vue';
 
 // productService
 import productService from '../services';
@@ -98,8 +98,8 @@ const goBack = () => {
     <template #extraContent>
       <div class="mt-6 lg:mt-8">
         <p class="item_price font-bold uppercase text-black-100">$ {{ product.price }}</p>
-        <!-- cart module right here -->
-        <app-cart-module :product="product" />
+        <!-- cart button right here -->
+        <app-add-to-cart-widget :product="product" />
       </div>
     </template>
   </app-two-column-module>
