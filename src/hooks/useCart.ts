@@ -5,7 +5,11 @@ export type CartItemProp = {
   slug: string;
   price: number;
   name: string;
-  image?: string;
+  image?: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
   quantity: number;
 };
 
@@ -14,6 +18,9 @@ type INJECT_KEY_PROP = {
   carts: Ref<CartItemProp[]>;
   totalPriceInCart: ComputedRef<number>;
   currentLocalStateProduct: Ref<CartItemProp>;
+  shippingCost: ComputedRef<number>;
+  vatCost: ComputedRef<number>;
+  grandTotal: ComputedRef<number>;
   addToCart: () => void;
   removeAnItemFromCart: (slug: string) => void;
   clearCart: () => void;
@@ -24,18 +31,13 @@ type INJECT_KEY_PROP = {
 };
 
 const INJECT_KEY = Symbol() as InjectionKey<INJECT_KEY_PROP>;
+const SHIPPING_PERCENTAGE = 0.5; // 50%
+const VAT_PERCENTAGE = 0.2; // 20%
 
 export const CartProvider = () => {
   const showCart = ref(false);
 
-  const carts = ref<CartItemProp[]>([
-    {
-      name: 'herroes',
-      price: 677,
-      quantity: 12,
-      slug: '23ssdff',
-    },
-  ]);
+  const carts = ref<CartItemProp[]>([]);
 
   // this value hold the local state value, it's used to sync local state with cart state values
   const currentLocalStateProduct = ref<CartItemProp>({
@@ -75,6 +77,10 @@ export const CartProvider = () => {
 
   const clearCart = () => {
     carts.value = [];
+    currentLocalStateProduct.value = {
+      ...currentLocalStateProduct.value,
+      quantity: 0,
+    };
   };
 
   // quantity change in two ways, from the cart or from the local form
@@ -102,6 +108,10 @@ export const CartProvider = () => {
     const items = carts.value;
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
   });
+
+  const shippingCost = computed(() => totalPriceInCart.value * SHIPPING_PERCENTAGE);
+  const vatCost = computed(() => totalPriceInCart.value * VAT_PERCENTAGE);
+  const grandTotal = computed(() => totalPriceInCart.value + vatCost.value + shippingCost.value);
 
   const updateCurrentProduct = (product?: CartItemProp) => {
     console.log(product, 12233);
@@ -132,6 +142,9 @@ export const CartProvider = () => {
     carts,
     totalPriceInCart,
     currentLocalStateProduct,
+    shippingCost,
+    vatCost,
+    grandTotal,
     addToCart,
     removeAnItemFromCart,
     clearCart,

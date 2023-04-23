@@ -34,7 +34,12 @@ const goToCheckoutpage = () => {
       <ul class="flex flex-col gap-6 max-h-60 list-none overflow-y-auto">
         <li class="flex items-center justify-between" v-for="record in carts" :key="record.slug">
           <div class="flex gap-4 items-center">
-            <app-card-with-image-centered class="h-16 w-16 flex justify-center items-center p-2" />
+            <app-card-with-image-centered
+              class="h-16 w-16 flex justify-center items-center p-2"
+              :image-mobile="record.image?.mobile"
+              :image-tablet="record.image?.tablet"
+              :image-desktop="record.image?.desktop"
+            />
             <div>
               <p class="font-bold text-[15px] leading-[25px] text-black-100 m-0">
                 {{ record.name }}

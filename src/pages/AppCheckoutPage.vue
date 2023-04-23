@@ -8,6 +8,9 @@ import AppButton from '../components/shared/AppButton.vue';
 import AppCardWithImageCentered from '../components/shared/cards/AppCardWithImageCentered.vue';
 
 import useNavigations from '../hooks/useNavigations';
+import { useCart } from '../hooks/useCart';
+
+const { carts, vatCost, shippingCost, totalPriceInCart, grandTotal } = useCart();
 
 // vue router apis from custom hook
 const { goTo } = useNavigations();
@@ -144,21 +147,30 @@ const goBack = () => {
                 Summary
               </p>
               <ul class="flex flex-col gap-6 max-h-60 list-none overflow-y-auto">
-                <li class="flex items-center justify-between">
+                <li
+                  class="flex items-center justify-between"
+                  v-for="record in carts"
+                  :key="record.slug"
+                >
                   <div class="flex gap-4 items-center">
                     <app-card-with-image-centered
                       class="h-16 w-16 flex justify-center items-center p-2"
+                      :image-mobile="record.image?.mobile"
+                      :image-tablet="record.image?.tablet"
+                      :image-desktop="record.image?.desktop"
                     />
                     <div>
-                      <p class="font-bold text-[15px] leading-[25px] text-black-100 m-0">xxx99</p>
+                      <p class="font-bold text-[15px] leading-[25px] text-black-100 m-0">
+                        {{ record.name }}
+                      </p>
                       <small class="font-bold text-[14px] leading-[25px] text-black-100/50"
-                        >$23444</small
+                        >${{ record.price }}</small
                       >
                     </div>
                   </div>
                   <span
                     class="font-bold text-[15px] leading-[25px] text-black-100 opacity-50 mix-blend-normal"
-                    >x1</span
+                    >x{{ record.quantity }}</span
                   >
                 </li>
               </ul>
@@ -170,7 +182,7 @@ const goBack = () => {
                     Total
                   </p>
                   <p class="mb-0 font-bold text-[18px] leading-[25px] uppercase text-black-100">
-                    $5000
+                    ${{ totalPriceInCart }}
                   </p>
                 </li>
                 <li class="flex items-center justify-between">
@@ -180,7 +192,7 @@ const goBack = () => {
                     Shipping
                   </p>
                   <p class="mb-0 font-bold text-[18px] leading-[25px] uppercase text-black-100">
-                    $50
+                    ${{ shippingCost }}
                   </p>
                 </li>
                 <li class="flex items-center justify-between">
@@ -190,7 +202,7 @@ const goBack = () => {
                     VAT (INCLUDED)
                   </p>
                   <p class="mb-0 font-bold text-[18px] leading-[25px] uppercase text-black-100">
-                    $1.50
+                    ${{ vatCost }}
                   </p>
                 </li>
                 <li class="flex items-center justify-between mt-4">
@@ -200,7 +212,7 @@ const goBack = () => {
                     Grand Total
                   </p>
                   <p class="mb-0 font-bold text-[18px] leading-[25px] uppercase text-orange-100">
-                    $1.50
+                    ${{ grandTotal }}
                   </p>
                 </li>
                 <li class="mt-8">
