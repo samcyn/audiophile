@@ -18,6 +18,5 @@ const Template: StoryFn<typeof AppLinkVue> = (args) => ({
 export const Default = Template.bind({});
 
 Default.args = {
-  text: 'Google',
   to: 'https://www.google.com/',
 };
