@@ -1,9 +1,14 @@
+import { defineComponent } from 'vue';
 import { createWebHistory, createRouter, RouteRecordRaw } from 'vue-router';
 
 import AppHomePage from './pages/AppHomePage.vue';
 import AppProductPage from './pages/AppProductPage.vue';
 import AppProductDetailedPage from './pages/AppProductDetailedPage.vue';
 import AppCheckoutPage from './pages/AppCheckoutPage.vue';
+
+const NotFound = defineComponent({
+  template: `<div>Not Found</div>`,
+});
 
 const routes: Readonly<RouteRecordRaw[]> = [
   {
@@ -52,6 +57,7 @@ const routes: Readonly<RouteRecordRaw[]> = [
     name: 'checkout',
     component: AppCheckoutPage,
   },
+  { path: '/:pathMatch(.*)*', component: NotFound },
 ];
 
 const router = createRouter({

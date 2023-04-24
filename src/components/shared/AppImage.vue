@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Directive, defineProps, withDefaults, ImgHTMLAttributes } from 'vue';
+import { getImageUrl } from '../../utils/format';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface AppImageProps extends ImgHTMLAttributes {
@@ -52,5 +53,5 @@ const vLazy: Directive<P> = {
 </script>
 
 <template>
-  <img v-lazy :alt="alt" :src="src" />
+  <img v-lazy :alt="alt" :src="getImageUrl(src)" />
 </template>

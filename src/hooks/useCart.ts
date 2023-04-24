@@ -117,7 +117,6 @@ export const CartProvider = () => {
   );
 
   const updateCurrentProduct = (product?: CartItemProp) => {
-    console.log(product, 12233);
     if (product) {
       const currentProduct = carts.value.find((item) => item.slug === product.slug);
       if (currentProduct) {
