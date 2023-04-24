@@ -5,7 +5,7 @@ import AppLink from '../shared/AppLink.vue';
 <template>
   <app-link
     class="text-white transition p-0 mr-0 inline-flex items-center hover:text-orange-100"
-    url="/"
+    to="/"
     aria-label="audioPhile"
   >
     <app-icon icon="logo" width="143" height="25" />

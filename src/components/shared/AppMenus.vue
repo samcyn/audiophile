@@ -32,33 +32,37 @@ const linksClasses = computed(() => {
   <ul class="menus flex flex-wrap p-0 m-0 list-none" :class="menusClasses">
     <li class="menus__items md:-ml-4">
       <app-link
-        url="/"
+        to="/"
         class="links flex text-white font-bold uppercase m-0 hover:text-orange-100"
         :class="linksClasses"
+        active-class="!text-orange-100"
         >Home</app-link
       >
     </li>
     <li>
       <app-link
-        url="/headphones"
+        to="/headphones"
         class="links flex text-white font-bold uppercase m-0 hover:text-orange-100"
         :class="linksClasses"
+        active-class="!text-orange-100"
         >Headphones</app-link
       >
     </li>
     <li>
       <app-link
-        url="/speakers"
+        to="/speakers"
         class="links flex text-white font-bold uppercase m-0 hover:text-orange-100"
         :class="linksClasses"
+        active-class="!text-orange-100"
         >Speakers</app-link
       >
     </li>
     <li class="md:-mr-4">
       <app-link
-        url="/earphones"
+        to="/earphones"
         class="links flex text-white font-bold uppercase m-0 hover:text-orange-100"
         :class="linksClasses"
+        active-class="!text-orange-100"
         >Earphones</app-link
       >
     </li>

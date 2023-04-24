@@ -19,5 +19,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   text: 'Google',
-  url: 'https://www.google.com/',
+  to: 'https://www.google.com/',
 };

@@ -74,6 +74,7 @@ const goBack = () => {
       pb-17 pl-42px pr-42px pt-10 xl:p-16 
       h-[327px] mb-10 md:w-[281px] md:mb-0 md:shrink-0 
       md:h-120 lg:w-135 lg:h-140
+      items-center
     "
       card-with-text-extra-class="md:max-w-[339px] lg:max-w-[445px]"
       :image="product.image"

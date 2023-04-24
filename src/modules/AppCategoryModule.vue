@@ -10,7 +10,7 @@ import useNavigations from '../hooks/useNavigations';
 // images
 import ImageProduct from '/src/assets/product-xx99-mark-one-headphones/mobile/image-product.svg';
 import ImageSpeakerMobile from '/src/assets/home/mobile/image-speaker-zx9.png';
-import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-product.jpg';
+import ImageEarPhone from '/src/assets/product-yx1-earphones/mobile/image-product.svg';
 
 const { pushToRoute } = useNavigations();
 

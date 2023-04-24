@@ -1,24 +1,15 @@
 <script setup lang="ts">
-import { defineProps, withDefaults, AnchorHTMLAttributes } from 'vue';
+import { defineProps, withDefaults } from 'vue';
+import { RouterLinkProps, RouteLocationRaw } from 'vue-router';
 
-// define components models
-interface AppLinkProps extends AnchorHTMLAttributes {
-  text?: string;
-  url: string;
-  target?: string;
-  rel?: string;
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface Props extends RouterLinkProps {
+  to: RouteLocationRaw;
 }
 
 // set defaults props
-withDefaults(defineProps<AppLinkProps>(), {
-  text: '',
-  target: '',
-  rel: '',
-});
+withDefaults(defineProps<Props>(), {});
 </script>
 <template>
-  <!-- <a :href="url" :target="target" :rel="rel"
-    ><slot>{{ text }}</slot></a
-  > -->
-  <router-link :to="url"><slot /></router-link>
+  <router-link :to="to"><slot /></router-link>
 </template>
