@@ -9,6 +9,7 @@ import AppYouMayAlsoLikeModule from '../modules/AppYouMayAlsoLikeModule.vue';
 import AppGalleryModule from '../modules/AppGalleryModule.vue';
 import AppInTheBoxModule from '../modules/AppInTheBoxModule.vue';
 import AppAddToCartWidget from '../components/product-detailed-page/AppAddToCartWidget.vue';
+import AppPageLoader from '../components/shared/AppPageLoader.vue';
 
 // productService
 import productService from '../services';
@@ -19,6 +20,7 @@ import useNavigations from '../hooks/useNavigations';
 interface Props {
   slug: string;
 }
+const loading = ref(false);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const product = ref<Record<string, any>>({});
@@ -30,8 +32,10 @@ const { goTo, onBeforeRouteUpdate } = useNavigations();
 
 // fetch product
 const getOneProduct = async (slug: string) => {
+  loading.value = true;
   const response = await productService.getOneProduct(slug as string);
   product.value = response || {};
+  loading.value = false;
 };
 
 // get product on first mounted
@@ -53,71 +57,73 @@ const goBack = () => {
 };
 </script>
 <template>
-  <div class="container back-link mt-4 mb-6 md:mt-8 md:mb-6 lg:mt-20 lg:mb-14">
-    <button
-      @click="goBack"
-      class="text-black-100/50 border-0 outline-0 no-underline font-medium lg:text-[15px] lg:leading-[25px]"
-    >
-      Go Back
-    </button>
-  </div>
-  <!-- Two Column Modules to manage cards -->
-  <app-two-column-module
-    class="mb-22 md:mb-30 lg:mb-40"
-    flex-container-class="flex-col md:flex-row md:gap-[69px] md:items-center lg:flex-row lg:gap-125px lg:items-center"
-    card-with-image-centered="
+  <app-page-loader :loading="loading">
+    <div class="container back-link mt-4 mb-6 md:mt-8 md:mb-6 lg:mt-20 lg:mb-14">
+      <button
+        @click="goBack"
+        class="text-black-100/50 border-0 outline-0 no-underline font-medium lg:text-[15px] lg:leading-[25px]"
+      >
+        Go Back
+      </button>
+    </div>
+    <!-- Two Column Modules to manage cards -->
+    <app-two-column-module
+      class="mb-22 md:mb-30 lg:mb-40"
+      flex-container-class="flex-col md:flex-row md:gap-[69px] md:items-center lg:flex-row lg:gap-125px lg:items-center"
+      card-with-image-centered="
       pb-17 pl-42px pr-42px pt-10 xl:p-16 
       h-[327px] mb-10 md:w-[281px] md:mb-0 md:shrink-0 
       md:h-120 lg:w-135 lg:h-140
     "
-    card-with-text-extra-class="md:max-w-[339px] lg:max-w-[445px]"
-    :image="product.image"
-  >
-    <template #subTitle>
-      <p
-        v-if="product.new"
-        class="cardSubTitle text-xs font-normal uppercase text-orange-100 mb-4 lg:text-left lg:text-[14px] lg:leading-[19px]"
-      >
-        New Product
-      </p>
-    </template>
-    <template #title>
-      <p class="cardTitle font-bold uppercase text-black-100 mb-6 md:mb-8 lg:text-left">
-        {{ product.name }}
-      </p>
-    </template>
-    <template #description>
-      <slot name="description">
-        <div class="cardDescription font-medium text-black-100/50 lg:text-left">
-          {{ product.description }}
+      card-with-text-extra-class="md:max-w-[339px] lg:max-w-[445px]"
+      :image="product.image"
+    >
+      <template #subTitle>
+        <p
+          v-if="product.new"
+          class="cardSubTitle text-xs font-normal uppercase text-orange-100 mb-4 lg:text-left lg:text-[14px] lg:leading-[19px]"
+        >
+          New Product
+        </p>
+      </template>
+      <template #title>
+        <p class="cardTitle font-bold uppercase text-black-100 mb-6 md:mb-8 lg:text-left">
+          {{ product.name }}
+        </p>
+      </template>
+      <template #description>
+        <slot name="description">
+          <div class="cardDescription font-medium text-black-100/50 lg:text-left">
+            {{ product.description }}
+          </div>
+        </slot>
+      </template>
+      <template #extraContent>
+        <div class="mt-6 lg:mt-8">
+          <p class="item_price font-bold uppercase text-black-100">$ {{ product.price }}</p>
+          <!-- cart button right here -->
+          <app-add-to-cart-widget :product="product" />
         </div>
-      </slot>
-    </template>
-    <template #extraContent>
-      <div class="mt-6 lg:mt-8">
-        <p class="item_price font-bold uppercase text-black-100">$ {{ product.price }}</p>
-        <!-- cart button right here -->
-        <app-add-to-cart-widget :product="product" />
-      </div>
-    </template>
-  </app-two-column-module>
+      </template>
+    </app-two-column-module>
 
-  <app-in-the-box-module
-    class="flex-col lg:flex-row lg:gap-125px lg:items-center"
-    box-title="In the Box"
-    card-title="Feature"
-    :card-description="product.features"
-    :items-included="product.includes"
-  >
-  </app-in-the-box-module>
+    <app-in-the-box-module
+      class="flex-col lg:flex-row lg:gap-125px lg:items-center"
+      box-title="In the Box"
+      card-title="Feature"
+      :card-description="product.features"
+      :items-included="product.includes"
+    >
+    </app-in-the-box-module>
 
-  <app-gallery-module :gallery="product.gallery" />
+    <app-gallery-module :gallery="product.gallery" />
 
-  <app-you-may-also-like-module :items="product.others" />
+    <app-you-may-also-like-module :items="product.others" />
 
-  <app-category-module class="mb-30 xl:mb-40" />
+    <app-category-module class="mb-30 xl:mb-40" />
 
-  <app-audio-gear-module class="mb-30 xl:mb-40" />
+    <app-audio-gear-module class="mb-30 xl:mb-40" />
+  </app-page-loader>
 </template>
 <style scoped>
 .back-link {

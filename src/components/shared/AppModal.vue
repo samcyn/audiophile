@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  defineProps,
-  withDefaults,
-  toRefs,
-  Events,
-} from 'vue';
+import { defineProps, withDefaults, toRefs, Events } from 'vue';
 
 // define component models
 interface Props {
@@ -26,8 +21,7 @@ const { show } = toRefs(props);
 
 const onClose = (event: Events['onClick']) => {
   // click outside logic...
-  const nonActive = (event.target as HTMLElement)
-    .dataset.nonActive;
+  const nonActive = (event.target as HTMLElement).dataset.nonActive;
   if (nonActive) {
     emit('hide', false);
   }
@@ -52,10 +46,7 @@ const onClose = (event: Events['onClick']) => {
       data-non-active="true"
       tabindex="-1"
     >
-      <slot
-        :show="show"
-        :on-close="onClose"
-      ></slot>
+      <slot :show="show" :on-close="onClose"></slot>
     </div>
   </div>
 </template>

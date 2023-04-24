@@ -8,6 +8,7 @@ import AppButton from '../components/shared/AppButton.vue';
 import AppTwoColumnModule from '../modules/AppTwoColumnModule.vue';
 import AppAudioGearModule from '../modules/AppAudioGearModule.vue';
 import AppCategoryModule from '../modules/AppCategoryModule.vue';
+import AppPageLoader from '../components/shared/AppPageLoader.vue';
 
 // productService
 import productService from '../services';
@@ -27,6 +28,8 @@ const props = withDefaults(defineProps<Props>(), {
   detailPageName: 'product-details',
 });
 
+const loading = ref(false);
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const products = ref<Record<string, any>[]>([]);
 
@@ -43,8 +46,10 @@ const onClick = (slug: string) => {
 
 // get category method
 const getCategory = async () => {
-  const P = await productService.getCategory(props.category);
-  products.value = P;
+  loading.value = true;
+  const response = await productService.getCategory(props.category);
+  products.value = response;
+  loading.value = false;
 };
 
 // fecth categories on mounted
@@ -62,54 +67,55 @@ watch(
 </script>
 <template>
   <app-mini-hero :title="pageTitle" class="mb-16 md:mb-30 lg:mb-40" />
-
-  <!-- two column module -->
-  <app-two-column-module
-    v-for="(product, index) in products"
-    :key="product.slug"
-    class="mb-30 lg:mb-40"
-    :flex-container-class="`flex-col lg:gap-14 xl:gap-125px lg:items-center ${
-      index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-    }`"
-    card-with-image-centered="
+  <app-page-loader :loading="loading">
+    <!-- two column module -->
+    <app-two-column-module
+      v-for="(product, index) in products"
+      :key="product.slug"
+      class="mb-30 lg:mb-40"
+      :flex-container-class="`flex-col lg:gap-14 xl:gap-125px lg:items-center ${
+        index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+      }`"
+      card-with-image-centered="
       pb-17 pl-42px pr-42px pt-10 xl:p-16 
       h-88 mb-8 md:mb-13 lg:mb-0 lg:w-115 xl:w-135 lg:h-140
     "
-    card-with-text-extra-class="lg:max-w-[400px] xl:max-w-[445px]"
-    :image="product.image"
-  >
-    <template #subTitle>
-      <p
-        v-if="product.new"
-        class="cardSubTitle text-[14px] leading-[19px] tracking-[10px] text-center font-normal uppercase text-orange-100 mb-6 md:mb-4 lg:text-left lg:text-[14px] lg:leading-[19px]"
-      >
-        New Product
-      </p>
-    </template>
-    <template #title>
-      <p
-        class="cardTitle font-bold text-[28px] leading-[38px] tracking-[1px] text-center uppercase text-black-100 mb-6 md:mb-8 md:text-[40px] md:leading-[44px] md:tracking-[1.42857px] md:max-w-lg md:mx-auto lg:text-left"
-      >
-        {{ product.name }}
-      </p>
-    </template>
-    <template #description>
-      <slot name="description">
-        <div
-          class="cardDescription font-medium text-[15px] leading-[25px] text-center text-black-100/50 md:max-w-[572px] md:m-auto lg:text-left"
+      card-with-text-extra-class="lg:max-w-[400px] xl:max-w-[445px]"
+      :image="product.image"
+    >
+      <template #subTitle>
+        <p
+          v-if="product.new"
+          class="cardSubTitle text-[14px] leading-[19px] tracking-[10px] text-center font-normal uppercase text-orange-100 mb-6 md:mb-4 lg:text-left lg:text-[14px] lg:leading-[19px]"
         >
-          {{ product.description }}
+          New Product
+        </p>
+      </template>
+      <template #title>
+        <p
+          class="cardTitle font-bold text-[28px] leading-[38px] tracking-[1px] text-center uppercase text-black-100 mb-6 md:mb-8 md:text-[40px] md:leading-[44px] md:tracking-[1.42857px] md:max-w-lg md:mx-auto lg:text-left"
+        >
+          {{ product.name }}
+        </p>
+      </template>
+      <template #description>
+        <slot name="description">
+          <div
+            class="cardDescription font-medium text-[15px] leading-[25px] text-center text-black-100/50 md:max-w-[572px] md:m-auto lg:text-left"
+          >
+            {{ product.description }}
+          </div>
+        </slot>
+      </template>
+      <template #buttonText>
+        <div class="flex justify-center lg:justify-start mt-6 xl:mt-10">
+          <app-button @click="onClick(product.slug)">See product</app-button>
         </div>
-      </slot>
-    </template>
-    <template #buttonText>
-      <div class="flex justify-center lg:justify-start mt-6 xl:mt-10">
-        <app-button @click="onClick(product.slug)">See product</app-button>
-      </div>
-    </template>
-  </app-two-column-module>
+      </template>
+    </app-two-column-module>
 
-  <app-category-module class="mb-30 xl:mb-40" />
+    <app-category-module class="mb-30 xl:mb-40" />
 
-  <app-audio-gear-module class="mb-30 xl:mb-40" />
+    <app-audio-gear-module class="mb-30 xl:mb-40" />
+  </app-page-loader>
 </template>

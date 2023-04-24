@@ -47,10 +47,11 @@ module.exports = {
     extend: {
       spacing: {
         '5px': '5px',
-        '9px': '9x',
+        '9px': '9px',
         '11px': '11px',
         '15px': '15px',
         '42px': '42px',
+        '50px': '50px',
         '13': '52px',
         '17': '68px',
         '22': '88px',

@@ -1,5 +1,6 @@
 import { computed, ComputedRef, inject, provide, ref, Ref } from 'vue';
 import type { InjectionKey } from 'vue';
+import { numToDp } from '../utils/format';
 
 export type CartItemProp = {
   slug: string;
@@ -31,8 +32,8 @@ type INJECT_KEY_PROP = {
 };
 
 const INJECT_KEY = Symbol() as InjectionKey<INJECT_KEY_PROP>;
-const SHIPPING_PERCENTAGE = 0.5; // 50%
-const VAT_PERCENTAGE = 0.2; // 20%
+const SHIPPING_PERCENTAGE = 0.15; // 50%
+const VAT_PERCENTAGE = 0.05; // 20%
 
 export const CartProvider = () => {
   const showCart = ref(false);
@@ -109,9 +110,11 @@ export const CartProvider = () => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
   });
 
-  const shippingCost = computed(() => totalPriceInCart.value * SHIPPING_PERCENTAGE);
-  const vatCost = computed(() => totalPriceInCart.value * VAT_PERCENTAGE);
-  const grandTotal = computed(() => totalPriceInCart.value + vatCost.value + shippingCost.value);
+  const shippingCost = computed(() => numToDp(totalPriceInCart.value * SHIPPING_PERCENTAGE));
+  const vatCost = computed(() => numToDp(totalPriceInCart.value * VAT_PERCENTAGE));
+  const grandTotal = computed(() =>
+    numToDp(totalPriceInCart.value + vatCost.value + shippingCost.value)
+  );
 
   const updateCurrentProduct = (product?: CartItemProp) => {
     console.log(product, 12233);
