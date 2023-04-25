@@ -9,7 +9,7 @@ const { onShowCart } = useCart();
 </script>
 
 <template>
-  <header class="relative bg-black-60">
+  <header class="relative bg-black-60 z-10">
     <div class="container">
       <nav
         class="header__nav flex flex-nowrap items-center lg:items-start pt-8 pb-8 lg:pb-9"
